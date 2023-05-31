@@ -1,0 +1,134 @@
+.kanbanColumnHeader {
+  display: flex;
+  padding: 6 20;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kanbanColumnHeaderAvatar {
+  width: 35;
+  height: 35;
+  font-size: 1.125rem;
+  background-color: white !important;
+  font-weight: bold;
+}
+
+.kanbanColumnElementContainer {
+  background-color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+.kanbanColumnElementTitle {
+  font-size: 1rem;
+  justify-content: space-between !important;
+}
+
+.kanbanColumnElementAssignee,
+.kanbanColumnElementGroupName,
+.kanbanColumnElementParams {
+  color: #BEBEBE;
+  font-size: .875em;
+  margin-top:-20;
+}
+
+.kanbanSummaryDrawer {
+  height: calc(100% - 2em);
+  padding: 1em;
+  display: flex;
+  font-size: .875rem;
+  overflow-y: scroll;
+
+  .textReportLink {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.kanbanSummaryDrawerVerticalTitle {
+  transform: rotate(-90deg);
+  font-weight: bold;
+  font-size: 1rem;
+  color: #999;
+  color: var(--grey);
+  position: absolute;
+  margin-top: 45;
+  margin-left: -40;
+  display: flex;
+  cursor: pointer;
+}
+
+.kanbanSuiteNameAndSearchContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 30;
+  height: 65
+}
+
+.kanbanSuiteTestName {
+  margin-left: 70 !important;
+  text-transform: none;
+  height: 62;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0
+}
+
+.kanbanSummaryPaper {
+  min-height: 500;
+  height: 100%;
+  width: 3.75rem;
+  cursor: pointer;
+}
+
+.kanbanSummaryPaperTitle {
+  transform: rotate(-90deg);
+  margin-top: 90;
+  font-weight: bold;
+  color: #999;
+  color: var(--grey);
+  display: flex;
+}
+
+.kanbanActionButton {
+  justify-content: space-between;
+}
+
+.kanbanActionButtonLabel {
+  width: 100%;
+  padding-left: 15px;
+}
+
+.kanbanActionButtonIcon {
+  font-size: 15px !important;
+  opacity: .8 !important
+}
+
+.action-dialog-description {
+  white-space: pre-wrap;
+}
+
+.kanbanItemSelected {
+  border-top: 1px dashed rgba(153,153,153,0.8);
+  box-shadow: 2px 2px 6px 2px rgba(153,153,153,0.6)
+}
+
+@media (max-height: 768px) {
+  .kanbanSummaryDrawer {
+    overflow-y: scroll;
+    max-height: calc(100% - 50px)
+  }
+
+  .kanbanDrawerContainer {
+    margin-top: 50px !important;
+
+    .lastKanbanItem {
+      padding-bottom: 40px !important;
+    }
+
+  }
+}

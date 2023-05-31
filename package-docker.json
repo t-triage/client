@@ -1,0 +1,15 @@
+{
+  "name": "ttriage-front",
+  "version": "2.0.0",
+  "description": "",
+  "main": "webserver.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "js-yaml": "^3.13.0"
+  },
+  "scripts": {
+    "start": "node webserver"
+  },
+  "author": "Clarolab",
+  "license": "ISC"
+}

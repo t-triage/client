@@ -1,0 +1,378 @@
+.TriageSuiteTestName {
+  margin-left: 70 !important;
+  text-transform: none;
+  height: 62;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0
+}
+
+.TriageDialogList {
+  padding-right: 5px !important;
+}
+
+.TriageDialogListItemDescription {
+  font-size: .875rem;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.TriageDialogListItem {
+  padding: 3px 15px 3px 0 !important;
+}
+
+.TriageSumaryListItem {
+  padding: 0 !important;
+}
+
+.disabledInput {
+  color: var(--grey-dark) !important;
+  pointer-events: none;
+}
+
+.TriagePreviousBuildsTitle {
+  color: #555753;
+  color: var(--grey-dark);
+  font-size: .875rem;
+}
+
+.TriageSumaryListItemTitle {
+  align-items: center !important;
+  display: flex !important;
+}
+
+.TriageSumaryTitleWithIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.TriageDialogTitle {
+  padding: 1px 15px 5px 15px;
+  border-left: 4px solid;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.TriageDialogListItemLabel {
+  margin-top: 15px !important;
+}
+
+.triageBoxDetails,
+.triageBoxDetailsShort {
+  overflow: hidden !important;
+  margin-top: 10px !important;
+}
+
+.triageBoxDetailsShort {
+  max-height: 130px !important;
+}
+
+.triageBoxDejaVuDetails {
+  overflow-y: auto;
+  max-height: 220;
+}
+
+.DialogTitle {
+  padding-bottom: 0 !important;
+}
+
+/* width */
+.triageBoxDejaVuDetails::-webkit-scrollbar {
+  width: 5;
+}
+
+/* Track */
+.triageBoxDejaVuDetails::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.triageBoxDejaVuDetails::-webkit-scrollbar-thumb {
+  background: #999;
+  background: var(--grey);
+}
+
+/* Handle on hover */
+.triageBoxDejaVuDetails::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+.TriageDialogActionComments {
+  margin-top: 3px !important;
+}
+
+.triageBoxSummary {
+  margin-top: 10px !important;
+}
+
+.triageBoxIcon {
+  font-size: 40px !important;
+}
+
+.triageBoxDetailsList {
+  padding: 0 !important;
+  font-size: .875rem;
+}
+
+.triageBoxDetailsSteps h6,
+.triageBoxDetailsList h6 {
+  color: rgba(0, 0, 0, 0.5) !important
+}
+
+.triageBoxDescription {
+  overflow: hidden !important;
+}
+
+.TriageDialogRadio,
+.TriageDialogRadioPriority {
+  padding: 5px !important;
+}
+
+.TriageDialogRadio {
+  margin-left: 7px !important;
+}
+
+.TriageDialogRadioPriority {
+  margin-left: -7px !important;
+}
+
+.TriageDialogCheckbox {
+  padding-right: 5px !important;
+}
+
+.TriageDialogCheckboxSnooze {
+  padding: 0 5px 0 0 !important;
+  margin-left: -2px !important;
+}
+
+.TriageDialogRadio svg,
+.TriageDialogRadioPriority svg,
+.TriageDialogCheckbox svg,
+.TriageDialogCheckboxSnooze svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.TriageDialogActionSection {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.TriageDialogActionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.TriageFooterExpansionPanel {
+  padding: 0 !important;
+  background-color: transparent !important;
+
+  h6 {
+    color: rgba(0, 0, 0, 0.5) !important
+  }
+}
+
+.TriageFooterVerticalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.TriageFooterVerticalLabel {
+  transform: rotate(270deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 18px;
+  cursor: pointer;
+  color: #4285F4 !important;
+  color: var(--blue) !important;
+}
+
+.TriageFooterLegend-app-working::after,
+.TriageFooterLegend-app-notWorking::after,
+.TriageFooterLegend-app-notWorking-newPass::after,
+.TriageFooterLegend-test-working::after,
+.TriageFooterLegend-test-notWorking::after,
+.TriageFooterLegend-test-notWorking-newPass::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  height: 30px;
+  border-top: solid 1px;
+  border-right: solid 1px;
+  z-index: 0;
+  border-radius: 0 3px 3px 0;
+  pointer-events: none;
+}
+
+.TriageFooterLegend-app-working::after,
+.TriageFooterLegend-test-working::after {
+  border-color: #3CC88E;
+  border-color: var(--green-light);
+  left: 96px;
+  top: 41px;
+}
+
+.TriageFooterLegend-app-notWorking::after,
+.TriageFooterLegend-test-notWorking::after,
+.TriageFooterLegend-app-notWorking-newPass::after,
+.TriageFooterLegend-test-notWorking-newPass::after {
+  left: 115px;
+  top: 100px;
+  border-color: #E27182;
+  border-color: var(--red-light);
+}
+
+.TriageFooterLegend-test-notWorking-newPass::after,
+.TriageFooterLegend-app-notWorking-newPass::after {
+  top: 76px !important;
+}
+
+.TriageFooterLegend-app-notWorking-newPass::after {
+  left: 115px;
+}
+
+.TriageFooterExpansionPanelSummary {
+  background-color: white !important;
+  margin-top: 5 !important;
+  width: 180;
+  margin-left: 30 !important;
+  border-radius: 5px 5px 0 0 !important;
+  min-height: 40 !important;
+  box-shadow: 0 -5px 5px -5px #ccc;
+  padding-left: 15 !important;
+}
+
+.TriageFooterExpansionPanelDetails {
+  padding: 20 32 !important;
+  background-color: white;
+  color: #555753;
+  color: var(--grey-dark);
+  box-shadow: 0 0 5px 0 #ccc;
+  font-size: .875rem;
+}
+
+.TriageDialogFormLabel {
+  font-size: 14;
+  color: #17212B;
+  font-weight: bold;
+}
+
+.TriageDialogFormLabelTitleContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5;
+}
+
+.TriageDialogFormLabelTitle {
+  text-transform: none;
+  color: #2196f3;
+  color: var(--primary);
+  font-weight: normal;
+  margin-right: 20;
+}
+
+.TriageFooterCollapse {
+  margin-top: 10 !important;
+  margin-bottom: -15;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.TriageFooterCollapseLabel {
+  display: none !important;
+}
+
+.TriageFooterPreviousErrors {
+  max-height: 150 !important;
+  margin: 0 5 5 5 !important;
+  overflow: hidden !important;
+}
+
+.BuildNumberTag {
+  margin-left: 8;
+  padding: 0 5 !important;
+  opacity: .6;
+  font-weight: normal !important;
+  background-color: #999 !important;
+  background-color: var(--grey) !important;
+}
+
+.historyStatsShowAllButton {
+  font-size: .75rem !important;
+}
+
+.helpDialogText {
+  html {
+    height: auto;
+  }
+  body {
+    background-color: white;
+    height: fit-content;
+    font-size: .875rem;
+  }
+  h6 {
+    margin-top: 10;
+    margin-bottom: 5;
+    text-transform: uppercase;
+  }
+  ul {
+    margin: 5 0;
+
+  }
+}
+
+@media (max-width: 1205px) {
+  .TriageFooterLegend-app-notWorking::after {
+    top: 130px;
+  }
+}
+
+@media (max-width: 960px) {
+  .TriageFooterLegend-app-notWorking::after {
+    top: 101px;
+  }
+  .TriageFooterExpansionPanelDetails {
+    padding: 10 20 20 20 !important;
+  }
+  .TriageDialogActionComments {
+    margin-top: 20 !important
+  }
+  .TriageFooterCollapse {
+    margin-top: 5 !important;
+    margin-bottom: 10 !important;
+    justify-content: space-between;
+  }
+  .TriageFooterExpansionPanel {
+    max-height: 250;
+    overflow-y: auto;
+  }
+  .TriageFooterCollapseLabel {
+    display: block !important;
+  }
+  .TriageFooterVerticalLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 813px) {
+  .TriageFooterLegend-app-notWorking::after {
+    top: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .TriageDialogActionSection {
+    margin-top: 15px !important;
+  }
+  .TriageDialog {
+    margin-bottom: 0
+  }
+}

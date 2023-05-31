@@ -1,0 +1,152 @@
+tr td {
+  padding: 15px !important;
+}
+button.positionShowMore {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-120%);
+  color: #2196f3;
+  background-color: #FFF;
+}
+.noBorder {
+  border: none !important;
+}
+.title {
+  color: #909090;
+  text-transform: uppercase;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  width: 98% !important;
+  display: inline !important;
+}
+.title:hover {
+  text-decoration: underline;
+}
+.subTitle {
+  text-transform: none;
+  color: #909090;
+  margin-bottom: 0 !important;
+  font-weight: bold;
+  font-size: 12px;
+}
+.text {
+  font-size: .875rem;
+  color: #2196f3;
+  text-transform: none;
+}
+.errorStyles {
+  padding: 1px 15px 5px 15px !important;
+  border-left: 4px solid !important;
+  display: block !important;
+  margin-bottom: 15px !important;
+  margin-top: 0 !important;
+  position: inherit !important;
+}
+.errorDetailButton {
+  border-left: 4px solid #d40000 !important;
+  color: #d40000 !important;
+  padding: 1px 15px 5px 15px !important;
+}
+.multilineEllipsis {
+  overflow: hidden;
+  max-height: 56px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  padding-left: 15px;
+  width: 75vh; // fix para issue de que el error details se escapa de la caja
+  overflow-wrap: break-word;
+}
+
+.gridErrorDetails {
+  margin-top: -18px !important;
+  border-left: 4px solid #d40000 !important;
+  border-left: 4px solid rgb(212, 0, 0) !important;
+  width: calc(100% * 1.9)
+}
+.copyToClipboard:hover {
+  color: #2196f3 !important;
+}
+.assigneeSection {
+  color: #7237cc !important;
+  margin-top: 0 !important;
+  font-size: 0.875rem !important;
+  margin-bottom: -4px !important;
+}
+.iconStyle {
+  position: relative !important;
+  // left: 99% !important;
+  // top: 10px !important;
+  cursor: pointer !important;
+  transform: rotate(45deg) !important;
+}
+.failedSince {
+  font-weight: bold;
+}
+.noRows {
+  text-align: center !important;
+  font-weight: normal !important;
+  margin-top: 20px !important;
+  color: #2196f3 !important;
+  color: var(--primary) !important;
+  font-size: 20px !important;
+}
+.searchExecutors {
+  display: flex;
+  align-items: center;
+  margin-right: 30;
+}
+.tag {
+  display: inline !important;
+  background-color: #2196f3;
+  background-color: var(--primary);
+  color: #FFF;
+  border-radius: 5px;
+  padding: 0 5 0 5;
+  font-size: 12;
+  margin-right: 10;
+}
+
+.tagClickable {
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.chip-outlined {
+  border: 1px solid #ccc !important;
+  color: #999 !important;
+  color: var(--grey) !important;
+  background-color: white !important;
+}
+
+.tag-grey {
+  background-color: #999;
+  background-color: var(--grey);
+}
+.textArea {
+  color: #CCC !important;
+  font-size: .875rem !important;
+}
+.textField {
+  font-size: .875rem !important;
+}
+textarea:focus {
+  color: #909090 !important;
+}
+.padding0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 960px) {
+  .multilineEllipsis {
+    width: 200%
+  }
+}
+
+@media (max-width: 505px) {
+  .multilineEllipsis {
+    width: 160%
+  }
+}

@@ -1,0 +1,242 @@
+.insightsTabsBar {
+	margin-top: 30;
+	border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+	margin-left: 200 !important;
+	margin-right: 200 !important;
+	width: 60%;
+}
+
+.insightsDownload {
+	position: absolute;
+	right: 30;
+	margin-top: -40px;
+}
+
+.insightsDownloadDropdown {
+	font-size: 0.875rem;
+	padding: 20px !important;
+}
+
+.downloadReportButtonArrow {
+	margin-right: -5px !important;
+	margin-left: 2px !important;
+}
+
+.insightsTabs {
+	padding-top: 0 !important;
+}
+
+.chartTitle {
+	color: rgba(0, 0, 0, 0.54) !important;
+	margin-top: -26;
+}
+
+.chartMainContainer {
+	padding: 15px;
+	text-align: center;
+}
+
+.chartSmallContainer {
+	margin-top: 30px !important;
+}
+
+.chartBigContainer {
+	margin-top: 30px;
+}
+
+.barClickable {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.coverageChartDialog {
+	.coverageChartDialogContainer {
+		background-color: #f9f9f9;
+
+		.TriageDialogTitle {
+			border-bottom: 1px solid;
+		}
+
+		.triageDialogContent {
+			border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+		}
+
+		.inputTestToCreate {
+			background-color: white;
+		}
+	}
+}
+
+.chartSmallSection {
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-between;
+	width: 80%;
+}
+
+.chartMainSection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px 30px;
+}
+
+.paperBox {
+	background-color: white;
+	border-radius: 3px;
+	box-shadow: inset 0 0 3px #ccc;
+}
+
+.insightsCustomTooltip {
+	font-size: 0.75rem !important;
+	padding: 10 !important;
+	position: relative;
+	z-index: 9999;
+}
+
+.chartTotalSummaryTooltip {
+	background-color: white;
+	padding: 1px 10px;
+	border-radius: 3px;
+	box-shadow: inset 0 0 3px #ccc;
+	border: 1px solid #ccc;
+}
+
+.chartToTriageTooltip {
+	background-color: white;
+	padding: 1px 10px;
+	border-radius: 3px;
+	box-shadow: inset 0 0 3px #ccc;
+	border: 1px solid #ccc;
+	text-align: left;
+}
+
+.chartToTriageTooltipTitle {
+	margin-top: 10px;
+	font-weight: bold;
+	color: #555753;
+	color: var(--grey-dark);
+}
+
+.chartToTriageOptionsContainer {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10;
+	width: 350px;
+}
+
+.chartToTriageOptionBox {
+	width: 25px;
+	height: 25px;
+	border-radius: 3px;
+	margin-right: 10px;
+}
+
+.chartToTriageOptionBoxSmall {
+	width: 15px;
+	height: 5px;
+	border-radius: 0;
+	margin-right: 10px;
+}
+
+.chartToTriageOptionsOption {
+	display: flex;
+	align-items: center;
+	font-size: 0.875rem;
+}
+
+.chartToTriageContainer {
+	display: flex;
+	flex-direction: column;
+	padding: 0 300;
+	align-items: center;
+	font-size: 0.875rem;
+}
+
+.chartGeneralContainer {
+	display: flex;
+	justify-content: center;
+	margin-left: -50px;
+	font-size: 0.875rem;
+}
+
+.dayPickerSeparator {
+	margin: 0 1rem;
+	cursor: default;
+}
+
+.insightsBox {
+	display: flex;
+}
+
+.insightsBoxSmall {
+	min-width: 70 !important;
+	min-height: 70 !important;
+	// box-shadow: 0 5px 15px 3px #ccc !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.insightsBoxIcon {
+	font-size: 40px !important;
+}
+
+.insightsBoxData {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.insightsBoxDataTitle {
+	margin-top: -24;
+	font-weight: normal;
+	text-transform: none;
+	color: #888a85 !important;
+}
+
+.insightsBoxDataValue {
+	font-size: 1.5625rem;
+	font-weight: bold;
+}
+
+.helpIconContainer {
+	color: #eaeaea;
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	margin-right: 10;
+}
+
+.recharts-legend-item-text {
+	font-size: 12px !important;
+}
+
+@media (max-width: 1280px) {
+	.chartToTriageContainer {
+		padding: 0 100;
+	}
+	.insightsTabsBar {
+		width: 80%;
+	}
+}
+
+@media (max-width: 960px) {
+	.chartToTriageContainer {
+		padding: 0;
+	}
+	.insightsTabsBar {
+		width: 100%;
+	}
+	.insightsDownload {
+		position: inherit;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		margin-top: 8px;
+		margin-bottom: -34px;
+	}
+}

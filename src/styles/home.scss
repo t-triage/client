@@ -1,0 +1,101 @@
+.WorkSpaceText {
+    font-size: 1.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555753;
+}
+.WorkSpaceTextContainer {
+  display: flex;
+  justify-content: center;
+}
+.navLink {
+  font-size: 1.7rem;
+}
+.navLink:hover {
+    color: #0097EF !important;
+    cursor: pointer;
+}
+
+.suiteListMenu{
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+}
+
+.jobsListBox {
+    .jobStatusTableCell {
+        width: 350px;
+    }
+    .jobsTableRow {
+        cursor: pointer;
+        background-color: #FFF;
+        &:hover {
+            background-color: #F9F9F9;
+        }
+    }
+}
+
+.sideMenuList {
+    width: 300px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    .userItem {
+      margin-bottom: 30px;
+    }
+    .sideMenuCategory {
+      .categoryTitle {
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: #999;
+        padding-left: 27px;
+      }
+      .categoryItems {
+        margin: 15px 0 22px 0;
+        .itemContent {
+          padding-left: 43px;
+        }
+      }
+    }
+    .sideMenuBottomIcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px 0 20px 0;
+    }
+}
+.headerTable {
+  padding: 5px 10px 0 10px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  border: none !important;
+}
+.fa-clock:before {
+    content: "\f017" !important;
+}
+.noRowsSuites {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin-top: 10px;
+}
+.notFoundError {
+  color: rgba(0, 0, 0, 0.54);
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.errorKanban {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 1rem;
+  font-weight: bold;
+}
+p[class^="MuiFormHelperText"] {
+  margin-top: 2px !important;
+}
+#containerName:hover {
+  color: #2196f3;
+}
+.containerListContainer:hover svg {
+  fill: #2196f3;
+}

@@ -1,0 +1,8 @@
+version: 1
+port: 8080
+apiurl: http://localhost:8088
+login:
+  google: true
+  onelogin: true
+  okta: true
+  internal: true

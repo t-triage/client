@@ -1,0 +1,10 @@
+1-
+Set the: .env and: .env.deploy-dev like:
+BASE_URL=http://staging.xcpqirqimw.us-west-2.elasticbeanstalk.com
+PORT=80
+
+
+cp tools/Dokerfile.aws Dokerfile
+
+Change: webserver.js
+const port = process.env.PORT || 80
