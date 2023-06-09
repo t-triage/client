@@ -24,7 +24,7 @@ import Switch from "@material-ui/core/Switch"
 import IconButton from "@material-ui/core/IconButton"
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
-import { _ } from 'underscore';
+import * as _  from 'underscore';
 import { COLORS } from './Globals'
 
 class Nav extends Component {

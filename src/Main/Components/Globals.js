@@ -211,7 +211,7 @@ export const snackbarStyle = theme => ({
   },
   iconVariant: {
     opacity: 0.9,
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(1),
   },
   message: {
     display: 'flex',
@@ -290,7 +290,7 @@ export const styles = theme => ({
     width: '200px',
     marginLeft: '-5px',
     zIndex: 9999,
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(1),
     left: 0,
     right: 0,
   },
@@ -308,7 +308,7 @@ export const styles = theme => ({
     flexGrow: 0,
   },
   divider: {
-    height: theme.spacing.unit * 2,
+    height: theme.spacing(2),
   },
   avatar: {
     marginRight: 10,
@@ -341,10 +341,10 @@ export const styles = theme => ({
     width: '100%'
   },
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
   },
   rightIcon: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
   },
   chip: {
     marginRight: 5,

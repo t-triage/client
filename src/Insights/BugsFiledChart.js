@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Api from "../Main/Components/Api"
-import { _ } from "underscore"
+import * as _  from "underscore"
 
 import ChartOptionsBar from './ChartOptionsBar'
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import {COLORS, TECHNIQUE_LIST, SUITE_TYPE_LIST, MANUAL_PRIORITY_LIST, styles} from './Globals';
 
 import InputBase from "@material-ui/core/InputBase"

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { _ } from "underscore"
+import * as _  from "underscore"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 

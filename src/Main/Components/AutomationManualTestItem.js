@@ -18,8 +18,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import * as PropTypes from "prop-types";
 import {Icon} from "@iconify/react";
 
-import roundCheckCircle from "@iconify/icons-ic/src/round-check-circle";
-import report from "@iconify/icons-ic/src/report";
+import roundCheckCircle from "@iconify/icons-ic/round-check-circle";
+import report from "@iconify/icons-ic/report";
 import Tooltip from "@material-ui/core/Tooltip";
 
 

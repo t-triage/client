@@ -14,7 +14,7 @@ import {TextFieldInput} from '../Admin/AdminUtils'
 import ComponentsPicker from '../Main/Components/ComponentsPicker'
 import {COLORS, styles} from '../Main/Components/Globals'
 import { withStyles } from '@material-ui/core/styles';
-import {_} from 'underscore';
+import * as _  from 'underscore';
 import {renderCoverageChartDialog} from '../Main/Components/TriageUtils';
 
 class CoverageDialogContent extends Component {

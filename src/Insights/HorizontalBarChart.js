@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {_} from "underscore"
+import * as _  from "underscore"
 import ChartOptionsBar from './ChartOptionsBar'
 import {BAR_CHART_TEXTS} from './InsightsUtils'
 import Tooltip from "@material-ui/core/Tooltip"

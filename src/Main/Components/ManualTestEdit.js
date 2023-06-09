@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Api from "./Api"
 import axios from 'axios'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 
 import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
 import AddCircleIcon from "@material-ui/icons/AddCircle"

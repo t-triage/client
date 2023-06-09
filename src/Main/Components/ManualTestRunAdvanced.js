@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"

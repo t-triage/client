@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { _ } from "underscore"
+import * as _  from "underscore"
 
 // UI Components
 

@@ -33,7 +33,7 @@ import Avatar from "@material-ui/core/Avatar"
 import Tooltip from "@material-ui/core/Tooltip"
 import InputBase from "@material-ui/core/InputBase";
 import { COLORS } from "../Main/Components/Globals";
-import { _ } from "underscore";
+import * as _  from "underscore";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";

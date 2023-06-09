@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
 import {COLORS, styles} from '../../Main/Components/Globals'
 import { withStyles } from '@material-ui/core/styles';
-import {_} from 'underscore';
+import * as _  from 'underscore';
 import {renderCoverageChartDialog} from '../../Main/Components/TriageUtils';
 
 class Coverage extends Component {

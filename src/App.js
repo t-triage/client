@@ -47,7 +47,6 @@ const theme = createMuiTheme({
         secondary: red,
     },
     typography: {
-        useNextVariants: true,
         fontFamily: [
             'Open Sans',
             "Roboto",

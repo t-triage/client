@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Api from "./Components/Api"
 import axios from 'axios'
-import { _ } from "underscore"
+import * as _  from "underscore"
 
 import "../styles/issuesList.scss"
 

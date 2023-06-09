@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import Table from "@material-ui/core/Table"
 import TableBody from "@material-ui/core/TableBody"
 import TableCell from "@material-ui/core/TableCell"

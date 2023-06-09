@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Api from "./Api"
-import {_} from 'underscore'
+import * as _  from 'underscore'
 import axios from 'axios'
 import DialogActions from "@material-ui/core/DialogActions"
 import DialogTitle from "@material-ui/core/DialogTitle"

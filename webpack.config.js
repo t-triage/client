@@ -6,7 +6,7 @@ const yaml = require("js-yaml")
 
 module.exports = (env, options) => {
     var config = ""
-    config = yaml.safeLoad(fs.readFileSync("config.yml", "utf8"))
+    config = yaml.load(fs.readFileSync("config.yml", "utf8"))
     return {
         entry: ["babel-polyfill", "./src/App.js"],
         output: {
@@ -20,8 +20,8 @@ module.exports = (env, options) => {
         },
         module: {
             rules: [
-                { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel-loader'] },
-                { test: /\.s?css$/, loader: 'style-loader!css-loader!sass-loader' },
+                { test: /\.jsx?$/, exclude: /node_modules/, use: ['babel-loader'] },
+                { test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
                 { test: /\.(jpg|png|gif|svg|ico|eot|svg|ttf|woff2?)$/, use: [
                         { loader: 'file-loader', options: { name: '[path][name]-[hash:8].[ext]'}}
                     ]

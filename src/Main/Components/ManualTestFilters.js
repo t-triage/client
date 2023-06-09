@@ -29,7 +29,7 @@ import {
 } from './Globals'
 
 import { withStyles } from '@material-ui/core/styles';
-import {_} from 'underscore';
+import * as _  from 'underscore';
 
 class ManualTestFilters extends Component {
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from "./Components/Nav"
 import Api from "./Components/Api"
 import axios from 'axios'
-import { _ } from 'underscore'
+import * as _ from 'underscore'
 import ManualTestsStatusBox from "./Components/ManualTestsStatusBox"
 
 import Tooltip from '@material-ui/core/Tooltip';

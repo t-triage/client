@@ -3,7 +3,7 @@ import ContentPicker from "./Components/ContentPicker"
 import Api from "./Components/Api"
 import PipelineTable from './Components/PipelineTable'
 import axios from 'axios'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import CircularProgress from "@material-ui/core/CircularProgress"
 import Snackbar from '@material-ui/core/Snackbar'
 import Table from "@material-ui/core/Table"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import Api from "./Api"
 import axios from 'axios'
 import MenuItem from '@material-ui/core/MenuItem';
