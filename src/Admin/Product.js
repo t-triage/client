@@ -940,7 +940,7 @@ export default class Product extends Component {
         let repository = productRepositories[index];
         if (repository.product == null) {
             //find in new repositories (repositories)
-            repositories = _.remove(repositories, function (newRepository) { return newRepository != repository });
+            repositories = _.reject(repositories, function (newRepository) { return newRepository != repository });
         }
         else {
             deletedRepositories.push(repository);
@@ -992,7 +992,7 @@ export default class Product extends Component {
                     <ListItemText
                         style={{ padding: 0 }}
                         primary={
-                            <Grid className="manualTestStepListItemText" container spacing={16}>
+                            <Grid className="manualTestStepListItemText" container spacing={2}>
                                 <Grid item xs={4}>
                                     <InputBase
                                         id={"repositoryUrl_" + index}
@@ -1494,10 +1494,10 @@ export default class Product extends Component {
                                             style={{ minHeight: "42px", maxHeight: "42px", backgroundColor: "#F7F7F7" }}
                                             expandIcon={<ExpandMoreIcon />}>
                                             {/*<Grid container justify="flex-end">*/}
-                                            <b><text
+                                            <b><span
                                                 // color="primary"
                                                 style={{ fontSize: '.75rem' }}>
-                                                GOALS OPTIONS</text></b>
+                                                GOALS OPTIONS</span></b>
                                             {/*</Grid>*/}
                                         </AccordionSummary>
                                         <AccordionDetails style={{ display: "inherit" }}>
@@ -1509,7 +1509,7 @@ export default class Product extends Component {
                                                         <Grid container item xs={6} spacing={0}>
                                                             <Grid container item xs={12} spacing={0} >
                                                                 <b>
-                                                                    <text style={{ fontSize: '.85rem' }}>TEST CASES</text>
+                                                                    <span style={{ fontSize: '.85rem' }}>TEST CASES</span>
                                                                 </b>
                                                             </Grid>
                                                             <small>Number of test cases expected.</small>
@@ -1518,7 +1518,7 @@ export default class Product extends Component {
                                                         <Grid container item xs={6} >
                                                             <Grid container item xs={12} >
                                                                 <b>
-                                                                    <text style={{ fontSize: '.85rem' }}>PASS RATE</text>
+                                                                    <span style={{ fontSize: '.85rem' }}>PASS RATE</span>
                                                                 </b>
                                                             </Grid>
                                                             <small>More Pass Tests! Percentage improvement of the amount of passing tests</small>
@@ -1604,15 +1604,15 @@ export default class Product extends Component {
                                         <AccordionSummary
                                             style={{ minHeight: "42px", maxHeight: "42px", backgroundColor: "#F7F7F7" }}
                                             expandIcon={<ExpandMoreIcon />}>
-                                            <b><text
+                                            <b><span
                                                 // color="primary"
                                                 style={{ fontSize: '.75rem' }}>
-                                                JIRA OPTIONS</text></b>
+                                                JIRA OPTIONS</span></b>
                                         </AccordionSummary>
                                         <AccordionDetails style={{ display: "inherit" }}>
                                             <div>
                                                 <div>
-                                                    <Grid container spacing={16} style={{ justifyContent: "flex-end" }}>
+                                                    <Grid container spacing={2} style={{ justifyContent: "flex-end" }}>
                                                         <Grid item xs={11} style={{ 'display': 'flex', 'justifyContent': 'left', 'alignItems': 'center' }}>
                                                             <div>Jira integration allows to file tickets automatically. If there is an automation failure, it'll create a jira ticket! read more</div>
                                                         </Grid>
@@ -2062,11 +2062,11 @@ export default class Product extends Component {
                                         <AccordionSummary
                                             style={{ minHeight: "42px", maxHeight: "42px", backgroundColor: "#F7F7F7" }}
                                             expandIcon={<ExpandMoreIcon />}>
-                                            <b><text
+                                            <b><span
                                                 // color="primary"
 
                                                 style={{ fontSize: '.75rem' }}>
-                                                ADVANCED OPTIONS</text></b>
+                                                ADVANCED OPTIONS</span></b>
                                         </AccordionSummary>
                                         <AccordionDetails style={{ display: "inherit" }}>
                                             <div>
@@ -2118,7 +2118,7 @@ export default class Product extends Component {
                                                                 color: 'rgba(0, 0, 0, 0.54)',
                                                                 fontSize: '0.75rem'
                                                             }}>
-                                                                <Grid container spacing={16}>
+                                                                <Grid container spacing={2}>
                                                                     <Grid item xs={4}><b>URL</b></Grid>
                                                                     <Grid item xs={3}><b>USER</b></Grid>
                                                                     <Grid item xs={5}><b>PASSWORD</b></Grid>
@@ -2134,7 +2134,7 @@ export default class Product extends Component {
                                                                         <ListItemText
                                                                             style={{ padding: 0 }}
                                                                             primary={
-                                                                                <Grid container spacing={16}>
+                                                                                <Grid container spacing={2}>
                                                                                     <Grid item xs={4}>
                                                                                         <InputBase
                                                                                             id="newRepositoryUrl"
