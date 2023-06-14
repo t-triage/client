@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import axios from 'axios'
 import { logout } from './Main/Components/Globals'
 import ReactDOM from "react-dom"
+import { createRoot } from 'react-dom/client';
 import Api from './Main/Components/Api'
 import { Switch, Route, Router, Redirect } from "react-router-dom"
 import history from "./Main/Components/History"
@@ -32,7 +33,7 @@ import Properties from "./Admin/Properties"
 import Users from "./Admin/Users"
 import License from "./Admin/License"
 
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import { MuiThemeProvider, createTheme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 
 import blue from "@material-ui/core/colors/blue"
@@ -41,7 +42,7 @@ import Success from "./Main/Components/Success";
 import Logs from "./Admin/Logs"
 
 
-const theme = createMuiTheme({
+const theme = createTheme({
     palette: {
         primary: blue,
         secondary: red,
@@ -311,10 +312,13 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(
+const container = document.getElementById('app');
+const root = createRoot(container);
+
+root.render(
     <Router history={history}>
         <Switch>
             <Route component={App} />
         </Switch>
-    </Router>, document.getElementById('app')
+    </Router>
 )

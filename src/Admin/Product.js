@@ -39,9 +39,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import TextField from "@material-ui/core/TextField";
 import { MenuItem } from "@material-ui/core";
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { MySnackbarContent, snackbarStyle } from '../Main/Components/Globals'
@@ -1023,7 +1021,7 @@ export default class Product extends Component {
                                                 minHeight: '18px'
                                             }
                                         }}
-                                        rowsMax={15}
+                                        maxRows={15}
                                         fullWidth
                                         multiline
                                     />
@@ -1043,7 +1041,7 @@ export default class Product extends Component {
                                                 minHeight: '18px'
                                             }
                                         }}
-                                        rowsMax={15}
+                                        maxRows={15}
                                         fullWidth
                                     //multiline
                                     />
@@ -1467,7 +1465,7 @@ export default class Product extends Component {
                     <form onSubmit={this.onSubmit.bind(this)} className="Containers-Form">
                         <div className="Containers-Main">
                             <Card>
-                                <CardContent style={{ 'max-width': '80vw' }}>
+                                <CardContent style={{ 'maxWidth': '80vw' }}>
                                     <h4>Products</h4>
                                     <div>Generally this is the product under testing.</div>
                                     <TextFieldInput
@@ -1488,11 +1486,11 @@ export default class Product extends Component {
                                         value={productDescription}
                                     />
 
-                                    <ExpansionPanel
+                                    <Accordion
                                         style={{ marginTop: 20, border: '1px solid rgba(0, 0, 0, .125)', marginBottom: -1 }}
                                         expanded={this.state.showGoals}
                                         onChange={this.onClickShowGoals()}>
-                                        <ExpansionPanelSummary
+                                        <AccordionSummary
                                             style={{ minHeight: "42px", maxHeight: "42px", backgroundColor: "#F7F7F7" }}
                                             expandIcon={<ExpandMoreIcon />}>
                                             {/*<Grid container justify="flex-end">*/}
@@ -1501,8 +1499,8 @@ export default class Product extends Component {
                                                 style={{ fontSize: '.75rem' }}>
                                                 GOALS OPTIONS</text></b>
                                             {/*</Grid>*/}
-                                        </ExpansionPanelSummary>
-                                        <ExpansionPanelDetails style={{ display: "inherit" }}>
+                                        </AccordionSummary>
+                                        <AccordionDetails style={{ display: "inherit" }}>
                                             <div>
                                                 <Grid item xs={12}>
 
@@ -1597,25 +1595,25 @@ export default class Product extends Component {
                                                     </Grid>
                                                 </Grid>
                                             </div>
-                                        </ExpansionPanelDetails>
-                                    </ExpansionPanel>
-                                    <ExpansionPanel
+                                        </AccordionDetails>
+                                    </Accordion>
+                                    <Accordion
                                         style={{ marginBottom: -1, marginTop: -1, border: '1px solid rgba(0, 0, 0, .125)' }}
                                         expanded={this.state.showJira}
                                         onChange={this.onClickShowJira()}>
-                                        <ExpansionPanelSummary
+                                        <AccordionSummary
                                             style={{ minHeight: "42px", maxHeight: "42px", backgroundColor: "#F7F7F7" }}
                                             expandIcon={<ExpandMoreIcon />}>
                                             <b><text
                                                 // color="primary"
                                                 style={{ fontSize: '.75rem' }}>
                                                 JIRA OPTIONS</text></b>
-                                        </ExpansionPanelSummary>
-                                        <ExpansionPanelDetails style={{ display: "inherit" }}>
+                                        </AccordionSummary>
+                                        <AccordionDetails style={{ display: "inherit" }}>
                                             <div>
                                                 <div>
                                                     <Grid container spacing={16} style={{ justifyContent: "flex-end" }}>
-                                                        <Grid item xs={11} style={{ 'display': 'flex', 'justify-content': 'left', 'align-items': 'center' }}>
+                                                        <Grid item xs={11} style={{ 'display': 'flex', 'justifyContent': 'left', 'alignItems': 'center' }}>
                                                             <div>Jira integration allows to file tickets automatically. If there is an automation failure, it'll create a jira ticket! read more</div>
                                                         </Grid>
                                                         <Grid item xs={1} style={{ justifyContent: 'flex-end' }}>
@@ -2054,14 +2052,14 @@ export default class Product extends Component {
                                                     </Grid>
                                                 </div>
                                             </div>
-                                        </ExpansionPanelDetails>
-                                    </ExpansionPanel>
+                                        </AccordionDetails>
+                                    </Accordion>
 
-                                    <ExpansionPanel
+                                    <Accordion
                                         style={{ marginBottom: -1, marginTop: -1, border: '1px solid rgba(0, 0, 0, .125)' }}
                                         expanded={this.state.showAdvanced}
                                         onChange={this.onClickShowAdvanced()}>
-                                        <ExpansionPanelSummary
+                                        <AccordionSummary
                                             style={{ minHeight: "42px", maxHeight: "42px", backgroundColor: "#F7F7F7" }}
                                             expandIcon={<ExpandMoreIcon />}>
                                             <b><text
@@ -2069,10 +2067,10 @@ export default class Product extends Component {
 
                                                 style={{ fontSize: '.75rem' }}>
                                                 ADVANCED OPTIONS</text></b>
-                                        </ExpansionPanelSummary>
-                                        <ExpansionPanelDetails style={{ display: "inherit" }}>
+                                        </AccordionSummary>
+                                        <AccordionDetails style={{ display: "inherit" }}>
                                             <div>
-                                                <Grid container justify="space-between">
+                                                <Grid container justifyContent="space-between">
                                                     <Grid item>
                                                         <div className={'Containers-AssigneeContainer'}>
                                                             <fieldset
@@ -2144,7 +2142,7 @@ export default class Product extends Component {
                                                                                             style={{ fontSize: '.875rem' }}
                                                                                             value={newRepositoryUrl}
                                                                                             onChange={this.setRepositoryFields("newRepositoryUrl")}
-                                                                                            rowsMax={5}
+                                                                                            maxRows={5}
 
                                                                                             inputProps={{
                                                                                                 style: {
@@ -2172,7 +2170,7 @@ export default class Product extends Component {
                                                                                                     minHeight: '18px'
                                                                                                 }
                                                                                             }}
-                                                                                            rowsMax={15}
+                                                                                            maxRows={15}
                                                                                             fullWidth
                                                                                             multiline
                                                                                         />
@@ -2210,7 +2208,7 @@ export default class Product extends Component {
                                                                                                     minHeight: '18px'
                                                                                                 }
                                                                                             }}
-                                                                                            rowsMax={15}
+                                                                                            maxRows={15}
                                                                                             fullWidth
                                                                                         />
 
@@ -2244,8 +2242,8 @@ export default class Product extends Component {
                                                 </Grid>
 
                                             </div>
-                                        </ExpansionPanelDetails>
-                                    </ExpansionPanel>
+                                        </AccordionDetails>
+                                    </Accordion>
                                     <div className={"snackbars-container"}>
                                         <Snackbar
                                             anchorOrigin={{

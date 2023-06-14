@@ -30,7 +30,7 @@ class SideMenu extends Component {
                 <List className="sideMenuList">
                     <div className={"sideMenuCategories"}>
                         <div className={"sideMenuCategory"}>
-                            <span className={"categoryTitle"} style={{ 'font-size': '1.5em', 'font-weight': 'bold' }}>Admin Panel</span>
+                            <span className={"categoryTitle"} style={{ 'fontSize': '1.5em', 'fontWeight': 'bold' }}>Admin Panel</span>
                             <div className={"categoryItems"}>
                                 <Link style={{ textDecoration: 'none' }} to={"/Admin/Products"}>
                                     <ListItem className={"itemContent"} button key="productsList">

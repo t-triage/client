@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require("webpack");
 const fs = require('fs');
 const yaml = require("js-yaml")
+const DotenvWebpackPlugin = require('dotenv-webpack');
 
 module.exports = (env, options) => {
     var config = ""
@@ -20,6 +21,7 @@ module.exports = (env, options) => {
         },
         module: {
             rules: [
+                { test: /\.env\..*/, use: 'raw-loader'},
                 { test: /\.jsx?$/, exclude: /node_modules/, use: ['babel-loader'] },
                 { test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
                 { test: /\.(jpg|png|gif|svg|ico|eot|svg|ttf|woff2?)$/, use: [
@@ -34,7 +36,8 @@ module.exports = (env, options) => {
                 favicon: './src/images/favicon.png'
             }),
             //Set ENV VARS
-            new webpack.DefinePlugin({"process.env.CONFIG": options.mode === "development" ? JSON.stringify(config) : null})
+            new webpack.DefinePlugin({"process.env.CONFIG": options.mode === "development" ? JSON.stringify(config) : null}),
+            new DotenvWebpackPlugin()
         ]
     }
 }
