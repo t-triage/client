@@ -4,7 +4,7 @@ import { logout } from './Main/Components/Globals'
 import ReactDOM from "react-dom"
 import { createRoot } from 'react-dom/client';
 import Api from './Main/Components/Api'
-import { Switch, Route, Router, Redirect } from "react-router-dom"
+import { Switch, Route, BrowserRouter as Router, Redirect } from "react-router-dom"
 import history from "./Main/Components/History"
 import JiraConnect from "./Main/Components/JiraConnect"
 

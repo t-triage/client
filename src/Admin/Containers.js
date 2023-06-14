@@ -100,10 +100,12 @@ export default class Connector extends Component {
       axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetProducts + '?query=enabled:true&sort=name,asc')
       .then(res => {
         let {content} = res.data;
-        this.setState({
-          productList: content,
-          product: content[0].id,
-        })
+        if (content[0]){
+            this.setState({
+                productList: content,
+                product: content[0].id,
+            })
+        }
       })
     }
 
@@ -111,11 +113,13 @@ export default class Connector extends Component {
       axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetConnectors + '?query=enabled:true&sort=name,asc')
       .then(res => {
         let {content} = res.data;
-        this.setState({
-          connectorList: content,
-          connector: content[0].id,
-          connectorName: content[0].type
-        })
+        if (content[0]) {
+            this.setState({
+                connectorList: content,
+                connector: content[0].id,
+                connectorName: content[0].type
+            })
+        }
       })
     }
 
@@ -778,11 +782,11 @@ export default class Connector extends Component {
                     {this.renderSnackbars()}
                     <div className="Containers-Main">
                         <Card>
-                            <CardContent style={{ 'max-width': '80vw'}}>
+                            <CardContent style={{ 'maxWidth': '80vw'}}>
                                 <h4>CI Containers</h4>
                                 <div>Generally a container is a view or folder with a set of jobs that together represents a Test Suite like smoke test, regression or personal view. Basically it makes sense to analize all these test executors together. <br />This will be used in the list view.</div>
 
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={6}>
                                         <TextFieldInput
                                             id="shortName"
@@ -906,7 +910,7 @@ export default class Connector extends Component {
 
 
 
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={6}>
                                         <div style={{marginTop:20}}>Triage Spec</div>
                                         <div className={'Containers-AssigneeContainer'}>
@@ -1036,7 +1040,7 @@ export default class Connector extends Component {
                                                     </Tooltip>
                                                 </div>
                                         </div>
-                                        <Grid container spacing={16}>
+                                        <Grid container spacing={2}>
                                             <Grid item xs={6}>
                                                 <TextFieldInput
                                                     id="triageFrecuencyWeek"
@@ -1079,9 +1083,9 @@ export default class Connector extends Component {
                                     </Grid>
                                 </Grid>
 
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Grid container spacing={16}>
+                                        <Grid container spacing={2}>
                                             <Grid item xs={12}
                                                   style={{ paddingBottom: 0, paddingTop: 5, marginBottom: '-10' }}>
                                                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -1096,7 +1100,7 @@ export default class Connector extends Component {
                                             </Grid>
                                             <Grid item xs={12}>
                                                 { showAdvanced && (
-                                                    <Grid container spacing={16}>
+                                                    <Grid container spacing={2}>
                                                         <Grid item xs={6}>
                                                             <TextFieldInput
                                                                 id="rate"
@@ -1167,7 +1171,7 @@ export default class Connector extends Component {
                                                                 }}
                                                             />
 
-                                                            <Grid container spacing={16}>
+                                                            <Grid container spacing={2}>
                                                                 <Grid item xs={6}>
 
                                                                     <TextFieldInput

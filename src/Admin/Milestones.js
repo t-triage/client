@@ -83,10 +83,12 @@ export default class Milestones extends Component {
       axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetProducts + '?query=enabled:true&sort=name,asc')
       .then(res => {
         let {content} = res.data;
-        this.setState({
-          productList: content,
-          product: content[0].id,
-        })
+        if (content[0]) {
+            this.setState({
+                productList: content,
+                product: content[0].id,
+            })
+        }
       })
     }
 
@@ -428,7 +430,7 @@ export default class Milestones extends Component {
                 <form onSubmit={this.onSubmit.bind(this)} className="Containers-Form">
                     <div className="Containers-Main">
                         <Card>
-                            <CardContent style={{ 'max-width': '80vw'}}>
+                            <CardContent style={{ 'maxWidth': '80vw'}}>
                                 <h4>Milestones</h4>
                                 <div>
                                     You can set deadlines because of new version released.
@@ -456,7 +458,7 @@ export default class Milestones extends Component {
                                     variant="outlined"
                                     value={milestoneDescription}
                                 />
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={3}>
                                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                           <InlineDatePicker
