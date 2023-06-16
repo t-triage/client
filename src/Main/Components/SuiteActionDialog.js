@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import Api from "./Api"
 import * as _  from 'underscore'
 import axios from 'axios'
-import DialogActions from "@material-ui/core/DialogActions"
-import DialogTitle from "@material-ui/core/DialogTitle"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
-import Grid from "@material-ui/core/Grid"
-import TextField from "@material-ui/core/TextField"
-import Button from "@material-ui/core/Button"
-import List from "@material-ui/core/List";
-import CheckIcon from '@material-ui/icons/Check';
+import DialogActions from "@mui/material/DialogActions"
+import DialogTitle from "@mui/material/DialogTitle"
+import Dialog from "@mui/material/Dialog"
+import DialogContent from "@mui/material/DialogContent"
+import Grid from "@mui/material/Grid"
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
+import List from "@mui/material/List";
+import CheckIcon from '@mui/icons-material/Check';
 import {COLORS} from './Globals';
 import thumbsUp from "../../images/goalIcons/thumbsUp.png"
 import thumbsDown from "../../images/goalIcons/thumbsDown.png"

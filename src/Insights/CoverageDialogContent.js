@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import Api from "../Main/Components/Api"
 import axios from 'axios'
 import HorizontalBarChart from './HorizontalBarChart'
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
-import Popover from "@material-ui/core/Popover"
-import MenuItem from "@material-ui/core/MenuItem"
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Button from "@mui/material/Button"
+import Popover from "@mui/material/Popover"
+import MenuItem from "@mui/material/MenuItem"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
 import CoverageAutomatedTest from './CoverageAutomatedTest'
 import {TextFieldInput} from '../Admin/AdminUtils'
 import ComponentsPicker from '../Main/Components/ComponentsPicker'
 import {COLORS, styles} from '../Main/Components/Globals'
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 import * as _  from 'underscore';
 import {renderCoverageChartDialog} from '../Main/Components/TriageUtils';
 

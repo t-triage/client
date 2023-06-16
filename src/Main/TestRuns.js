@@ -5,22 +5,22 @@ import axios from 'axios'
 import * as _ from 'underscore'
 import ManualTestsStatusBox from "./Components/ManualTestsStatusBox"
 
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton'
-import CircularProgress from "@material-ui/core/CircularProgress"
-import DoneIcon from '@material-ui/icons/Done';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton'
+import CircularProgress from "@mui/material/CircularProgress"
+import DoneIcon from '@mui/icons-material/Done';
 
-import Grid from "@material-ui/core/Grid"
-import EditIcon from "@material-ui/icons/Edit"
-import ClearIcon from "@material-ui/icons/Clear"
-import PlayArrowIconIcon from "@material-ui/icons/PlayArrow"
-import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight"
+import Grid from "@mui/material/Grid"
+import EditIcon from "@mui/icons-material/Edit"
+import ClearIcon from "@mui/icons-material/Clear"
+import PlayArrowIconIcon from "@mui/icons-material/PlayArrow"
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight"
 
 import ManualTestPlanEdit from './Components/ManualTestPlanEdit'
 import ManualTestPlanRun from './Components/ManualTestPlanRun'
 import CopyrightFooter from "./Components/CopyrightFooter"
 import history from "./Components/History"
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@mui/styles/withStyles';
 import {styles, COLORS, WIKI_URL} from './Components/Globals'
 import $ from 'jquery';
 import SearchUI from "./Components/SearchUI";
@@ -216,8 +216,7 @@ class TestRuns extends Component {
                         tooltip: classes.tooltip,
                         popper: classes.popper,
                       }} title="Edit">
-                      <IconButton
-                          onClick={this.handleExpantion.bind(this, plan.id)}>
+                      <IconButton onClick={this.handleExpantion.bind(this, plan.id)} size="large">
                           {
                             expandedPlans.indexOf(plan.id) === -1 ?
                               <EditIcon />
@@ -231,13 +230,14 @@ class TestRuns extends Component {
                         popper: classes.popper,
                       }} title={'Run'}>
                       <IconButton
-                          onClick={() => {
-                            history.push("/TestRuns/Run/" + plan.id)
-                            this.setState({
-                              currentStage: manualPlanSteps.PLAN_RUN,
-                              testPlanRun: plan,
-                            })
-                          }}>
+                        onClick={() => {
+                          history.push("/TestRuns/Run/" + plan.id)
+                          this.setState({
+                            currentStage: manualPlanSteps.PLAN_RUN,
+                            testPlanRun: plan,
+                          })
+                        }}
+                        size="large">
                           <PlayArrowIconIcon />
                       </IconButton>
                     </Tooltip>
@@ -254,11 +254,11 @@ class TestRuns extends Component {
                   )
                 }
               </div>
-            )
+            );
           })
         }
       </div>
-    )
+    );
   }
 
   expandedFilters(filtersExpanded) {

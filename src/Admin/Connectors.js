@@ -8,35 +8,35 @@ import { scrollToTop, TextFieldInput } from './AdminUtils'
 import { copyToClipboard } from '../Main/Components/TriageUtils'
 
 // Icons
-import ConnectorIcon from "@material-ui/icons/CompareArrows"
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import EditIcon from "@material-ui/icons/Edit"
-import RotateRightIcon from "@material-ui/icons/RotateRight"
-import AutorenewIcon from "@material-ui/icons/Autorenew"
-import AssignmentIcon from "@material-ui/icons/Assignment"
-import FileCopyIcon from "@material-ui/icons/FileCopy"
+import ConnectorIcon from "@mui/icons-material/CompareArrows"
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import EditIcon from "@mui/icons-material/Edit"
+import RotateRightIcon from "@mui/icons-material/RotateRight"
+import AutorenewIcon from "@mui/icons-material/Autorenew"
+import AssignmentIcon from "@mui/icons-material/Assignment"
+import FileCopyIcon from "@mui/icons-material/FileCopy"
 
 // UI Components
-import Divider from "@material-ui/core/Divider"
-import List from "@material-ui/core/List"
-import MenuItem from "@material-ui/core/MenuItem"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction"
-import IconButton from "@material-ui/core/IconButton"
-import Paper from "@material-ui/core/Paper"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardActions from "@material-ui/core/CardActions"
-import Button from "@material-ui/core/Button"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import Avatar from "@material-ui/core/Avatar"
-import Tooltip from "@material-ui/core/Tooltip"
-import Snackbar from "@material-ui/core/Snackbar"
-import Grid from "@material-ui/core/Grid"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import { withStyles } from '@material-ui/core/styles'
+import Divider from "@mui/material/Divider"
+import List from "@mui/material/List"
+import MenuItem from "@mui/material/MenuItem"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction"
+import IconButton from "@mui/material/IconButton"
+import Paper from "@mui/material/Paper"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
+import Button from "@mui/material/Button"
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import Avatar from "@mui/material/Avatar"
+import Tooltip from "@mui/material/Tooltip"
+import Snackbar from "@mui/material/Snackbar"
+import Grid from "@mui/material/Grid"
+import CircularProgress from "@mui/material/CircularProgress"
+import withStyles from '@mui/styles/withStyles';
 
 import SideMenu from "./SideMenu"
 
@@ -418,64 +418,68 @@ export default class Connector extends Component {
             <ListItemSecondaryAction>
                 <Tooltip title={'Pull tests from CI'}>
                     <IconButton
-                        style={{
-                          opacity: connector.enabled ? '1' : '.5',
-                          cursor: connector.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            connector.enabled ?
-                                this.openActionDialog.bind(this, connector.id)
-                            :   null
-                        }
-                        aria-label="Populate">
+                      style={{
+                        opacity: connector.enabled ? '1' : '.5',
+                        cursor: connector.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                          connector.enabled ?
+                              this.openActionDialog.bind(this, connector.id)
+                          :   null
+                      }
+                      aria-label="Populate"
+                      size="large">
                         <RotateRightIcon />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title={'Edit'}>
                     <IconButton
-                        style={{
-                          opacity: connector.enabled ? '1' : '.5',
-                          cursor: connector.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            connector.enabled ?
-                                this.enableEditConnector.bind(this, index, null)
-                            :   null
-                        }
-                        aria-label="Edit">
+                      style={{
+                        opacity: connector.enabled ? '1' : '.5',
+                        cursor: connector.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                          connector.enabled ?
+                              this.enableEditConnector.bind(this, index, null)
+                          :   null
+                      }
+                      aria-label="Edit"
+                      size="large">
                         <EditIcon />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title={connector.enabled ? 'Deactivate' : 'Activate'}>
                     <IconButton
-                        onClick={
-                          connector.enabled ?
-                            this.disableConnector.bind(this, connector.id)
-                          : this.enableConnector.bind(this, connector)
-                        }
-                        aria-label="Delete">
+                      onClick={
+                        connector.enabled ?
+                          this.disableConnector.bind(this, connector.id)
+                        : this.enableConnector.bind(this, connector)
+                      }
+                      aria-label="Delete"
+                      size="large">
                         { connector.enabled && <RemoveCircleIcon /> }
                         { !connector.enabled && <AddCircleIcon /> }
                     </IconButton>
                 </Tooltip>
                 <Tooltip title={"Copy"}>
                     <IconButton
-                        style={{
-                          opacity: connector.enabled ? '1' : '.5',
-                          cursor: connector.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            connector.enabled ?
-                                this.copyConnector.bind(this, index, null)
-                            :   null
-                        }
-                        aria-label="Copy">
+                      style={{
+                        opacity: connector.enabled ? '1' : '.5',
+                        cursor: connector.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                          connector.enabled ?
+                              this.copyConnector.bind(this, index, null)
+                          :   null
+                      }
+                      aria-label="Copy"
+                      size="large">
                         <FileCopyIcon />
                     </IconButton>
                 </Tooltip>
             </ListItemSecondaryAction>
         </ListItem>
-      )
+      );
     }
 
     renderList = () => {
@@ -573,7 +577,7 @@ export default class Connector extends Component {
 
         let {wizardMode} = this.props
 
-        return(
+        return (
           <div style={{ display: 'flex' }}>
                 <SideMenu />
                 <div style={{ 'width': '100%' }} className="CenterList">
@@ -624,7 +628,7 @@ export default class Connector extends Component {
                                       ))
                                     }
                                 </TextFieldInput>
-                                <Grid container justify="flex-end">
+                                <Grid container justifyContent="flex-end">
                                     <Grid item style={{ marginTop: 5 }}>
                                           <Button
                                               color="primary"
@@ -672,15 +676,17 @@ export default class Connector extends Component {
                                                   <Tooltip title={'Generate'}>
                                                     <IconButton
                                                       style={{ padding: 5 }}
-                                                        onClick={this.createAuthTokens.bind(this, connectorEdit ? connectorEdit.id : null)}
-                                                        aria-label="Edit">
+                                                      onClick={this.createAuthTokens.bind(this, connectorEdit ? connectorEdit.id : null)}
+                                                      aria-label="Edit"
+                                                      size="large">
                                                         <AutorenewIcon />
                                                     </IconButton>
                                                   </Tooltip>
                                                   <Tooltip title="Copy to clipboard">
                                                       <IconButton
                                                         style={{ padding: 5 }}
-                                                        onClick={copyToClipboard.bind(this, clientID)}>
+                                                        onClick={copyToClipboard.bind(this, clientID)}
+                                                        size="large">
                                                         <AssignmentIcon />
                                                       </IconButton>
                                                   </Tooltip>
@@ -699,7 +705,8 @@ export default class Connector extends Component {
                                                 <Tooltip title="Copy to clipboard">
                                                     <IconButton
                                                       style={{ padding: 5 }}
-                                                      onClick={copyToClipboard.bind(this, secretID)}>
+                                                      onClick={copyToClipboard.bind(this, secretID)}
+                                                      size="large">
                                                       <AssignmentIcon />
                                                     </IconButton>
                                                 </Tooltip>
@@ -794,6 +801,6 @@ export default class Connector extends Component {
                 </form>
             </div>
             </div>
-        )
+        );
     }
 }

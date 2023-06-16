@@ -12,48 +12,45 @@ import {styles, MySnackbarContent, snackbarStyle, getDeadlineIconColor, COLORS} 
 import {getKanbanTagColor, getCheckIcon, getCheckIconTooltip} from './Components/KanbanUtils'
 import {getTestFailTagName, getApplicationFailTagName, renderPopover} from './Components/TriageUtils'
 import SearchUI from "./Components/SearchUI"
-import DialogTitle from "@material-ui/core/DialogTitle"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
-import DialogActions from "@material-ui/core/DialogActions"
+import DialogTitle from "@mui/material/DialogTitle"
+import Dialog from "@mui/material/Dialog"
+import DialogContent from "@mui/material/DialogContent"
+import DialogActions from "@mui/material/DialogActions"
 import {scrollToTop} from '../Admin/AdminUtils'
-// Colors
-import Amber from "@material-ui/core/colors/amber"
-import Red from "@material-ui/core/colors/red"
-import Green from "@material-ui/core/colors/green"
-import Blue from "@material-ui/core/colors/blue"
 
 // Icons
-import CommentIcon from "@material-ui/icons/Notes"
-import AccessTimeIcon from "@material-ui/icons/AccessTime"
+import CommentIcon from "@mui/icons-material/Notes"
+import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import PinIcon from "../images/pin-grey.svg"
-import ExpandLessIcon from "@material-ui/icons/ExpandLess"
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import TuneIcon from "@material-ui/icons/Tune"
-import LaunchIcon from "@material-ui/icons/Launch"
-import SpellcheckIcon from "@material-ui/icons/Spellcheck"
-import FlipToFrontIcon from "@material-ui/icons/Launch"
-import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace"
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
-import KeyboardCapslockIcon from "@material-ui/icons/KeyboardCapslock"
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight"
+import ExpandLessIcon from "@mui/icons-material/ExpandLess"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import TuneIcon from "@mui/icons-material/Tune"
+import LaunchIcon from "@mui/icons-material/Launch"
+import SpellcheckIcon from "@mui/icons-material/Spellcheck"
+import FlipToFrontIcon from "@mui/icons-material/Launch"
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace"
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import KeyboardCapslockIcon from "@mui/icons-material/KeyboardCapslock"
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight"
 import FlakyTestIcon from "../images/FlakyTestIcon.svg"
-import PersonIcon from "@material-ui/icons/Person"
+import PersonIcon from "@mui/icons-material/Person"
 
 // UI Components
-import Drawer from "@material-ui/core/Drawer"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Grid from "@material-ui/core/Grid"
-import Button from "@material-ui/core/Button"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import Tooltip from "@material-ui/core/Tooltip"
-import Typography from "@material-ui/core/Typography"
-import Paper from "@material-ui/core/Paper"
-import Snackbar from '@material-ui/core/Snackbar'
-import {withStyles} from '@material-ui/core/styles'
-import Avatar from "@material-ui/core/Avatar"
+import Drawer from "@mui/material/Drawer"
+import CircularProgress from "@mui/material/CircularProgress"
+import Grid from "@mui/material/Grid"
+import Button from "@mui/material/Button"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import Paper from "@mui/material/Paper"
+import Snackbar from '@mui/material/Snackbar'
+import withStyles from '@mui/styles/withStyles';
+import Avatar from "@mui/material/Avatar"
+
+import { amber as Amber, red as Red, green as Green, blue as Blue } from '@mui/material/colors';
 
 const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
@@ -1063,7 +1060,7 @@ class Kanban extends Component {
                                                 </div>
                                             </ListItem>
                                             <ListItem style={{padding: 0}}>
-                                                <Grid container justify="space-between" alignItems="center">
+                                                <Grid container justifyContent="space-between" alignItems="center">
                                                     <Grid item style={{
                                                         marginRight: 8,
                                                         display: 'flex',
@@ -1207,7 +1204,7 @@ class Kanban extends Component {
                         </Paper>
                     </ListItem>
                 </div>
-            )
+            );
         }
         for (var cat in testTags) {
             if (testTriages.hasOwnProperty(cat)) {

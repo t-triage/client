@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import axios from 'axios'
 import Api from './Components/Api'
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
-import CircularProgress from "@material-ui/core/CircularProgress"
+import Paper from "@mui/material/Paper"
+import Button from "@mui/material/Button"
+import CircularProgress from "@mui/material/CircularProgress"
 
 export default class TermsAndConditions extends Component {
   state = {

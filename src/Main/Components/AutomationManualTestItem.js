@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //UI Components
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
-import TextField from "@material-ui/core/TextField"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
 
 // Icons
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz"
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 
 import { capitalize, prettify } from './TriageUtils'
 import { COLORS } from './Globals'
 import UserPicker from "./UserPicker";
 import Api from "./Api";
 import axios from "axios";
-import MenuItem from "@material-ui/core/MenuItem";
+import MenuItem from "@mui/material/MenuItem";
 import * as PropTypes from "prop-types";
 import {Icon} from "@iconify/react";
 
 import roundCheckCircle from "@iconify/icons-ic/round-check-circle";
 import report from "@iconify/icons-ic/report";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 
 
 
@@ -205,7 +205,7 @@ export default class AutomationManualTestItem extends Component {
                 multiline
                 defaultValue={!!test.note ? test.note.description : ""}
                 placeholder="No comments yet"
-                rowsMax={3}
+                maxRows={3}
                 disabled={false}
                 onChange={this.changeNote.bind(this)}
                 inputProps={{
@@ -300,7 +300,7 @@ export default class AutomationManualTestItem extends Component {
           </div>
         </Paper>
       </Grid>
-    )
+    );
   }
 
 

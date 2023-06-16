@@ -4,11 +4,11 @@ import axios from 'axios'
 import Api from "./Api"
 
 // UI Components
-import Grid from "@material-ui/core/Grid"
-import Select from "@material-ui/core/Select"
+import Grid from "@mui/material/Grid"
+import Select from "@mui/material/Select"
 
-import InputBase from "@material-ui/core/InputBase"
-import { withStyles } from '@material-ui/core/styles'
+import InputBase from "@mui/material/InputBase"
+import withStyles from '@mui/styles/withStyles';
 import { styles } from './Globals'
 
 

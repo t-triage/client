@@ -3,15 +3,15 @@ import Api from "./Api"
 import axios from 'axios';
 
 import {styles} from "./Globals";
-import {withStyles} from "@material-ui/core/styles";
+import withStyles from '@mui/styles/withStyles';
 
 // UI Components
-import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from "@material-ui/core/IconButton";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import Popover from "@material-ui/core/Popover";
-import {Divider, MenuItem} from "@material-ui/core";
-import FlipToFrontIcon from "@material-ui/icons/Launch"
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Popover from "@mui/material/Popover";
+import {Divider, MenuItem} from "@mui/material";
+import FlipToFrontIcon from "@mui/icons-material/Launch"
 
 
 class SuiteOptionListPopover extends Component{
@@ -67,7 +67,7 @@ class SuiteOptionListPopover extends Component{
         const { suite, executorId, classes } = this.props;
 
         
-        return(
+        return (
             <div>
                 <Tooltip title="More options"
                          classes={{
@@ -77,7 +77,8 @@ class SuiteOptionListPopover extends Component{
                     <div>
                         <IconButton
                             id={"suiteListMenu-" + executorId}
-                            onClick={() => this.setState({ suiteListOptionsOpen: executorId})}>
+                            onClick={() => this.setState({ suiteListOptionsOpen: executorId})}
+                            size="large">
                             <MoreHorizIcon color='action'/>
                         </IconButton>
                     </div>
@@ -166,7 +167,7 @@ class SuiteOptionListPopover extends Component{
                      {/********************************* FIN CONTENIDO DEL POPOVER ***********************************/}
                 </Popover>
             </div>
-        )
+        );
     }
 
 }

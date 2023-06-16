@@ -1,16 +1,16 @@
 import React, {Component, Fragment} from 'react';
 
-import {withStyles} from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 import {
     Popover,
     Button,
     MenuItem,
     Divider,
-} from '@material-ui/core';
+} from '@mui/material';
 import {styles} from "./Globals";
-import FlipToFrontIcon from "@material-ui/icons/Launch";
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import Tooltip from "@material-ui/core/Tooltip";
+import FlipToFrontIcon from "@mui/icons-material/Launch";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import Tooltip from "@mui/material/Tooltip";
 
 class ImportFilesPopover extends Component{
 

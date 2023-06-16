@@ -16,14 +16,14 @@ import Setup from "./Setup"
 import CopyrightFooter from "../Main/Components/CopyrightFooter"
 
 // UI Components
-import Tabs from "@material-ui/core/Tabs"
-import Tab from "@material-ui/core/Tab"
-import Paper from "@material-ui/core/Paper"
-import Switch from "@material-ui/core/Switch"
-import Tooltip from "@material-ui/core/Tooltip"
-import HelpIcon from "@material-ui/icons/Help"
-import ErrorIcon from '@material-ui/icons/Error';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
+import Paper from "@mui/material/Paper"
+import Switch from "@mui/material/Switch"
+import Tooltip from "@mui/material/Tooltip"
+import HelpIcon from "@mui/icons-material/Help"
+import ErrorIcon from '@mui/icons-material/Error';
+import CircularProgress from '@mui/material/CircularProgress';
 import {renderTableWithItems} from '../Main/Components/TriageUtils';
 import {WIKI_URL} from "../Main/Components/Globals";
 

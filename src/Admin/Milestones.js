@@ -6,30 +6,30 @@ import { find } from "underscore"
 import { scrollToTop, TextFieldInput, HourList } from './AdminUtils'
 
 // Icons
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import EditIcon from "@material-ui/icons/Edit"
-import AppIcon from "@material-ui/icons/AccessTime"
-import FileCopyIcon from "@material-ui/icons/FileCopy"
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import EditIcon from "@mui/icons-material/Edit"
+import AppIcon from "@mui/icons-material/AccessTime"
+import FileCopyIcon from "@mui/icons-material/FileCopy"
 
 // UI Components
-import Divider from "@material-ui/core/Divider"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction"
-import IconButton from "@material-ui/core/IconButton"
-import Paper from "@material-ui/core/Paper"
-import Grid from "@material-ui/core/Grid"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardActions from "@material-ui/core/CardActions"
-import Button from "@material-ui/core/Button"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import Avatar from "@material-ui/core/Avatar"
-import MenuItem from "@material-ui/core/MenuItem"
-import Tooltip from "@material-ui/core/Tooltip"
-import CircularProgress from "@material-ui/core/CircularProgress"
+import Divider from "@mui/material/Divider"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction"
+import IconButton from "@mui/material/IconButton"
+import Paper from "@mui/material/Paper"
+import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
+import Button from "@mui/material/Button"
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import Avatar from "@mui/material/Avatar"
+import MenuItem from "@mui/material/MenuItem"
+import Tooltip from "@mui/material/Tooltip"
+import CircularProgress from "@mui/material/CircularProgress"
 import {
   MuiPickersUtilsProvider,
   InlineDatePicker
@@ -325,49 +325,52 @@ export default class Milestones extends Component {
             <ListItemSecondaryAction>
                 <Tooltip title="Edit">
                     <IconButton
-                        style={{
-                          opacity: milestone.enabled ? '1' : '.5',
-                          cursor: milestone.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            milestone.enabled ?
-                                this.enableEditMilestone.bind(this, index)
-                            :   null
-                        }
-                        aria-label="Edit">
+                      style={{
+                        opacity: milestone.enabled ? '1' : '.5',
+                        cursor: milestone.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                          milestone.enabled ?
+                              this.enableEditMilestone.bind(this, index)
+                          :   null
+                      }
+                      aria-label="Edit"
+                      size="large">
                         <EditIcon />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title={milestone.enabled ? 'Deactivate' : 'Activate'}>
                     <IconButton
-                        onClick={
-                          milestone.enabled ?
-                            this.disableMilestone.bind(this, milestone.id)
-                          : this.enableMilestone.bind(this, milestone)
-                        }
-                        aria-label="Delete">
+                      onClick={
+                        milestone.enabled ?
+                          this.disableMilestone.bind(this, milestone.id)
+                        : this.enableMilestone.bind(this, milestone)
+                      }
+                      aria-label="Delete"
+                      size="large">
                         { milestone.enabled && <RemoveCircleIcon /> }
                         { !milestone.enabled && <AddCircleIcon /> }
                     </IconButton>
                 </Tooltip>
                 <Tooltip title={"Copy"}>
                     <IconButton
-                        style={{
-                          opacity: milestone.enabled ? '1' : '.5',
-                          cursor: milestone.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            milestone.enabled ?
-                                this.copyMilestone.bind(this, index)
-                            :   null
-                        }
-                        aria-label="Copy">
+                      style={{
+                        opacity: milestone.enabled ? '1' : '.5',
+                        cursor: milestone.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                          milestone.enabled ?
+                              this.copyMilestone.bind(this, index)
+                          :   null
+                      }
+                      aria-label="Copy"
+                      size="large">
                         <FileCopyIcon />
                     </IconButton>
                 </Tooltip>
             </ListItemSecondaryAction>
         </ListItem>
-      )
+      );
     }
 
     renderList = () => {

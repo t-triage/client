@@ -1,25 +1,25 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
-import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
-import IconButton from "@material-ui/core/IconButton"
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import IconButton from "@mui/material/IconButton"
 import UserPicker from './UserPicker'
-import TextField from "@material-ui/core/TextField"
-import Grid from "@material-ui/core/Grid"
-import Grow from '@material-ui/core/Grow';
-import Tooltip from "@material-ui/core/Tooltip"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import Typography from "@material-ui/core/Typography"
-import DialogContent from "@material-ui/core/DialogContent"
-import DialogActions from "@material-ui/core/DialogActions"
-import DialogTitle from "@material-ui/core/DialogTitle"
-import Popover from "@material-ui/core/Popover"
-import Dialog from "@material-ui/core/Dialog"
-import Popper from '@material-ui/core/Popper';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from "@material-ui/core/Button"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import AssignmentIcon from '@material-ui/icons/Assignment'
+import TextField from "@mui/material/TextField"
+import Grid from "@mui/material/Grid"
+import Grow from '@mui/material/Grow';
+import Tooltip from "@mui/material/Tooltip"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import Typography from "@mui/material/Typography"
+import DialogContent from "@mui/material/DialogContent"
+import DialogActions from "@mui/material/DialogActions"
+import DialogTitle from "@mui/material/DialogTitle"
+import Popover from "@mui/material/Popover"
+import Dialog from "@mui/material/Dialog"
+import Popper from '@mui/material/Popper';
+import CardMedia from '@mui/material/CardMedia';
+import Button from "@mui/material/Button"
+import CircularProgress from "@mui/material/CircularProgress"
+import AssignmentIcon from '@mui/icons-material/Assignment'
 import { COLORS } from './Globals'
 
 export let dialogProps = {
@@ -474,7 +474,7 @@ export const renderCoverageChartDialog  = (open, onClose, content, title) => {
 }
 
 export const getBoldCharCode = (char) => {
-  return char.replace(/\w/g, (c) => isNaN(c) ? String.fromCodePoint(0x1D58D + c.charCodeAt(0)) : String.fromCodePoint(0x1D7BC + c.charCodeAt(0)))
+  return char.replace(/\w/g, (c) => isNaN(c) ? String.fromCodePoint(0x1D58D + c.charCodeAt(0)) : String.fromCodePoint(0x1D7BC + c.charCodeAt(0)));
 }
 
 export const renderStackTraceDialog = (open, onClose, stackTrace, productPackages) => {

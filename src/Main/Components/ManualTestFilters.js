@@ -5,18 +5,18 @@ import Api from './Api'
 import UserPicker from './UserPicker'
 import ComponentsPickerSingle from './ComponentsPickerSingle'
 import FunctionalityPicker from './FunctionalityPicker'
-import Button from '@material-ui/core/Button';
-import InputBase from '@material-ui/core/InputBase';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import Popover from '@material-ui/core/Popover';
-import FilterIcon from '@material-ui/icons/FilterList';
-import SearchIcon from '@material-ui/icons/Search';
-import ClearIcon from '@material-ui/icons/Clear';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
+import Button from '@mui/material/Button';
+import InputBase from '@mui/material/InputBase';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Popover from '@mui/material/Popover';
+import FilterIcon from '@mui/icons-material/FilterList';
+import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import {
   styles,
   COLORS,
@@ -28,7 +28,7 @@ import {
   NEEDS_UPDATE_LIST,
 } from './Globals'
 
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 import * as _  from 'underscore';
 
 class ManualTestFilters extends Component {

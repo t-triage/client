@@ -4,20 +4,20 @@ import axios from 'axios'
 import Api from './Api'
 import { Link } from 'react-router-dom'
 import {COLORS, styles, TEST_PLAN_STATUS_ALL, TEST_RUN_STATUS} from './Globals';
-import {withStyles} from '@material-ui/core/styles/index';
+import withStyles from '@mui/styles/withStyles';
 
-import Tooltip from "@material-ui/core/Tooltip"
-import Popover from "@material-ui/core/Popover"
-import MenuItem from "@material-ui/core/MenuItem"
-import IconButton from "@material-ui/core/IconButton"
+import Tooltip from "@mui/material/Tooltip"
+import Popover from "@mui/material/Popover"
+import MenuItem from "@mui/material/MenuItem"
+import IconButton from "@mui/material/IconButton"
 
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
-import CheckCircleIcon from "@material-ui/icons/CheckCircle"
-import PlayCircleFilled from "@material-ui/icons/PlayCircleFilled"
-import Edit from '@material-ui/icons/Edit';
-import CancelIcon from "@material-ui/icons/Cancel"
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
+import CheckCircleIcon from "@mui/icons-material/CheckCircle"
+import PlayCircleFilled from "@mui/icons-material/PlayCircleFilled"
+import Edit from '@mui/icons-material/Edit';
+import CancelIcon from "@mui/icons-material/Cancel"
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle"
 import MoreIcon from "../../images/MoreIcon.svg"
 
 import ManualTestRun from './ManualTestRun'
@@ -218,7 +218,7 @@ class ManualTestRunContainer extends Component {
 		let {classes, showRawTestPlan, execution, index, editedComment, statusUpdated} = this.props
 		let test = execution.testCase;
 		return (
-			<div key={`testPlan-test-${index}`} className="manualTestListItem">
+            <div key={`testPlan-test-${index}`} className="manualTestListItem">
 				<div className="manualTestListSummary">
 					<div className="manualTestListText">
 						<div style={{ alignSelf: 'center', padding: '7px 0', width: 'inherit' }} onClick={this.handleExpantion.bind(this)}>
@@ -329,8 +329,7 @@ class ManualTestRunContainer extends Component {
 									tooltip: classes.tooltip,
 									popper: classes.popper,
 								}} title={isExpanded ? "Collapse" : "Expand"}>
-								<IconButton
-									onClick={this.handleExpantion.bind(this, test.id, false)}>
+								<IconButton onClick={this.handleExpantion.bind(this, test.id, false)} size="large">
 									{
 										isExpanded && (
 											<KeyboardArrowUpIcon />
@@ -364,7 +363,7 @@ class ManualTestRunContainer extends Component {
 					)
 				}
 			</div>
-		)
+        );
 	}
 
   render() {

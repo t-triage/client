@@ -3,23 +3,23 @@ import * as _  from "underscore"
 
 // UI Components
 
-import Grid from "@material-ui/core/Grid"
-import FilterIcon from "@material-ui/icons/FilterList"
-import FormControl from "@material-ui/core/FormControl"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import FormGroup from "@material-ui/core/FormGroup"
-import IconButton from "@material-ui/core/IconButton"
-import ListSubheader from "@material-ui/core/ListSubheader"
-import SearchIcon from "@material-ui/icons/Search"
-import Switch from "@material-ui/core/Switch"
-import TextField from "@material-ui/core/TextField"
-import Popover from "@material-ui/core/Popover"
-import Paper from "@material-ui/core/Paper"
-import InputBase from "@material-ui/core/InputBase"
-import ClearIcon from "@material-ui/icons/Clear"
+import Grid from "@mui/material/Grid"
+import FilterIcon from "@mui/icons-material/FilterList"
+import FormControl from "@mui/material/FormControl"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import FormGroup from "@mui/material/FormGroup"
+import IconButton from "@mui/material/IconButton"
+import ListSubheader from "@mui/material/ListSubheader"
+import SearchIcon from "@mui/icons-material/Search"
+import Switch from "@mui/material/Switch"
+import TextField from "@mui/material/TextField"
+import Popover from "@mui/material/Popover"
+import Paper from "@mui/material/Paper"
+import InputBase from "@mui/material/InputBase"
+import ClearIcon from "@mui/icons-material/Clear"
 import Globals from "./Globals"
-import Tooltip from "@material-ui/core/Tooltip"
-import { withStyles } from '@material-ui/core/styles'
+import Tooltip from "@mui/material/Tooltip"
+import withStyles from '@mui/styles/withStyles';
 import { styles } from './Globals'
 
 class SortByAutomatedTests extends Component {

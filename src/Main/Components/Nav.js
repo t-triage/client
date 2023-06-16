@@ -7,25 +7,24 @@ import TTriageLogo from "../../images/ttriage_greylogo.png"
 import { getTimeAgo, renderPopoverWithItems, renderTableWithItems } from './TriageUtils'
 import { Link } from "react-router-dom";
 
-// Colors
-import Blue from "@material-ui/core/colors/blue"
-
 // Icons
-import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight"
-import HelpIcon from "@material-ui/icons/Help"
-import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight"
 
+import HelpIcon from "@mui/icons-material/Help"
+import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 // Components
-import Tooltip from "@material-ui/core/Tooltip"
-import Popover from "@material-ui/core/Popover"
-import Switch from "@material-ui/core/Switch"
-import IconButton from "@material-ui/core/IconButton"
-import Badge from '@material-ui/core/Badge';
-import { withStyles } from '@material-ui/core/styles';
+import Tooltip from "@mui/material/Tooltip"
+
+import Popover from "@mui/material/Popover"
+import Switch from "@mui/material/Switch"
+import IconButton from "@mui/material/IconButton"
+import Badge from '@mui/material/Badge';
+import withStyles from '@mui/styles/withStyles';
 import * as _  from 'underscore';
 import { COLORS } from './Globals'
+import { blue as Blue } from '@mui/material/colors';
 
 class Nav extends Component {
 
@@ -158,7 +157,7 @@ class Nav extends Component {
 			)
 		}
 		return (
-			<header style={{ position: 'fixed', top: 0, zIndex: 1000, width: '100%', backgroundColor: '#F6F6F6' }}>
+            <header style={{ position: 'fixed', top: 0, zIndex: 1000, width: '100%', backgroundColor: '#F6F6F6' }}>
 				<nav className="navBar">
 					<div className={'navOptionsContainer'}>
 						<div ref={this.titleRef} style={{ display: "flex", alignItems: "center" }}>
@@ -215,9 +214,7 @@ class Nav extends Component {
 											popper: classes.popper,
 										}} >
 										<div>
-											<IconButton
-												onClick={this.openActivityList}
-												color="primary">
+											<IconButton onClick={this.openActivityList} color="primary" size="large">
 												<ExploreOutlinedIcon />
 											</IconButton>
 										</div>
@@ -288,7 +285,7 @@ class Nav extends Component {
 
 				</nav>
 			</header>
-		)
+        );
 	}
 }
 

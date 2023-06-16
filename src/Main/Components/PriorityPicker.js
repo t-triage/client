@@ -4,17 +4,17 @@ import axios from 'axios'
 import { priorities, COLORS } from './Globals';
 
 // Components
-import Select from "@material-ui/core/Select"
-import MenuItem from "@material-ui/core/MenuItem"
-import { withStyles } from '@material-ui/core/styles'
-import InputBase from '@material-ui/core/InputBase'
+import Select from "@mui/material/Select"
+import MenuItem from "@mui/material/MenuItem"
+import withStyles from '@mui/styles/withStyles';
+import InputBase from '@mui/material/InputBase'
 
 // Icons
-import PriorityIcon from "@material-ui/icons/TrendingUp"
-import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace"
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
-import KeyboardCapslockIcon from "@material-ui/icons/KeyboardCapslock"
+import PriorityIcon from "@mui/icons-material/TrendingUp"
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace"
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import KeyboardCapslockIcon from "@mui/icons-material/KeyboardCapslock"
 
 const BootstrapInput = withStyles(theme => ({
   input: {

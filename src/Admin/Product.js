@@ -5,57 +5,57 @@ import axios from 'axios'
 import { scrollToTop, TextFieldInput } from './AdminUtils'
 
 // Icons
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import EditIcon from "@material-ui/icons/Edit"
-import AppIcon from "@material-ui/icons/BusinessCenter"
-import FileCopyIcon from "@material-ui/icons/FileCopy"
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import EditIcon from "@mui/icons-material/Edit"
+import AppIcon from "@mui/icons-material/BusinessCenter"
+import FileCopyIcon from "@mui/icons-material/FileCopy"
 
 // UI Components
-import Divider from "@material-ui/core/Divider"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction"
-import IconButton from "@material-ui/core/IconButton"
-import Paper from "@material-ui/core/Paper"
-import Grid from "@material-ui/core/Grid"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardActions from "@material-ui/core/CardActions"
-import Checkbox from "@material-ui/core/Checkbox"
-import Button from "@material-ui/core/Button"
-import ErrorIcon from '@material-ui/icons/Error';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Avatar from "@material-ui/core/Avatar"
-import Tooltip from "@material-ui/core/Tooltip"
-import InputBase from "@material-ui/core/InputBase";
+import Divider from "@mui/material/Divider"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction"
+import IconButton from "@mui/material/IconButton"
+import Paper from "@mui/material/Paper"
+import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
+import Checkbox from "@mui/material/Checkbox"
+import Button from "@mui/material/Button"
+import ErrorIcon from '@mui/icons-material/Error';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import CircularProgress from "@mui/material/CircularProgress"
+import Avatar from "@mui/material/Avatar"
+import Tooltip from "@mui/material/Tooltip"
+import InputBase from "@mui/material/InputBase";
 import { COLORS } from "../Main/Components/Globals";
 import * as _  from "underscore";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import TextField from "@material-ui/core/TextField";
-import { MenuItem } from "@material-ui/core";
-import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import Snackbar from '@material-ui/core/Snackbar';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import InputAdornment from "@mui/material/InputAdornment";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import TextField from "@mui/material/TextField";
+import { MenuItem } from "@mui/material";
+import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { MySnackbarContent, snackbarStyle } from '../Main/Components/Globals'
-import { withStyles } from "@material-ui/core/styles";
+import withStyles from '@mui/styles/withStyles';
 import AlertDialogSlide from '../Main/Components/AlertDialogJira';
 import SideMenu from "./SideMenu"
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
@@ -69,7 +69,7 @@ const triageTests = [
     { value: "false", text: "False" },
 ]
 
-const validJiraServer = (/^https:\/\/[a-zA-Z0-9@:%._+~#=/!$^&*()|`{}\[\]";'<>?,\\\-]+\.atlassian.net$/g);
+const validJiraServer = (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((/^https:\/\/[a-zA-Z0-9@:%._+~#=/!$^&*()|`{}\[\]";'<>?,\\\-]+\.atlassian.net$/g)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
 const validClientId = /[a-zA-Z0-9]{10}/
 const validClientSecret = /[a-zA-Z0-9]{10}/
 const APP_CLIENT_ID = "C7BtxJfyQxkMFP0jXANVA5kJKnjP6Aac";
@@ -846,7 +846,8 @@ export default class Product extends Component {
                                     this.enableEditProduct.bind(this, index)
                                     : null
                             }
-                            aria-label="Edit">
+                            aria-label="Edit"
+                            size="large">
                             <EditIcon />
                         </IconButton>
                     </Tooltip>
@@ -857,7 +858,8 @@ export default class Product extends Component {
                                     this.disableProduct.bind(this, product.id)
                                     : this.enableProduct.bind(this, product)
                             }
-                            aria-label="Delete">
+                            aria-label="Delete"
+                            size="large">
                             {product.enabled && <RemoveCircleIcon />}
                             {!product.enabled && <AddCircleIcon />}
                         </IconButton>
@@ -873,13 +875,14 @@ export default class Product extends Component {
                                     this.copyProduct.bind(this, index)
                                     : null
                             }
-                            aria-label="Copy">
+                            aria-label="Copy"
+                            size="large">
                             <FileCopyIcon />
                         </IconButton>
                     </Tooltip>
                 </ListItemSecondaryAction>
             </ListItem>
-        )
+        );
     }
 
     renderList = () => {
@@ -1049,7 +1052,8 @@ export default class Product extends Component {
                                         <IconButton
                                             onClick={this.removeRepository.bind(this, index)}
                                             style={{ padding: '0px 6px' }}
-                                            aria-label="Remove Repository">
+                                            aria-label="Remove Repository"
+                                            size="large">
                                             <RemoveCircleIcon />
                                         </IconButton>
                                     </Tooltip>
@@ -1057,8 +1061,8 @@ export default class Product extends Component {
                             </Grid>
                         } />
                 </ListItem>
-            )
-        })
+            );
+        });
     }
 
     tryTest(ev) {
@@ -2194,7 +2198,7 @@ export default class Product extends Component {
                                                                                                 <IconButton
                                                                                                     aria-label="Toggle password visibility"
                                                                                                     onClick={() => this.setState({ showNewPassword: !showNewPassword })}
-                                                                                                >
+                                                                                                    size="large">
                                                                                                     {showNewPassword ?
                                                                                                         <Visibility /> :
                                                                                                         <VisibilityOff />}
@@ -2216,7 +2220,8 @@ export default class Product extends Component {
                                                                                             <IconButton
                                                                                                 onClick={this.addRepository.bind(this)}
                                                                                                 style={{ padding: '0px 6px' }}
-                                                                                                aria-label="Add Repository">
+                                                                                                aria-label="Add Repository"
+                                                                                                size="large">
                                                                                                 <AddCircleIcon />
                                                                                             </IconButton>
                                                                                         </Tooltip>
@@ -2330,6 +2335,6 @@ export default class Product extends Component {
                     </form>
                 </div>
             </div>
-        )
+        );
     }
 }

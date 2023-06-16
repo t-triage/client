@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import * as _  from "underscore"
 import ChartOptionsBar from './ChartOptionsBar'
 import {BAR_CHART_TEXTS} from './InsightsUtils'
-import Tooltip from "@material-ui/core/Tooltip"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import {withStyles} from '@material-ui/core/styles';
-import HelpIcon from "@material-ui/icons/Help"
+import Tooltip from "@mui/material/Tooltip"
+import CircularProgress from "@mui/material/CircularProgress"
+import withStyles from '@mui/styles/withStyles';
+import HelpIcon from "@mui/icons-material/Help"
 import {styles, COLORS} from '../Main/Components/Globals'
 
 import {

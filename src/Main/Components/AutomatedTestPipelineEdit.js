@@ -2,20 +2,20 @@ import React, {Component} from 'react'
 import Api from "./Api"
 import axios from 'axios'
 
-import Grid from "@material-ui/core/Grid"
-import TextField from "@material-ui/core/TextField"
-import MenuItem from "@material-ui/core/MenuItem"
-import Button from "@material-ui/core/Button"
+import Grid from "@mui/material/Grid"
+import TextField from "@mui/material/TextField"
+import MenuItem from "@mui/material/MenuItem"
+import Button from "@mui/material/Button"
 import {COLORS, TEST_PLAN_STATUS, getDayInYear, checkDateBeforeToday} from './Globals'
-import Tooltip from "@material-ui/core/Tooltip";
-import Checkbox from "@material-ui/core/Checkbox";
-import Avatar from "@material-ui/core/Avatar";
-import Blue from "@material-ui/core/colors/blue";
+import Tooltip from "@mui/material/Tooltip";
+import Checkbox from "@mui/material/Checkbox";
+import Avatar from "@mui/material/Avatar";
 import {getTriageFrequencyCron, HourList, PriorityList, TextFieldInput, WeekList} from "../../Admin/AdminUtils";
-import Select from "@material-ui/core/Select";
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
+import Select from "@mui/material/Select";
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import UserPicker from "./UserPicker";
+import { blue as Blue } from '@mui/material/colors';
 
 const EMPTY_PIPELINE = {
     id: '',

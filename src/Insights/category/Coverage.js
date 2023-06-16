@@ -4,10 +4,10 @@ import axios from 'axios'
 import HorizontalBarChart from '../HorizontalBarChart'
 import CoverageDialogContent from '../CoverageDialogContent'
 
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
 import {COLORS, styles} from '../../Main/Components/Globals'
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 import * as _  from 'underscore';
 import {renderCoverageChartDialog} from '../../Main/Components/TriageUtils';
 
@@ -79,22 +79,22 @@ class Coverage extends Component {
   render() {
     let {productCoverage, dialogIsOpen, bar} = this.state
     return (
-      <div style={{ width: '100%' }}>
-        <Grid container spacing={24} justify="center">
-            <Grid item xs={10}>
-                <Paper className='chartBigContainer'>
-                    <HorizontalBarChart
-                        data={productCoverage}
-                        type='productCoverage'
-												onBarClick={this.onBarClick.bind(this)}
-                    />
-                </Paper>
-            </Grid>
-        </Grid>
-				{renderCoverageChartDialog(dialogIsOpen, this.onCloseDialog.bind(this), <CoverageDialogContent bar={bar} />, bar ? bar.name : '')
-				}
-      </div>
-    )
+        <div style={{ width: '100%' }}>
+          <Grid container spacing={24} justifyContent="center">
+              <Grid item xs={10}>
+                  <Paper className='chartBigContainer'>
+                      <HorizontalBarChart
+                          data={productCoverage}
+                          type='productCoverage'
+                                                  onBarClick={this.onBarClick.bind(this)}
+                      />
+                  </Paper>
+              </Grid>
+          </Grid>
+                  {renderCoverageChartDialog(dialogIsOpen, this.onCloseDialog.bind(this), <CoverageDialogContent bar={bar} />, bar ? bar.name : '')
+                  }
+        </div>
+    );
   }
 }
 

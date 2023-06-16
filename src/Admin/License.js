@@ -5,21 +5,21 @@ import axios from 'axios'
 
 import { COLORS } from "../Main/Components/Globals"
 
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
-import Button from "@material-ui/core/Button"
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio'
-import RadioGroup from '@material-ui/core/RadioGroup'
-import ErrorIcon from '@material-ui/icons/Error';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardActions from '@mui/material/CardActions'
+import Button from "@mui/material/Button"
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
+import ErrorIcon from '@mui/icons-material/Error';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CircularProgress from '@mui/material/CircularProgress';
 import { TextFieldInput } from './AdminUtils'
-import Snackbar from "@material-ui/core/Snackbar"
-import { withStyles } from '@material-ui/core/styles'
+import Snackbar from "@mui/material/Snackbar"
+import withStyles from '@mui/styles/withStyles';
 import { MySnackbarContent, snackbarStyle } from '../Main/Components/Globals'
 
 import SideMenu from './SideMenu'

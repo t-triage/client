@@ -18,41 +18,41 @@ import {
   extraDataTooltip,
 } from './AdminUtils'
 
-import Blue from "@material-ui/core/colors/blue"
-
 // Icons
-import FolderIcon from "@material-ui/icons/Folder"
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import EditIcon from "@material-ui/icons/Edit"
-import RotateRightIcon from "@material-ui/icons/RotateRight"
-import FileCopyIcon from "@material-ui/icons/FileCopy"
+import FolderIcon from "@mui/icons-material/Folder"
 
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import EditIcon from "@mui/icons-material/Edit"
+import RotateRightIcon from "@mui/icons-material/RotateRight"
+import FileCopyIcon from "@mui/icons-material/FileCopy"
 // UI Components
-import TextField from "@material-ui/core/TextField"
-import Grid from "@material-ui/core/Grid"
-import Divider from "@material-ui/core/Divider"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction"
-import IconButton from "@material-ui/core/IconButton"
-import Paper from "@material-ui/core/Paper"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardActions from "@material-ui/core/CardActions"
-import Button from "@material-ui/core/Button"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import Avatar from "@material-ui/core/Avatar"
-import MenuItem from "@material-ui/core/MenuItem"
-import Checkbox from "@material-ui/core/Checkbox"
-import Tooltip from "@material-ui/core/Tooltip"
-import Snackbar from "@material-ui/core/Snackbar"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import { withStyles } from '@material-ui/core/styles'
+import TextField from "@mui/material/TextField"
 
+import Grid from "@mui/material/Grid"
+import Divider from "@mui/material/Divider"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction"
+import IconButton from "@mui/material/IconButton"
+import Paper from "@mui/material/Paper"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
+import Button from "@mui/material/Button"
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import Avatar from "@mui/material/Avatar"
+import MenuItem from "@mui/material/MenuItem"
+import Checkbox from "@mui/material/Checkbox"
+import Tooltip from "@mui/material/Tooltip"
+import Snackbar from "@mui/material/Snackbar"
+import CircularProgress from "@mui/material/CircularProgress"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import withStyles from '@mui/styles/withStyles';
 import SideMenu from "./SideMenu"
+
+import { blue as Blue } from '@mui/material/colors';
 
 const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
@@ -569,77 +569,81 @@ export default class Connector extends Component {
 
     getListItem(container, index) {
       return (
-            <ListItem key={container.id} style={{ opacity: !container.enabled ? '.5' : '1' }}>
-            <ListItemAvatar>
-                <Avatar>
-                    <FolderIcon />
-                </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-                primary={container.name}
-                secondary={container.description}
-            />
-            <ListItemSecondaryAction>
-                <Tooltip title={'Pull tests from CI'}>
-                    <IconButton
-                        style={{
-                          opacity: container.enabled ? '1' : '.5',
-                          cursor: container.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                          container.enabled ?
-                              this.openActionDialog.bind(this, container.id)
+          <ListItem key={container.id} style={{ opacity: !container.enabled ? '.5' : '1' }}>
+          <ListItemAvatar>
+              <Avatar>
+                  <FolderIcon />
+              </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+              primary={container.name}
+              secondary={container.description}
+          />
+          <ListItemSecondaryAction>
+              <Tooltip title={'Pull tests from CI'}>
+                  <IconButton
+                      style={{
+                        opacity: container.enabled ? '1' : '.5',
+                        cursor: container.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                        container.enabled ?
+                            this.openActionDialog.bind(this, container.id)
+                        :   null
+                      }
+                      aria-label="Populate"
+                      size="large">
+                      <RotateRightIcon />
+                  </IconButton>
+              </Tooltip>
+              <Tooltip title={'Edit'}>
+                  <IconButton
+                      style={{
+                        opacity: container.enabled ? '1' : '.5',
+                        cursor: container.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                          container.enabled ?//********** UNO *************
+                              this.enableEditContainer.bind(this, index, null)
                           :   null
-                        }
-                        aria-label="Populate">
-                        <RotateRightIcon />
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title={'Edit'}>
-                    <IconButton
-                        style={{
-                          opacity: container.enabled ? '1' : '.5',
-                          cursor: container.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            container.enabled ?//********** UNO *************
-                                this.enableEditContainer.bind(this, index, null)
-                            :   null
-                        }
-                        aria-label="Edit">
-                        <EditIcon />
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title={container.enabled ? 'Deactivate' : 'Activate'}>
-                    <IconButton
-                        onClick={
+                      }
+                      aria-label="Edit"
+                      size="large">
+                      <EditIcon />
+                  </IconButton>
+              </Tooltip>
+              <Tooltip title={container.enabled ? 'Deactivate' : 'Activate'}>
+                  <IconButton
+                      onClick={
+                        container.enabled ?
+                          this.disableContainer.bind(this, container.id)
+                        : this.enableContainer.bind(this, container)
+                      }
+                      aria-label="Delete"
+                      size="large">
+                      { container.enabled && <RemoveCircleIcon /> }
+                      { !container.enabled && <AddCircleIcon /> }
+                  </IconButton>
+              </Tooltip>
+              <Tooltip title={"Copy"}>
+                  <IconButton
+                      style={{
+                        opacity: container.enabled ? '1' : '.5',
+                        cursor: container.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
                           container.enabled ?
-                            this.disableContainer.bind(this, container.id)
-                          : this.enableContainer.bind(this, container)
-                        }
-                        aria-label="Delete">
-                        { container.enabled && <RemoveCircleIcon /> }
-                        { !container.enabled && <AddCircleIcon /> }
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title={"Copy"}>
-                    <IconButton
-                        style={{
-                          opacity: container.enabled ? '1' : '.5',
-                          cursor: container.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            container.enabled ?
-                                this.copyContainer.bind(this, index, null)
-                            :   null
-                        }
-                        aria-label="Copy">
-                        <FileCopyIcon />
-                    </IconButton>
-                </Tooltip>
-            </ListItemSecondaryAction>
-        </ListItem>
-      )
+                              this.copyContainer.bind(this, index, null)
+                          :   null
+                      }
+                      aria-label="Copy"
+                      size="large">
+                      <FileCopyIcon />
+                  </IconButton>
+              </Tooltip>
+          </ListItemSecondaryAction>
+      </ListItem>
+      );
     }
 
     renderList = () => {

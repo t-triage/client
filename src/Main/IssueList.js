@@ -3,19 +3,19 @@ import Api from "./Components/Api"
 import axios from 'axios'
 
 //UI Components
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Table from "@material-ui/core/Table"
-import TableHead from "@material-ui/core/TableHead"
-import TableRow from "@material-ui/core/TableRow"
-import TableCell from "@material-ui/core/TableCell"
-import TableBody from "@material-ui/core/TableBody"
-import TablePagination from "@material-ui/core/TablePagination"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Typography from "@material-ui/core/Typography"
-import Tooltip from "@material-ui/core/Tooltip"
-import IconButton from "@material-ui/core/IconButton"
-import HelpIcon from "@material-ui/icons/Help"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Table from "@mui/material/Table"
+import TableHead from "@mui/material/TableHead"
+import TableRow from "@mui/material/TableRow"
+import TableCell from "@mui/material/TableCell"
+import TableBody from "@mui/material/TableBody"
+import TablePagination from "@mui/material/TablePagination"
+import CircularProgress from "@mui/material/CircularProgress"
+import Typography from "@mui/material/Typography"
+import Tooltip from "@mui/material/Tooltip"
+import IconButton from "@mui/material/IconButton"
+import HelpIcon from "@mui/icons-material/Help"
 
 import Nav from "./Components/Nav"
 
@@ -144,14 +144,14 @@ class IssueList extends Component {
                                 nextIconButtonProps={{
                                     'aria-label': 'Next Page',
                                 }}
-                                onChangePage={() => {}}
+                                onPageChange={() => {}}
                             />
                         </Grid>
                     </Grid>
                 </Paper>
             </main>
         </div>
-    )
+    );
   }
 
 }

@@ -4,23 +4,23 @@ import "../styles/home.scss"
 import { Link } from 'react-router-dom'
 // Icons
 import TTriageLogo from "../images/ttriage_isologo.png"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import CategoryIcon from '@material-ui/icons/Category';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import GroupIcon from '@material-ui/icons/Group';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import PaymentIcon from '@material-ui/icons/Payment';
-import TocIcon from '@material-ui/icons/Toc';
-import SettingsIcon from '@material-ui/icons/Settings';
-import ImportContactsIcon from '@material-ui/icons/ImportContacts';
-import LabelImportantIcon from '@material-ui/icons/LabelImportant';
+import ListItemIcon from "@mui/material/ListItemIcon"
+import CategoryIcon from '@mui/icons-material/Category';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import GroupIcon from '@mui/icons-material/Group';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PaymentIcon from '@mui/icons-material/Payment';
+import TocIcon from '@mui/icons-material/Toc';
+import SettingsIcon from '@mui/icons-material/Settings';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 
 // UI Components
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import List from "@material-ui/core/List"
-import Paper from "@material-ui/core/Paper"
-import Divider from "@material-ui/core/Divider"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import List from "@mui/material/List"
+import Paper from "@mui/material/Paper"
+import Divider from "@mui/material/Divider"
 
 class SideMenu extends Component {
 

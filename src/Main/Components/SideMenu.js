@@ -8,28 +8,28 @@ import {Link} from 'react-router-dom'
 import {logout} from './Globals'
 // Icons
 import TTriageLogo from "../../images/ttriage_isologo.png"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import AssignmentIcon from "@material-ui/icons/LocalLibrary"
-import BuildIcon from "@material-ui/icons/Build"
-import TrendingUpIcon from "@material-ui/icons/TrendingUp"
-import BarChartIcon from '@material-ui/icons/BarChart';
-import BugReportIcon from "@material-ui/icons/BugReport"
-import DashboardIcon from "@material-ui/icons/Dashboard"
-import PlayArrowIconIcon from "@material-ui/icons/PlayArrow"
-import NoteAddIcon from "@material-ui/icons/NoteAdd"
-import LockIcon from '@material-ui/icons/Lock';
-import AdbIcon from '@material-ui/icons/Adb';
-import ExitIcon from "@material-ui/icons/ExitToApp"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
+import IconButton from "@mui/material/IconButton"
+import MenuIcon from "@mui/icons-material/Menu"
+import AssignmentIcon from "@mui/icons-material/LocalLibrary"
+import BuildIcon from "@mui/icons-material/Build"
+import TrendingUpIcon from "@mui/icons-material/TrendingUp"
+import BarChartIcon from '@mui/icons-material/BarChart';
+import BugReportIcon from "@mui/icons-material/BugReport"
+import DashboardIcon from "@mui/icons-material/Dashboard"
+import PlayArrowIconIcon from "@mui/icons-material/PlayArrow"
+import NoteAddIcon from "@mui/icons-material/NoteAdd"
+import LockIcon from '@mui/icons-material/Lock';
+import AdbIcon from '@mui/icons-material/Adb';
+import ExitIcon from "@mui/icons-material/ExitToApp"
+import ListItemIcon from "@mui/material/ListItemIcon"
 import { Icon, InlineIcon } from '@iconify/react';
 import roundMediation from '@iconify/icons-ic/round-mediation';
 // UI Components
-import Drawer from "@material-ui/core/Drawer"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import List from "@material-ui/core/List"
-import Grid from "@material-ui/core/Grid"
+import Drawer from "@mui/material/Drawer"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import List from "@mui/material/List"
+import Grid from "@mui/material/Grid"
 import ChangePasswordDialog from "./ChangePasswordDialog"
 
 class SideMenu extends Component {
@@ -80,7 +80,7 @@ class SideMenu extends Component {
         let {selectedContainerID} = this.props
         return (
             <div>
-            <IconButton aria-label="Menu" onClick={this.toggleMenu}>
+            <IconButton aria-label="Menu" onClick={this.toggleMenu} size="large">
                 <MenuIcon style={{ position: "relative" }} fontSize="large"/>
                 <Drawer open={this.state.isMenuOpen} onClose={this.toggleMenu}>
                     <List className="sideMenuList">
@@ -198,7 +198,7 @@ class SideMenu extends Component {
             </IconButton>
 							{<ChangePasswordDialog isOpen={showChangePasswordDialog} onClose={this.onCloseShowPasswordDialog.bind(this)} />}
             </div>
-        )
+        );
     }
 }
 export default SideMenu;

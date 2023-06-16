@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Api from "../../Main/Components/Api"
-import {Grid, Paper} from "@material-ui/core"
+import {Grid, Paper} from "@mui/material"
 import {styles} from '../../Main/Components/Globals'
-import {withStyles} from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 import TestExecutedChart from '../TestExecutedChart'
 import TestComponent from '../TestComponent'
 import moment from 'moment';
@@ -61,7 +61,7 @@ class ManualTest extends Component {
      const {newDataFilter}=this.state
         return (
             <div style={{ width: '100%' }}>
-                <Grid container spacing={24} justify="center">
+                <Grid container spacing={24} justifyContent="center">
                     <Grid item xs={10}>
                         <Paper className='chartBigContainer'>
                             <SelectDate  handleFilter={this.handleFilter} />
@@ -79,7 +79,7 @@ class ManualTest extends Component {
                     </Grid>
                 </Grid>
             </div>
-        )
+        );
     }
 }
 

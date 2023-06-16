@@ -10,7 +10,7 @@ import Triage from "./Triage"
 import PipelineKanban from "./PipelineKanban"
 import PipelineList from "./PipelineList"
 
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@mui/styles/withStyles';
 import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS, snackbarStyle, PipeStage } from './Components/Globals'
 const workspaceUrl = WIKI_URL + 'docs/DOC-7272'
 const kanbanUrl = WIKI_URL + 'docs/DOC-7272'

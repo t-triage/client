@@ -3,9 +3,9 @@ import Api from "../../Main/Components/Api"
 import axios from 'axios'
 import CircularChart from '../CircularChart'
 import TriagesForDayChart from '../TriagesForDayChart'
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Button from "@mui/material/Button"
 
 export default class AutomationEngine extends Component {
   state = {
@@ -92,7 +92,7 @@ export default class AutomationEngine extends Component {
               onClick={this.downloadUserReport.bind(this)}
               color="primary">Download Report</Button>
         </div>
-        <Grid container spacing={24} justify="center">
+        <Grid container spacing={24} justifyContent="center">
             <Grid item xs={10}>
                 <Paper className='chartBigContainer'>
                   <TriagesForDayChart />
@@ -112,6 +112,6 @@ export default class AutomationEngine extends Component {
             </Grid>
         </Grid>
       </div>
-    )
+    );
   }
 }
