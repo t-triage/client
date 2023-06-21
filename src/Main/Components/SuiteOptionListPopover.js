@@ -21,7 +21,6 @@ class SuiteOptionListPopover extends Component{
         executorID: null,
         userRole: null,
         suiteListOptionsOpen: false,
-        freeLicense: true,
     }
 
     componentDidMount() {
@@ -34,25 +33,12 @@ class SuiteOptionListPopover extends Component{
 
     componentWillMount() {
         this.fetchUserRole()
-        this.fetchLicense();
     }
   
     fetchUserRole() {
         this.setState({
           userRole: JSON.parse(sessionStorage.getItem("currentUser")).roleType,
         })
-    }
-
-    fetchLicense() {
-        axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetLicense)
-            .then(res => {
-                let license = res.data
-                if (!!license) {
-                    this.setState({
-                        freeLicense: license.free
-                    })
-                }
-            })
     }
 
     onMenuItemClick(actionDialogType, suite, dialogResponseData=null) {
@@ -116,7 +102,7 @@ class SuiteOptionListPopover extends Component{
                     {
                         this.userIsAdmin() && (
                             <React.Fragment>
-                                <MenuItem onClick={this.onMenuItemClick.bind(this, 'setGoals', suite)} disabled={this.state.freeLicense}>
+                                <MenuItem onClick={this.onMenuItemClick.bind(this, 'setGoals', suite)}>
                                     <div className="suiteListMenu">SET GOALS</div>
                                     <FlipToFrontIcon className="kanbanActionButtonIcon" color="action" />
                                 </MenuItem>

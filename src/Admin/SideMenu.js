@@ -68,12 +68,6 @@ class SideMenu extends Component {
                                         <ListItemText className={"itemText"} primary="Users" />
                                     </ListItem>
                                 </Link>
-                                <Link style={{ textDecoration: 'none' }} to="/Admin/License">
-                                    <ListItem className={"itemContent"} button key="licenseList">
-                                        <ListItemIcon className={"itemIcon"}><PaymentIcon /></ListItemIcon>
-                                        <ListItemText className={"itemText"} primary="License" />
-                                    </ListItem>
-                                </Link>
                                 <Link style={{ textDecoration: 'none' }} to="/Admin/Logs">
                                     <ListItem className={"itemContent"} button key="logsList">
                                         <ListItemIcon className={"itemIcon"}><ImportContactsIcon /></ListItemIcon>

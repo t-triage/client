@@ -31,7 +31,6 @@ import Connector from "./Admin/Connectors"
 import Container from "./Admin/Containers"
 import Properties from "./Admin/Properties"
 import Users from "./Admin/Users"
-import License from "./Admin/License"
 
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
@@ -247,10 +246,6 @@ class App extends Component {
                                         <Route path="/Admin/Users" render={
                                           currentUser && currentUser.roleType === "ROLE_ADMIN" ?
                                           () => <Users/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin/License" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <License/> : () => <Redirect to="/SuiteList" />
                                         }/>
                                         <Route path="/Admin/Logs" render={
                                           currentUser && currentUser.roleType === "ROLE_ADMIN" ?

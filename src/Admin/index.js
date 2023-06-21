@@ -11,7 +11,6 @@ import Connectors from "./Connectors"
 import Containers from "./Containers"
 import Properties from "./Properties"
 import Users from "./Users"
-import License from "./License"
 import Setup from "./Setup"
 import CopyrightFooter from "../Main/Components/CopyrightFooter"
 
@@ -27,7 +26,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import {renderTableWithItems} from '../Main/Components/TriageUtils';
 import {WIKI_URL} from "../Main/Components/Globals";
 
-var NavValues = ["back", "products", "milestones", "ci connectors", "ci containers", "properties", "users", "license", "wizard"]
+var NavValues = ["back", "products", "milestones", "ci connectors", "ci containers", "properties", "users", "wizard"]
 
 
 export default class Admin extends Component {
@@ -38,7 +37,6 @@ export default class Admin extends Component {
             showVideo: false,
             helpEnabled: false,
             showSetup: false,
-            expiredLicense: false,
             loading: true,
         }
         
@@ -79,18 +77,6 @@ export default class Admin extends Component {
 
             this.enableSetup();
         }
-
-        this.fetchLicense();
-    }
-
-    fetchLicense() {
-        axios.get(Api.getBaseUrl() + Api.ENDPOINTS.CheckLicenseExpiry)
-            .then(res => {
-                this.setState({
-                    expiredLicense: res.data,
-                    loading: false,
-                })
-            })
     }
 
     enableSetup() {
@@ -143,8 +129,6 @@ export default class Admin extends Component {
             case 6:
                 return <Users />
             case 7:
-                return <License reloadLicense={this.fetchLicense.bind(this)}/>
-            case 8:
                 return <Setup />
         }
     }
@@ -173,29 +157,6 @@ export default class Admin extends Component {
       }
 
       return url;
-    }
-
-    renderLicenseNotification = () => {
-        let message = "The license is expired, please contact support\xa0";
-        let email = (
-            <a href="mailto:info@ttriage.com">
-                info@ttriage.com
-            </a>
-        )
-
-        return (
-            <div className="CenterList">
-                <div className="Containers-Form">
-                    <Paper>
-                        {/* Aplicar estilos usando clases en vez de usar inline style */}
-                        <div style={{marginTop: "20px", padding: "16px", display: "flex", alignItems: "center", color: "#f00000"}}>
-                            <ErrorIcon color="secondary" style={{marginRight:"16px"}}/>
-                            {message} {email}
-                        </div>
-                    </Paper>
-                </div>
-            </div>
-        )
     }
 
     renderNavTabs = () => {
@@ -267,7 +228,7 @@ export default class Admin extends Component {
     }
 
     render() {
-        let { helpEnabled, showVideo, navValue, expiredLicense, loading } = this.state;
+        let { helpEnabled, showVideo, navValue, loading } = this.state;
         
         let helpItems = this.getHelpItems();
 
@@ -293,7 +254,7 @@ export default class Admin extends Component {
                             <CircularProgress color="primary" />
                         </div>
                     :
-                        (NavValues[navValue] != "wizard" && expiredLicense && this.renderLicenseNotification())
+                        (NavValues[navValue] != "wizard")
                     }
                     {this.renderCurrentTab()}
                 </main>

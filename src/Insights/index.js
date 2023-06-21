@@ -45,7 +45,6 @@ export default class Insights extends Component {
 			helpEnabled: false,
 			currentUser: null,
       navValue: 0,
-      freeLicense: true,
     }
 		this.helpItems= [
 		    [
@@ -90,18 +89,6 @@ export default class Insights extends Component {
     })
   }
 
-  fetchLicense() {
-    axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetLicense)
-      .then(res => {
-          let license = res.data
-          if (!!license) {
-              this.setState({
-                  freeLicense: license.free
-              })
-          }
-      })
-  }
-
   componentWillMount() {
     document.title = "t-Triage - Insights"
     let urlNavValue = this.props.match.params.navValue
@@ -138,7 +125,6 @@ export default class Insights extends Component {
             this.setState({ achievedDeadlines: res.data })
         })
     this.getCurrentUser()
-    this.fetchLicense()
   }
 
   changeTab = (ev, value) => {
@@ -147,10 +133,8 @@ export default class Insights extends Component {
   }
 
   validateNav = (navValue) => {
-    let {freeLicense} = this.state;
-
-    if (navValue == 'trend-goals' || navValue == 'trend goals')
-      return !freeLicense
+    if (navValue == 'trend-goals')
+      return false
     else
       return true
   }
