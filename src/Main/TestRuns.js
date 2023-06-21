@@ -378,24 +378,26 @@ class TestRuns extends Component {
             this.applyFilter(this.state.filters.filterByPendingStatus)
         })
     }
-
-    applyFilter(filterByPending) {
-        let {testPlanList} = this.state
-        if (filterByPending) {
-            let filteredPlanList = testPlanList.filter(item => item.status === 'PENDING'
-                                                            || item.status === 'PAUSED'
-                                                            || item.status === 'BLOCKED'
-                                                            || item.status === 'ALERT'
-                                                            || item.status === 'UNDEFINED');
-            this.setState({
-                filteredPlanList,
-            })
-        } else {
-            this.setState({
-                filteredPlanList: testPlanList,
-            })
+    
+        applyFilter(filterByPending) {
+        setTimeout(() => {
+            let {testPlanList} = this.state
+            if (filterByPending) {
+                let filteredPlanList = testPlanList.filter(item => item.status === 'PENDING'
+                    || item.status === 'PAUSED'
+                    || item.status === 'BLOCKED'
+                    || item.status === 'ALERT'
+                    || item.status === 'UNDEFINED');
+                this.setState({
+                    filteredPlanList,
+                })
+            } else {
+                this.setState({
+                    filteredPlanList: testPlanList,
+                })
+            }
+        }, 3000);
         }
-    }
 
 
 render() {
