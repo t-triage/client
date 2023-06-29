@@ -292,18 +292,19 @@ export const renderTableWithItems = (selector, isOpen=false, itemsArrays=[], use
                                             </Grow>
                                         </Popover>
                                     ) : (
-                                        <Grow
-                                            in={!showVideo}
-                                            timeout={100}>
                                             <ReactPlayer
                                                 url={item.videoURL}
                                                 controls={true}
                                                 playing={false}
-                                                onPlay={() => onShowVideo && onShowVideo()}
+                                                // onPlay={() => onShowVideo && onShowVideo()}
                                                 width={"190px"}
                                                 height={"110px"}
                                             />
-                                        </Grow>
+                                        // <Grow
+                                        //     in={!showVideo}
+                                        //     timeout={100}>
+                                        //
+                                        // </Grow>
                                     )): null}
                                 </div>
                             </div>
