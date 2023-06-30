@@ -9,9 +9,6 @@ import Slide from '@mui/material/Slide';
 import {COLORS} from "../../Main/Components/Globals";
 import { CardActions } from '@mui/material';
 
-// function Transition(props) {
-//     return <Slide direction="up" {...props} />;
-// }
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });

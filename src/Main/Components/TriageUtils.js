@@ -296,15 +296,9 @@ export const renderTableWithItems = (selector, isOpen=false, itemsArrays=[], use
                                                 url={item.videoURL}
                                                 controls={true}
                                                 playing={false}
-                                                // onPlay={() => onShowVideo && onShowVideo()}
                                                 width={"190px"}
                                                 height={"110px"}
                                             />
-                                        // <Grow
-                                        //     in={!showVideo}
-                                        //     timeout={100}>
-                                        //
-                                        // </Grow>
                                     )): null}
                                 </div>
                             </div>
