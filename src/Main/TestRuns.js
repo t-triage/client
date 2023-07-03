@@ -97,19 +97,19 @@ class TestRuns extends Component {
   }
 
   fetchTestPlanList() {
-    axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetTestPlanList)
-      .then(res => {
-          this.setState({
-            testPlanList: res.data.content,
-          })
-          this.applyFilter(this.state.filters.filterByPendingStatus)
-      })
-      axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetTestPlanReport)
-			.then(res => {
-                this.setState({
-					testPlanReport: res.data,
-				})
-            })
+          axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetTestPlanList)
+              .then(res => {
+                  this.setState({
+                      testPlanList: res.data.content,
+                  })
+                  this.applyFilter(this.state.filters.filterByPendingStatus)
+              })
+          axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetTestPlanReport)
+              .then(res => {
+                  this.setState({
+                      testPlanReport: res.data,
+                  })
+              })
   }
 
   fetchCurrentUser() {
@@ -380,21 +380,23 @@ class TestRuns extends Component {
     }
 
     applyFilter(filterByPending) {
-        let {testPlanList} = this.state
-        if (filterByPending) {
-            let filteredPlanList = testPlanList.filter(item => item.status === 'PENDING'
-                                                            || item.status === 'PAUSED'
-                                                            || item.status === 'BLOCKED'
-                                                            || item.status === 'ALERT'
-                                                            || item.status === 'UNDEFINED');
-            this.setState({
-                filteredPlanList,
-            })
-        } else {
-            this.setState({
-                filteredPlanList: testPlanList,
-            })
-        }
+        setTimeout(() => {
+            let {testPlanList} = this.state
+            if (filterByPending) {
+                let filteredPlanList = testPlanList.filter(item => item.status === 'PENDING'
+                    || item.status === 'PAUSED'
+                    || item.status === 'BLOCKED'
+                    || item.status === 'ALERT'
+                    || item.status === 'UNDEFINED');
+                this.setState({
+                    filteredPlanList,
+                })
+            } else {
+                this.setState({
+                    filteredPlanList: testPlanList,
+                })
+            }
+        }, 100)
     }
 
 
