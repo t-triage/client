@@ -266,7 +266,7 @@ class Nav extends Component {
 								</Popover>
 							</div>
 							<Tooltip title={!helpEnabled ? "Enable help" : "Disable help"}>
-								<div>
+								<div style={{marginTop: 5}}>
 									<Switch
 										checked={helpEnabled}
 										icon={<HelpIcon className={"helpUncheckedIcon"} />}
@@ -274,6 +274,7 @@ class Nav extends Component {
 										onChange={this.props.onHelpClick("helpEnabled")}
 										value="helpEnabled"
 										color="primary"
+										style={{height:39}}
 									/>
 								</div>
 
