@@ -94,7 +94,7 @@ class SideMenu extends Component {
                     <div className={"sideMenuBottomIcon"}>
                         <a
                             target="_blank"
-                            href="https://www.ttriage.com">
+                            href="https://www.clarolab.com/ttriage/">
                             <img
                                 src={TTriageLogo}
                                 style={{
