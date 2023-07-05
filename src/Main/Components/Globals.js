@@ -62,8 +62,7 @@ export const DEFAULT_PIPELINE_FILTERS = {
   name: null,
 }
 
-export const WIKI_URL = "http://wiki.clarolab.com/";
-
+export const GITBOOK_URL = "https://t-triage.gitbook.io/";
 export const BOARD_ACTIVITY_TYPE_ICONS = [
 	{ id: 0, type: "BUILD_TRIAGE_GENERATED_FOR_EXECUTOR", icon: <RestoreIcon /> },
 	{ id: 1, type: "BUILD_TRIAGED", icon: <TrendingUpIcon /> },

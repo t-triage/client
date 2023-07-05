@@ -40,7 +40,7 @@ import {
     TEST_PLAN_STATUS_ALL,
     snackbarStyle,
     MySnackbarContent,
-    WIKI_URL
+    GITBOOK_URL
 } from '../Components/Globals'
 import {ShareTestButton} from "../Components/ShareTestButton";
 import {TestListItem} from "./TestListItem";
@@ -119,7 +119,7 @@ class TestRepository extends Component {
                 },
                 {
                     title: 'DOCUMENTATION',
-                    text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-7103"}>HERE</a>`
+                    text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/manual-test-cases"}>HERE</a>`
                 },
                 {
                     title: null,

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import {styles, WIKI_URL} from "./Globals";
+import {styles, GITBOOK_URL} from "./Globals";
 import withStyles from '@mui/styles/withStyles';
 
 // UI Components
@@ -258,7 +258,7 @@ class PipelineOptionListPopover extends Component{
 
                         <div style={{marginBottom: 10}}>
                             <label>See more at: wiki link (
-                                <a href={WIKI_URL + "docs/DOC-7272"} target="_blank"> {WIKI_URL + "docs/DOC-7272"} </a>
+                                <a href={GITBOOK_URL + "docs/user-guide/pipeline-checkpoints"} target="_blank"> {GITBOOK_URL + "docs/user-guide/pipeline-checkpoints"} </a>
                                 )</label>
 
                         </div>

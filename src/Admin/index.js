@@ -24,7 +24,7 @@ import HelpIcon from "@mui/icons-material/Help"
 import ErrorIcon from '@mui/icons-material/Error';
 import CircularProgress from '@mui/material/CircularProgress';
 import {renderTableWithItems} from '../Main/Components/TriageUtils';
-import {WIKI_URL} from "../Main/Components/Globals";
+import {GITBOOK_URL} from "../Main/Components/Globals";
 
 var NavValues = ["back", "products", "milestones", "ci connectors", "ci containers", "properties", "users", "wizard"]
 
@@ -137,22 +137,22 @@ export default class Admin extends Component {
       let url = ''
       switch (this.state.navValue) {
         case 1:
-          url = WIKI_URL + 'docs/DOC-6975#jive_content_id_Products'
+          url = GITBOOK_URL + 'docs/administration-guide/products'
           break;
         case 2:
-          url = WIKI_URL + 'docs/DOC-6975#jive_content_id_Milestones'
+          url = GITBOOK_URL + 'docs/administration-guide/milestones'
           break;
         case 3:
-          url = WIKI_URL + 'docs/DOC-6975#jive_content_id_CI_Connectors'
+          url = GITBOOK_URL + '/docs/administration-guide/ci-connectors'
           break;
         case 4:
-          url = WIKI_URL + 'docs/DOC-6975#jive_content_id_CI_Containers'
+          url = GITBOOK_URL + 'docs/administration-guide/ci-containers'
           break;
         case 5:
-          url = WIKI_URL + 'docs/DOC-6975#jive_content_id_Properties'
+          url = GITBOOK_URL + 'docs/administration-guide/properties'
           break;
         case 6:
-          url = WIKI_URL + 'docs/DOC-6975#jive_content_id_Users'
+          url = GITBOOK_URL + 'docs/administration-guide/users'
           break;
       }
 

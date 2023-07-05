@@ -21,7 +21,7 @@ import ManualTestPlanRun from './Components/ManualTestPlanRun'
 import CopyrightFooter from "./Components/CopyrightFooter"
 import history from "./Components/History"
 import withStyles from '@mui/styles/withStyles';
-import {styles, COLORS, WIKI_URL} from './Components/Globals'
+import {styles, COLORS, GITBOOK_URL} from './Components/Globals'
 import $ from 'jquery';
 import SearchUI from "./Components/SearchUI";
 
@@ -351,7 +351,7 @@ class TestRuns extends Component {
 			},
 			{
 				title: 'DOCUMENTATION',
-				text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-7103"}>HERE</a>`
+				text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "/docs/user-guide/manual-test-cases"}>HERE</a>`
 			},
 			{
 				title: null,

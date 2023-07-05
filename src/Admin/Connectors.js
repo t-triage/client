@@ -3,7 +3,7 @@ import Api from "../Main/Components/Api"
 import axios from 'axios'
 
 import SuiteActionDialog from '../Main/Components/SuiteActionDialog'
-import {MySnackbarContent, snackbarStyle, COLORS, WIKI_URL} from '../Main/Components/Globals'
+import {MySnackbarContent, snackbarStyle, COLORS, GITBOOK_URL} from '../Main/Components/Globals'
 import { scrollToTop, TextFieldInput } from './AdminUtils'
 import { copyToClipboard } from '../Main/Components/TriageUtils'
 
@@ -662,7 +662,7 @@ export default class Connector extends Component {
                                         />
                                         <div style={{marginTop:20}}>Push Configuration</div>
                                         <span style={{ fontSize: '.75rem' }}>
-                                          This setting will be used by those Containers with Push configuration enabled. Your CI Tool needs to be configured in order to send new test executions to t-Triage. <a href={WIKI_URL + "docs/DOC-6975?ru=2349&sr=stream"} target="_blank">More</a>
+                                          This setting will be used by those Containers with Push configuration enabled. Your CI Tool needs to be configured in order to send new test executions to t-Triage. <a href={GITBOOK_URL + "docs/administration-guide/ci-connectors"} target="_blank">More</a>
                                         </span>
                                         <TextFieldInput
                                             id="clientID"

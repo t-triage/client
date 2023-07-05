@@ -37,7 +37,7 @@ import {
   DEFAULT_AUTOMATED_TEST_FILTERS,
   snackbarStyle,
   MySnackbarContent,
-  WIKI_URL
+  GITBOOK_URL
 } from './Components/Globals'
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button'
@@ -114,7 +114,7 @@ class AutomatedTestRepository extends Component {
         },
         {
           title: 'DOCUMENTATION',
-          text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-7103"}>HERE</a>`
+          text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/manual-test-cases"}>HERE</a>`
         },
         {
           title: null,

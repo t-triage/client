@@ -20,7 +20,7 @@ import {
   DEFAULT_PIPELINE_FILTERS,
   snackbarStyle,
   MySnackbarContent,
-  WIKI_URL
+  GITBOOK_URL
 } from './Components/Globals'
 import { scrollToTop } from '../Admin/AdminUtils'
 
@@ -70,7 +70,7 @@ class PipelineList extends Component {
         },
         {
           title: 'DOCUMENTATION',
-          text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-7103"}>HERE</a>`
+          text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/manual-test-cases"}>HERE</a>`
         },
         {
           title: null,

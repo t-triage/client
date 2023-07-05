@@ -26,7 +26,7 @@ import Dialog from "@mui/material/Dialog"
 import Snackbar from '@mui/material/Snackbar'
 import withStyles from '@mui/styles/withStyles';
 import Nav from "../Main/Components/Nav"
-import {styles, MySnackbarContent, snackbarStyle, COLORS, WIKI_URL} from './Components/Globals'
+import {styles, MySnackbarContent, snackbarStyle, COLORS, GITBOOK_URL} from './Components/Globals'
 
 import DialogTitle from "@mui/material/DialogTitle";
 
@@ -536,7 +536,7 @@ class AutomationIssueList extends Component {
                 },
                 {
                     title: 'DOCUMENTATION',
-                    text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-6974#jive_content_id_Automation_Issues"}>HERE</a>`
+                    text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/automation-issues"}>HERE</a>`
                 },
                 {
                     title: null,

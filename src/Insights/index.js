@@ -3,7 +3,7 @@ import axios from 'axios'
 import "../styles/insights.scss"
 
 import InsightsBox from './InsightsBox'
-import {COLORS, WIKI_URL} from '../Main/Components/Globals'
+import {COLORS, GITBOOK_URL} from '../Main/Components/Globals'
 
 import SideMenu from "../Main/Components/SideMenu"
 import CopyrightFooter from "../Main/Components/CopyrightFooter"
@@ -58,7 +58,7 @@ export default class Insights extends Component {
                 },
                 {
                     title: 'DOCUMENTATION',
-                    text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-6974#jive_content_id_Insights"}>HERE</a>`
+                    text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/insights"}>HERE</a>`
                 },
                 {
                     title: null,
