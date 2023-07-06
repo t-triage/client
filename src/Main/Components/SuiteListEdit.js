@@ -58,13 +58,8 @@ class SuiteListEdit extends Component {
 
     fetchSuite() {
         axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetExecutorByID + this.props.executorId)
-            .then(res => {
-                this.setState({
-                    executorEdit: Object.assign({}, res.data)
-                });
-
-
-
+            .then(async res => {
+                await new Promise(resolve => this.setState({ executorEdit: Object.assign({}, res.data)}, resolve))
                 if (this.state.executorEdit.triageSpec) {
                     let { frequencyCron } = this.state.executorEdit.triageSpec;
                     this.getFrequencyCronStates(frequencyCron)
@@ -73,7 +68,6 @@ class SuiteListEdit extends Component {
                 this.setState({
                     triageFrecuencyWeek: this.state.executorEdit.triageSpec.everyWeeks
                 })
-
             })
     }
 

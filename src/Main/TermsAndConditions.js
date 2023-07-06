@@ -16,14 +16,12 @@ export default class TermsAndConditions extends Component {
 
   fetchUserTerms() {
     axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetUsertTerms)
-    .then(res => {
-      this.setState({
-        termsAndConditionsReady: true,
-      })
-      let parser = new DOMParser()
-      let el = parser.parseFromString(res.data, "text/html");
-      el.body.style.backgroundColor = 'white'
-      document.getElementById("termsAndConditions").appendChild(el.documentElement)
+    .then( async res => {
+        await new Promise(resolve => this.setState({termsAndConditionsReady: true}, resolve))
+        let parser = new DOMParser()
+        let el = parser.parseFromString(res.data, "text/html");
+        el.body.style.backgroundColor = 'white'
+        document.getElementById("termsAndConditions").appendChild(el.documentElement)
     })
   }
 
