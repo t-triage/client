@@ -4,15 +4,15 @@ import axios from 'axios'
 import { MySnackbarContent, snackbarStyle } from './Globals'
 
 // UI Components
-import Grid from "@material-ui/core/Grid"
-import Button from "@material-ui/core/Button"
-import Snackbar from '@material-ui/core/Snackbar'
-import { withStyles } from '@material-ui/core/styles'
-import IconButton from '@material-ui/core/IconButton'
+import Grid from "@mui/material/Grid"
+import Button from "@mui/material/Button"
+import Snackbar from '@mui/material/Snackbar'
+import withStyles from '@mui/styles/withStyles';
+import IconButton from '@mui/material/IconButton'
 import {renderChangePasswordDialog, TextFieldInput} from './TriageUtils'
-import InputAdornment from "@material-ui/core/InputAdornment"
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import InputAdornment from "@mui/material/InputAdornment"
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
@@ -191,9 +191,9 @@ class ChangePasswordDialog extends Component {
 							endAdornment:
 								<InputAdornment position="end">
 									<IconButton
-										aria-label="Toggle password visibility"
-										onClick={this.handleClickShowPassword("showNewPassword")}
-									>
+                                        aria-label="Toggle password visibility"
+                                        onClick={this.handleClickShowPassword("showNewPassword")}
+                                        size="large">
 										{showNewPassword ? <Visibility /> : <VisibilityOff />}
 									</IconButton>
 								</InputAdornment>
@@ -219,9 +219,9 @@ class ChangePasswordDialog extends Component {
 							endAdornment:
 								<InputAdornment position="end">
 									<IconButton
-										aria-label="Toggle password visibility"
-										onClick={this.handleClickShowPassword("showNewPasswordRepeat")}
-									>
+                                        aria-label="Toggle password visibility"
+                                        onClick={this.handleClickShowPassword("showNewPasswordRepeat")}
+                                        size="large">
 										{showNewPasswordRepeat ? <Visibility /> : <VisibilityOff />}
 									</IconButton>
 								</InputAdornment>
@@ -231,7 +231,7 @@ class ChangePasswordDialog extends Component {
 					/>
 				</Grid>
 			</Grid>
-		]
+		];
 	}
 
 

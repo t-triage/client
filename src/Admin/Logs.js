@@ -3,25 +3,25 @@ import Api from "../Main/Components/Api"
 import axios from 'axios'
 
 //Components
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 import SideMenu from './SideMenu';
-import { Typography } from '@material-ui/core';
-import Card from "@material-ui/core/Card";
-import Paper from "@material-ui/core/Paper";
-import CardContent from "@material-ui/core/CardContent";
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Snackbar from "@material-ui/core/Snackbar";
+import { Typography } from '@mui/material';
+import Card from "@mui/material/Card";
+import Paper from "@mui/material/Paper";
+import CardContent from "@mui/material/CardContent";
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Snackbar from "@mui/material/Snackbar";
 
 //Icons
-import CheckIcon from '@material-ui/icons/CheckCircle';
-import ErrorIcon from "@material-ui/icons/Error"
-import CloseIcon from "@material-ui/icons/Close"
-import SaveIcon from '@material-ui/icons/Save';
+import CheckIcon from '@mui/icons-material/CheckCircle';
+import ErrorIcon from "@mui/icons-material/Error"
+import CloseIcon from "@mui/icons-material/Close"
+import SaveIcon from '@mui/icons-material/Save';
 
 export default class Logs extends Component {
 
@@ -172,7 +172,7 @@ export default class Logs extends Component {
                             aria-label="Close"
                             color="inherit"
                             onClick={this.closeSuccessDownload}
-                        >
+                            size="large">
                             <CloseIcon />
                         </IconButton>,
                     ]}
@@ -198,13 +198,13 @@ export default class Logs extends Component {
                             aria-label="Close"
                             color="inherit"
                             onClick={this.closeErrorDownload}
-                        >
+                            size="large">
                             <CloseIcon />
                         </IconButton>,
                     ]}
                 />
             </div>
-        )
+        );
     }
 
 }

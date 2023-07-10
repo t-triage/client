@@ -1,6 +1,6 @@
 import React from 'react'
-import DoneIcon from "@material-ui/icons/Done"
-import DoneAllIcon from "@material-ui/icons/DoneAll"
+import DoneIcon from "@mui/icons-material/Done"
+import DoneAllIcon from "@mui/icons-material/DoneAll"
 import { COLORS } from './Globals'
 
 export const getKanbanTagColor = (hasNewData, previousPass, status) => {

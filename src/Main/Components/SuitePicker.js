@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { _ } from "underscore"
+import * as _  from "underscore"
 import axios from 'axios'
 import Api from "./Api"
 import PropTypes from 'prop-types';
-import Typography from "@material-ui/core/Typography"
-import Avatar from "@material-ui/core/Avatar"
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
+import Typography from "@mui/material/Typography"
+import Avatar from "@mui/material/Avatar"
+import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
 import Downshift from 'downshift';
-import { withStyles } from '@material-ui/core/styles';
-import SearchIcon from "@material-ui/icons/Search"
-import ClearIcon from "@material-ui/icons/Clear"
+import withStyles from '@mui/styles/withStyles';
+import SearchIcon from "@mui/icons-material/Search"
+import ClearIcon from "@mui/icons-material/Clear"
 import { Link } from 'react-router-dom'
 
 import "../../styles/issuesList.scss"

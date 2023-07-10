@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Api from "../../Main/Components/Api"
 
-import {Grid, Paper} from "@material-ui/core"
+import {Grid, Paper} from "@mui/material"
 import TrendGoalStats from "../TrendGoalStats";
 import TrendGoalDayPicker from "../TrendGoalDayPicker";
-import {withStyles} from "@material-ui/core/styles";
-import InputBase from "@material-ui/core/InputBase";
+import withStyles from '@mui/styles/withStyles';
+import InputBase from "@mui/material/InputBase";
 import ExecutorsPicker from "../../Main/Components/ExecutorsPicker";
 import 'react-day-picker/lib/style.css';
 
@@ -52,11 +52,11 @@ export default class TrendGoals extends Component {
     render() {
         let { fromTime, toTime, executorId, executorName, stats } = this.state;
         return (
-            <Grid container spacing={24} justify="center">
+            <Grid container spacing={24} justifyContent="center">
                 <Grid item xs={8}>
                     <TrendGoalDayPicker executorName={executorName} timeHandler={this.timeHandler}/>
                 </Grid>
-                <Grid container spacing={24} justify="flex-start">
+                <Grid container spacing={24} justifyContent="flex-start">
                     <Grid item xs={2}>
                         <ExecutorsPicker fetchExecutor={this.fetchExecutor} />
                     </Grid>
@@ -73,6 +73,6 @@ export default class TrendGoals extends Component {
                     </Grid>
                 </Grid>
             </Grid>
-        )
+        );
     }
 }

@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
 import Api from "../Components/Api"
 import axios from 'axios'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import queryString from 'query-string';
 
-import Tooltip from '@material-ui/core/Tooltip';
-import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
-import Checkbox from "@material-ui/core/Checkbox"
-import TextField from "@material-ui/core/TextField"
-import DialogTitle from "@material-ui/core/DialogTitle"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
-import DialogActions from "@material-ui/core/DialogActions"
-import MenuItem from "@material-ui/core/MenuItem"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Snackbar from '@material-ui/core/Snackbar'
-import Grid from '@material-ui/core/Grid'
+import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
+import Checkbox from "@mui/material/Checkbox"
+import TextField from "@mui/material/TextField"
+import DialogTitle from "@mui/material/DialogTitle"
+import Dialog from "@mui/material/Dialog"
+import DialogContent from "@mui/material/DialogContent"
+import DialogActions from "@mui/material/DialogActions"
+import MenuItem from "@mui/material/MenuItem"
+import CircularProgress from "@mui/material/CircularProgress"
+import Snackbar from '@mui/material/Snackbar'
+import Grid from '@mui/material/Grid'
 
-import ClearIcon from "@material-ui/icons/Clear"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import CloudUploadIcon from "@material-ui/icons/CloudUpload"
-import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown"
-import RemoveIcon from "@material-ui/icons/RemoveCircle"
+import ClearIcon from "@mui/icons-material/Clear"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import CloudUploadIcon from "@mui/icons-material/CloudUpload"
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown"
+import RemoveIcon from "@mui/icons-material/RemoveCircle"
 
-import TablePagination from '@material-ui/core/TablePagination';
+import TablePagination from '@mui/material/TablePagination';
 import Nav from "../Components/Nav"
 import ManualTestEdit from './TestEditForm'
 import ManualTestFilters from '../Components/ManualTestFilters'
 import ManualTestNameFilter from '../Components/ManualTestNameFilter'
 import ManualTestPlanEdit from '../Components/ManualTestPlanEdit'
 import CopyrightFooter from "../Components/CopyrightFooter"
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@mui/styles/withStyles';
 import { scrollToTop } from '../../Admin/AdminUtils'
 import {
     styles,
@@ -40,7 +40,7 @@ import {
     TEST_PLAN_STATUS_ALL,
     snackbarStyle,
     MySnackbarContent,
-    WIKI_URL
+    GITBOOK_URL
 } from '../Components/Globals'
 import {ShareTestButton} from "../Components/ShareTestButton";
 import {TestListItem} from "./TestListItem";
@@ -119,7 +119,7 @@ class TestRepository extends Component {
                 },
                 {
                     title: 'DOCUMENTATION',
-                    text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-7103"}>HERE</a>`
+                    text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/manual-test-cases"}>HERE</a>`
                 },
                 {
                     title: null,
@@ -474,15 +474,15 @@ class TestRepository extends Component {
                                             component="div"
                                             count={this.state.totalElements}
                                             page={this.state.page}
-                                            onChangePage={this.onPageChange}
+                                            onPageChange={this.onPageChange}
                                             rowsPerPage={this.state.rowsPerPage}
                                             rowsPerPageOptions={[25, 50, 75, 200]}
-                                            onChangeRowsPerPage={this.onRowsPerPageChange}
+                                            onRowsPerPageChange={this.onRowsPerPageChange}
                                           />
                     </div>
                 }
       </div>
-    )
+    );
   }
 
 

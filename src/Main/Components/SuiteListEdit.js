@@ -7,20 +7,20 @@ import { styles } from "./Globals";
 import UserPicker from "./UserPicker";
 import { HourList, PriorityList, TextFieldInput, WeekList, getSaveExecutorBody } from "../../Admin/AdminUtils";
 
-import { withStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField"
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import Grid from "@material-ui/core/Grid";
-import DialogActions from "@material-ui/core/DialogActions";
-import Button from "@material-ui/core/Button";
-import MenuItem from "@material-ui/core/MenuItem";
-import Tooltip from "@material-ui/core/Tooltip";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import Avatar from "@material-ui/core/Avatar";
-import Blue from "@material-ui/core/colors/blue"
+import withStyles from '@mui/styles/withStyles';
+import TextField from "@mui/material/TextField"
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import Grid from "@mui/material/Grid";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import Tooltip from "@mui/material/Tooltip";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel"
+import Avatar from "@mui/material/Avatar";
+import { blue as Blue } from '@mui/material/colors';
 
 
 class SuiteListEdit extends Component {
@@ -58,13 +58,8 @@ class SuiteListEdit extends Component {
 
     fetchSuite() {
         axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetExecutorByID + this.props.executorId)
-            .then(res => {
-                this.setState({
-                    executorEdit: Object.assign({}, res.data)
-                });
-
-
-
+            .then(async res => {
+                await new Promise(resolve => this.setState({ executorEdit: Object.assign({}, res.data)}, resolve))
                 if (this.state.executorEdit.triageSpec) {
                     let { frequencyCron } = this.state.executorEdit.triageSpec;
                     this.getFrequencyCronStates(frequencyCron)
@@ -73,7 +68,6 @@ class SuiteListEdit extends Component {
                 this.setState({
                     triageFrecuencyWeek: this.state.executorEdit.triageSpec.everyWeeks
                 })
-
             })
     }
 

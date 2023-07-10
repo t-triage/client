@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import SearchIcon from "@material-ui/icons/Search"
-import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from "@mui/icons-material/Search"
+import InputBase from '@mui/material/InputBase';
 import { styles } from './Globals'
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 
 class AutomatedTestNameFilter extends Component {
 

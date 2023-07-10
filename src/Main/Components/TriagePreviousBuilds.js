@@ -4,25 +4,25 @@ import axios from 'axios'
 import { styles, validURL, COLORS } from './Globals'
 import * as JsDiff from 'diff';
 
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import Grid from "@material-ui/core/Grid"
-import Typography from "@material-ui/core/Typography"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Tooltip from "@material-ui/core/Tooltip"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography"
+import CircularProgress from "@mui/material/CircularProgress"
+import Tooltip from "@mui/material/Tooltip"
 
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft'
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
-import ViewListIcon from '@material-ui/icons/ViewList'
-import CancelIcon from '@material-ui/icons/Cancel'
-import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline'
-import CommentIcon from '@material-ui/icons/Comment'
-import AssignmentIcon from "@material-ui/icons/Assignment"
-import LaunchIcon from "@material-ui/icons/Launch"
-import SettingsEthernetIcon from "@material-ui/icons/SettingsEthernet"
-import { withStyles } from '@material-ui/core/styles';
-import CompareIcon from '@material-ui/icons/Compare';
-import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+import ViewListIcon from '@mui/icons-material/ViewList'
+import CancelIcon from '@mui/icons-material/Cancel'
+import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline'
+import CommentIcon from '@mui/icons-material/Comment'
+import AssignmentIcon from "@mui/icons-material/Assignment"
+import LaunchIcon from "@mui/icons-material/Launch"
+import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet"
+import withStyles from '@mui/styles/withStyles';
+import CompareIcon from '@mui/icons-material/Compare';
+import VerticalSplitIcon from '@mui/icons-material/VerticalSplit';
 
 import {
   getStatusTagColor,

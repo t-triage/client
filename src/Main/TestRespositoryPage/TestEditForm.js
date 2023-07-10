@@ -1,32 +1,32 @@
 import React, { Component } from 'react'
 import Api from "../Components/Api"
 import axios from 'axios'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import ExpandLessIcon from "@material-ui/icons/ExpandLess"
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import StarsIcon from "@material-ui/icons/Star"
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import ExpandLessIcon from "@mui/icons-material/ExpandLess"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import StarsIcon from "@mui/icons-material/Star"
 
-import InputBase from "@material-ui/core/InputBase"
-import TextField from "@material-ui/core/TextField"
-import Select from "@material-ui/core/Select"
-import OutlinedInput from "@material-ui/core/OutlinedInput"
-import InputLabel from "@material-ui/core/InputLabel"
-import Grid from "@material-ui/core/Grid"
-import MenuItem from "@material-ui/core/MenuItem"
-import Button from "@material-ui/core/Button"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton'
-import FormControl from '@material-ui/core/FormControl'
-import Checkbox from '@material-ui/core/Checkbox'
-import Chip from '@material-ui/core/Chip'
-import Snackbar from "@material-ui/core/Snackbar"
+import InputBase from "@mui/material/InputBase"
+import TextField from "@mui/material/TextField"
+import Select from "@mui/material/Select"
+import OutlinedInput from "@mui/material/OutlinedInput"
+import InputLabel from "@mui/material/InputLabel"
+import Grid from "@mui/material/Grid"
+import MenuItem from "@mui/material/MenuItem"
+import Button from "@mui/material/Button"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton'
+import FormControl from '@mui/material/FormControl'
+import Checkbox from '@mui/material/Checkbox'
+import Chip from '@mui/material/Chip'
+import Snackbar from "@mui/material/Snackbar"
 
 import ComponentsPicker from '../Components/ComponentsPicker'
 import FunctionalityPicker from '../Components/FunctionalityPicker'
@@ -43,7 +43,7 @@ import {
   MANUAL_LIFECYCLE_LIST
 } from '../Components/Globals'
 
-import {withStyles} from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 import {show} from "./TestRepository";
 import {ShareTestButton} from "../Components/ShareTestButton";
 import {TestEditFormStep} from "./TestEditFormStep";
@@ -1089,9 +1089,7 @@ class TestEditForm extends Component {
                     {/* Si se puede, usar clases en vez de inline styles en elementos html */}
                     <div style={{width: "100%", display: "inline-block", textAlign: "start"}}>
                       <Tooltip title={'Add Step'}>
-                        <IconButton
-                            onClick={this.addStep.bind(this)}
-                            aria-label="Add Step">
+                        <IconButton onClick={this.addStep.bind(this)} aria-label="Add Step" size="large">
                           <AddCircleIcon />
                         </IconButton>
                       </Tooltip>
@@ -1119,7 +1117,7 @@ class TestEditForm extends Component {
             </Button>
           </div>
         </form>
-    )
+    );
   }
 }
 

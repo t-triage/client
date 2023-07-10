@@ -8,34 +8,34 @@ import { MySnackbarContent, snackbarStyle, COLORS } from '../Main/Components/Glo
 import { scrollToTop, TextFieldInput } from './AdminUtils'
 
 // Icons
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import EditIcon from "@material-ui/icons/Edit"
-import AppIcon from "@material-ui/icons/Person"
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import EditIcon from "@mui/icons-material/Edit"
+import AppIcon from "@mui/icons-material/Person"
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 // UI Components
-import Divider from "@material-ui/core/Divider"
-import MenuItem from "@material-ui/core/MenuItem"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction"
-import IconButton from "@material-ui/core/IconButton"
-import InputAdornment from "@material-ui/core/InputAdornment"
-import Paper from "@material-ui/core/Paper"
-import Grid from "@material-ui/core/Grid"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardActions from "@material-ui/core/CardActions"
-import Button from "@material-ui/core/Button"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import Avatar from "@material-ui/core/Avatar"
-import Tooltip from "@material-ui/core/Tooltip"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Snackbar from "@material-ui/core/Snackbar"
-import { withStyles } from '@material-ui/core/styles'
+import Divider from "@mui/material/Divider"
+import MenuItem from "@mui/material/MenuItem"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction"
+import IconButton from "@mui/material/IconButton"
+import InputAdornment from "@mui/material/InputAdornment"
+import Paper from "@mui/material/Paper"
+import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
+import Button from "@mui/material/Button"
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import Avatar from "@mui/material/Avatar"
+import Tooltip from "@mui/material/Tooltip"
+import CircularProgress from "@mui/material/CircularProgress"
+import Snackbar from "@mui/material/Snackbar"
+import withStyles from '@mui/styles/withStyles';
 
 import SideMenu from "./SideMenu"
 
@@ -328,34 +328,36 @@ export default class Users extends Component {
             <ListItemSecondaryAction>
                 <Tooltip title="Edit">
                     <IconButton
-                        style={{
-                          opacity: user.enabled ? '1' : '.5',
-                          cursor: user.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            user.enabled ?
-                                this.enableEditUser.bind(this, index)
-                            :   null
-                        }
-                        aria-label="Edit">
+                      style={{
+                        opacity: user.enabled ? '1' : '.5',
+                        cursor: user.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                          user.enabled ?
+                              this.enableEditUser.bind(this, index)
+                          :   null
+                      }
+                      aria-label="Edit"
+                      size="large">
                         <EditIcon />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title={user.enabled ? 'Deactivate' : 'Activate'}>
                     <IconButton
-                        onClick={
-                          user.enabled ?
-                            this.disableUser.bind(this, user.id)
-                          : this.enableUser.bind(this, user)
-                        }
-                        aria-label="Delete">
+                      onClick={
+                        user.enabled ?
+                          this.disableUser.bind(this, user.id)
+                        : this.enableUser.bind(this, user)
+                      }
+                      aria-label="Delete"
+                      size="large">
                         { user.enabled && <RemoveCircleIcon /> }
                         { !user.enabled && <AddCircleIcon /> }
                     </IconButton>
                 </Tooltip>
             </ListItemSecondaryAction>
         </ListItem>
-      )
+      );
     }
 
     renderList = () => {
@@ -505,7 +507,7 @@ export default class Users extends Component {
 
         let {wizardMode} = this.props
 
-        return(
+        return (
           <div style={{display: 'flex'}}>
             <SideMenu/>
             <div style={{'width': '100%'}} className="CenterList">
@@ -573,7 +575,7 @@ export default class Users extends Component {
                                     id="realName"
                                     label="Real Name"
                                     placeholder="User's real name"
-                                    error={userRealNameError,userRealNameShortError}
+                                    error={(userRealNameError, userRealNameShortError)}
                                     helperText={userRealNameError ? 'Required field' : userRealNameShortError ? 'Name must have at least 5 characters': ''}
                                     onChange={this.onFieldChange("userRealName")}
                                     InputProps={{
@@ -605,7 +607,7 @@ export default class Users extends Component {
                                                 <IconButton
                                                   aria-label="Toggle password visibility"
                                                   onClick={this.handleClickShowPassword("showPassword")}
-                                                >
+                                                  size="large">
                                                   {showPassword ? <Visibility /> : <VisibilityOff />}
                                                 </IconButton>
                                               </InputAdornment>
@@ -634,7 +636,7 @@ export default class Users extends Component {
                                                 <IconButton
                                                   aria-label="Toggle password visibility"
                                                   onClick={this.handleClickShowPassword("showPasswordRepeat")}
-                                                >
+                                                  size="large">
                                                   {showPasswordRepeat ? <Visibility /> : <VisibilityOff />}
                                                 </IconButton>
                                               </InputAdornment>
@@ -729,6 +731,6 @@ export default class Users extends Component {
                 </form>
             </div>
             </div>
-        )
+        );
     }
 }

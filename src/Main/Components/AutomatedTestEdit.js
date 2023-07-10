@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import Api from "./Api";
 import axios from "axios";
-import { _ } from "underscore";
-import FormLabel from '@material-ui/core/FormLabel';
-import InputBase from "@material-ui/core/InputBase";
-import TextField from "@material-ui/core/TextField";
+import * as _  from "underscore";
+import FormLabel from '@mui/material/FormLabel';
+import InputBase from "@mui/material/InputBase";
+import TextField from "@mui/material/TextField";
 import UserPicker from "./UserPicker";
-import Grid from "@material-ui/core/Grid";
-import MenuItem from "@material-ui/core/MenuItem";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import FlipToFrontIcon from "@material-ui/icons/Launch"
+import Grid from "@mui/material/Grid";
+import MenuItem from "@mui/material/MenuItem";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import FlipToFrontIcon from "@mui/icons-material/Launch"
 import {
   getStatusTagColor,
   getStatusTagName,
@@ -24,7 +24,7 @@ import {
   COLORS,
 } from "./Globals";
 
-import {withStyles} from "@material-ui/core/styles";
+import withStyles from '@mui/styles/withStyles';
 
 const EMPTY_TEST = {
   id: null,
@@ -74,7 +74,7 @@ class AutomatedTestEdit extends Component {
       },
     })
     this.setState({
-      testEdit: {...this.state.testTriageDTOList[index].triager=user}
+      testEdit: {...(this.state.testTriageDTOList[index].triager = user)}
     })
     this.props.updateSnackBarAutomatedTestInfo(this.props.originalTestIndex,this.state.testEdit)
   }
@@ -196,7 +196,7 @@ class AutomatedTestEdit extends Component {
               <Grid
                 className="manualTestStepListItemText"
                 container  
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 spacing={16}
               >
@@ -268,86 +268,84 @@ class AutomatedTestEdit extends Component {
     let { fullWidth, classes, test } = this.props;
     let { testEdit, testTriageDTOList } = this.state;
 
-    return (
-      testEdit && (
-          <form className="manualTestEditForm"
-                style={{width: fullWidth ? "100%" : "80%"}}
-          >
-                <div style={{color: COLORS.grey}}> #{testEdit.id} </div>
-            <Grid container spacing={16} style={{marginTop: 0}}>
-              {testEdit.locationPath && (
-                  <Grid item xs={12} sm={12}>
-                    <TextField
-                        id={`testName-${testEdit.id ? testEdit.id : "new"}`}
-                        label="Location Path"
-                        placeholder=""
-                        variant="standard"
-                        value={testEdit.locationPath ? testEdit.locationPath : ""}
-                        fullWidth
-                        className="manualTestEditTestName"
-                        spellCheck={false}
-                    />
-                    <small
-                        id={`testName-${testEdit.id ? testEdit.id : "new"}-error`}
-                        style={{color: COLORS.red, display: "none"}}
-                    >
-                      Field cannot be empty
-                    </small>
-                  </Grid>
-              )
-              }
-              <Grid item xs={12} sm={12}>
-                <ComponentsPicker
-                    id={`testComponents-${testEdit.id ? testEdit.id : 'new'}`}
-                    automatedComponents={true}
-                    onChange={this.onComponentsChange.bind(this)}
-                    selectedItems={testEdit.automatedComponentDTOList}/>
-                <small id={`testComponents-${testEdit.id ? testEdit.id : 'new'}-error`}
-                       style={{color: COLORS.red, display: 'none'}}>Max. of 6 components reached</small>
-              </Grid>
-
-              <Grid
-                  item
-                  xs={12}
-                  style={{
-                    marginTop: 20,
-                    color: "rgba(0, 0, 0, 0.54)",
-                    fontSize: "0.75rem",
-                  }}
-            >
-              <Grid container spacing={16}   
-                      justify="space-evenly"
-                      alignItems="center">
-                      <Grid item xs={4}>
-                        <b>SUITE NAME</b>
-                      </Grid>
-              
-                      <Grid item xs={3}>
-                        <b>ASSIGNEE</b>
-                      </Grid>
-      
-                      <Grid item xs={3}>
-                        <b>LAST EXECUTION</b>
-                      </Grid>
-                      <Grid item xs={2}>
-                        <b>STATUS</b>
-                      </Grid>
-                    </Grid>
-      
-                    {
-                      testTriageDTOList && testTriageDTOList.length > 0 && testTriageDTOList[0] !== undefined && (
-                      <List>
-                        {this.renderSuites()}
-                        </List>
-                    )
-                  }
-                  
-                 
+    return testEdit && (
+        <form className="manualTestEditForm"
+              style={{width: fullWidth ? "100%" : "80%"}}
+        >
+              <div style={{color: COLORS.grey}}> #{testEdit.id} </div>
+          <Grid container spacing={16} style={{marginTop: 0}}>
+            {testEdit.locationPath && (
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                      id={`testName-${testEdit.id ? testEdit.id : "new"}`}
+                      label="Location Path"
+                      placeholder=""
+                      variant="standard"
+                      value={testEdit.locationPath ? testEdit.locationPath : ""}
+                      fullWidth
+                      className="manualTestEditTestName"
+                      spellCheck={false}
+                  />
+                  <small
+                      id={`testName-${testEdit.id ? testEdit.id : "new"}-error`}
+                      style={{color: COLORS.red, display: "none"}}
+                  >
+                    Field cannot be empty
+                  </small>
+                </Grid>
+            )
+            }
+            <Grid item xs={12} sm={12}>
+              <ComponentsPicker
+                  id={`testComponents-${testEdit.id ? testEdit.id : 'new'}`}
+                  automatedComponents={true}
+                  onChange={this.onComponentsChange.bind(this)}
+                  selectedItems={testEdit.automatedComponentDTOList}/>
+              <small id={`testComponents-${testEdit.id ? testEdit.id : 'new'}-error`}
+                     style={{color: COLORS.red, display: 'none'}}>Max. of 6 components reached</small>
             </Grid>
+
+            <Grid
+                item
+                xs={12}
+                style={{
+                  marginTop: 20,
+                  color: "rgba(0, 0, 0, 0.54)",
+                  fontSize: "0.75rem",
+                }}
+          >
+            <Grid container spacing={16}   
+                    justifyContent="space-evenly"
+                    alignItems="center">
+                    <Grid item xs={4}>
+                      <b>SUITE NAME</b>
+                    </Grid>
+            
+                    <Grid item xs={3}>
+                      <b>ASSIGNEE</b>
+                    </Grid>
+    
+                    <Grid item xs={3}>
+                      <b>LAST EXECUTION</b>
+                    </Grid>
+                    <Grid item xs={2}>
+                      <b>STATUS</b>
+                    </Grid>
+                  </Grid>
+    
+                  {
+                    testTriageDTOList && testTriageDTOList.length > 0 && testTriageDTOList[0] !== undefined && (
+                    <List>
+                      {this.renderSuites()}
+                      </List>
+                  )
+                }
+                
+               
           </Grid>
-  
-        </form>
-      )
+        </Grid>
+
+      </form>
     );
   }
 }

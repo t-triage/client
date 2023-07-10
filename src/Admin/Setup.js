@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Wizard from "../Main/Components/Wizard";
 
-import License from "./License";
 import Product from "./Product";
 import Connectors from "./Connectors";
 import Containers from "./Containers";
@@ -19,11 +18,10 @@ export default class Setup extends Component {
     }
 
     render() {
-        var WizardNavValues = ["License", "Product", "CI Connector", "User", "CI Container"]
+        var WizardNavValues = ["Product", "CI Connector", "User", "CI Container"]
 
         return (
             <Wizard steps={WizardNavValues} onFinish={this.onFinish}>
-                <License />
                 <Product />
                 <Connectors />
                 <Users />

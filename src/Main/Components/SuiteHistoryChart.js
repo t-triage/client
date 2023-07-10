@@ -1,8 +1,8 @@
 import React from 'react'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import { COLORS } from './Globals'
 
-import CircularProgress from "@material-ui/core/CircularProgress"
+import CircularProgress from "@mui/material/CircularProgress"
 
 import {
   BarChart,

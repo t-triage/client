@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Api from "../Main/Components/Api"
-import { _ } from "underscore"
+import * as _  from "underscore"
 
 import ChartOptionsBar from './ChartOptionsBar'
 
-import Typography from "@material-ui/core/Typography"
-import Tooltip from "@material-ui/core/Tooltip"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import { withStyles } from '@material-ui/core/styles';
+import Typography from "@mui/material/Typography"
+import Tooltip from "@mui/material/Tooltip"
+import CircularProgress from "@mui/material/CircularProgress"
+import withStyles from '@mui/styles/withStyles';
 
-import HelpIcon from "@material-ui/icons/Help"
+import HelpIcon from "@mui/icons-material/Help"
 
 import { styles, COLORS } from '../Main/Components/Globals'
 

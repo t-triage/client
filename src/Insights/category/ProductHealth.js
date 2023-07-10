@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import Api from "../../Main/Components/Api"
 import axios from 'axios'
 import HorizontalBarChart from '../HorizontalBarChart'
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
-import Popover from "@material-ui/core/Popover"
-import MenuItem from "@material-ui/core/MenuItem"
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Button from "@mui/material/Button"
+import Popover from "@mui/material/Popover"
+import MenuItem from "@mui/material/MenuItem"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
 import { styles } from '../../Main/Components/Globals'
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 
 class ProductHealth extends Component {
   state = {
@@ -125,7 +125,7 @@ class ProductHealth extends Component {
     return (
       <div style={{ width: '100%' }}>
         {this.renderDownloadMenu()}
-        <Grid container spacing={24} justify="center">
+        <Grid container spacing={24} justifyContent="center">
             <Grid item xs={10}>
                 <Paper className='chartBigContainer'>
                     <HorizontalBarChart
@@ -137,7 +137,7 @@ class ProductHealth extends Component {
             </Grid>
         </Grid>
       </div>
-    )
+    );
   }
 }
 

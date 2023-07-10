@@ -4,10 +4,10 @@ import Api from "./Api";
 
 import UserPicker from "../Components/UserPicker"
 import ComponentsPickerSingle from "./ComponentsPickerSingle";
-import InputBase from "@material-ui/core/InputBase";
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
-import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
+import InputBase from "@mui/material/InputBase";
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 import {
   styles,
@@ -17,8 +17,8 @@ import {
   AUTOMATED_SUITE_FLAKY_STATUS_LIST
 } from "./Globals";
 
-import { withStyles } from "@material-ui/core/styles";
-import { _ } from "underscore";
+import withStyles from '@mui/styles/withStyles';
+import * as _  from "underscore";
 
 class AutomatedTestFilters extends Component {
   state = {

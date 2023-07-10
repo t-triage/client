@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
-import DoneIcon from "@material-ui/icons/Done";
+import DoneIcon from "@mui/icons-material/Done";
 import TriageInfoBox from "./TriageInfoBox";
-import Grid from "@material-ui/core/Grid";
-import spacing from "@material-ui/core/styles/spacing";
+import Grid from "@mui/material/Grid";
+// import spacing from "@mui/material/styles/spacing";
 import InfoBox from "./InfoBox";
-import Card from "@material-ui/core/Card";
-import {CardContent} from "@material-ui/core";
-import CheckIcon from "@material-ui/icons/Check";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import LockIcon from "@material-ui/icons/Lock";
-import ListItem from "@material-ui/core/ListItem";
-import Typography from "@material-ui/core/Typography";
-import TableCell from "@material-ui/core/TableCell";
+import Card from "@mui/material/Card";
+import {CardContent} from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import LockIcon from "@mui/icons-material/Lock";
+import ListItem from "@mui/material/ListItem";
+import Typography from "@mui/material/Typography";
+import TableCell from "@mui/material/TableCell";
 import {COLORS} from "./Globals";
-import TimelineIcon from "@material-ui/icons/Timeline";
-import StarsIcon from "@material-ui/icons/Star";
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import Button from "@material-ui/core/Button";
-import CardActions from "@material-ui/core/CardActions";
+import TimelineIcon from "@mui/icons-material/Timeline";
+import StarsIcon from "@mui/icons-material/Star";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 import TTriageLogo from "../../images/favicon.png";
 import TTriageLogo1 from "../../images/ttriage_greylogo.png";
-import {Image} from "@material-ui/icons";
+import {Image} from "@mui/icons-material";
 
 export default class Success extends Component{
     componentDidMount() {
@@ -87,11 +87,11 @@ export default class Success extends Component{
                         {/*<p>We received your purchase request;<br/> we'll be in touch shortly!</p>*/}
                     {/*</div>*/}
                 {/*<br/><br/><br/><br/>*/}
-                    <subtitle1 className={Typography} style={{justifyItems:"center", justifyContent:"center", margin:"auto", textAlign:"center"}}>
+                    <body1 className={Typography} style={{justifyItems:"center", justifyContent:"center", margin:"auto", textAlign:"center"}}>
                         {/*<div className="TriageDialogTitle" style={{borderColor: "#2196f3", justifyItems:"center", justifyContent:"center"}}>*/}
                             <h3 style={{margin:"auto", padding: '80px 0px 180px 0px'}}>Thanks for trusting t-Triage</h3>
                         {/*</div>*/}
-                    </subtitle1>
+                    </body1>
                 {/*<br/><br/><br/><br/><br/><br/><br/><br/><br/>*/}
                 <CardActions style={{justifyContent: 'flex-end', marginRight: 40, textAlign:"center"}}>
                     <Button

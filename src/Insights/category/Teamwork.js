@@ -5,8 +5,8 @@ import MissingDeadlinesChart from '../MissingDeadlinesChart'
 import HorizontalBarChart from '../HorizontalBarChart'
 import TrendChart from '../TrendChart'
 import EngEffortChart from '../EngEffortChart'
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
 
 export default class Teamwork extends Component {
   state = {
@@ -26,7 +26,7 @@ export default class Teamwork extends Component {
   render() {
     let {automationFixedPending} = this.state
     return (
-      <Grid container spacing={24} justify="center">
+      <Grid container spacing={24} justifyContent="center">
           <Grid item xs={10}>
               <Paper className='chartBigContainer'>
                   <TrendChart />
@@ -36,6 +36,6 @@ export default class Teamwork extends Component {
               </Paper>
           </Grid>
       </Grid>
-    )
+    );
   }
 }

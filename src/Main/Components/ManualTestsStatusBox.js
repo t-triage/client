@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import Grid from "@material-ui/core/Grid"
+import Grid from "@mui/material/Grid"
 
-import Tooltip from "@material-ui/core/Tooltip"
-import { withStyles } from '@material-ui/core/styles';
+import Tooltip from "@mui/material/Tooltip"
+import withStyles from '@mui/styles/withStyles';
 
 import { styles, COLORS } from './Globals'
 

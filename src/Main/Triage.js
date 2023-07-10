@@ -26,34 +26,34 @@ import { scrollToTop } from '../Admin/AdminUtils'
 import { styles, MySnackbarContent, snackbarStyle, COLORS } from './Components/Globals'
 
 // MATERIAL COMPONENTS
-import Grid from "@material-ui/core/Grid"
-import Button from "@material-ui/core/Button"
-import List from "@material-ui/core/List"
-import Snackbar from "@material-ui/core/Snackbar"
-import SnackbarContent from "@material-ui/core/SnackbarContent"
-import ListItem from "@material-ui/core/ListItem"
-import Typography from "@material-ui/core/Typography"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Tooltip from "@material-ui/core/Tooltip"
+import Grid from "@mui/material/Grid"
+import Button from "@mui/material/Button"
+import List from "@mui/material/List"
+import Snackbar from "@mui/material/Snackbar"
+import SnackbarContent from "@mui/material/SnackbarContent"
+import ListItem from "@mui/material/ListItem"
+import Typography from "@mui/material/Typography"
+import CircularProgress from "@mui/material/CircularProgress"
+import Tooltip from "@mui/material/Tooltip"
 
 // ICONS
 import PinIcon from "../images/pin.svg"
 import PinDisabledIcon from "../images/pin-disabled.svg"
-import LaunchIcon from "@material-ui/icons/Launch"
-import TimelineIcon from '@material-ui/icons/Timeline'
-import CancelIcon from '@material-ui/icons/Cancel'
-import FileCopyIcon from '@material-ui/icons/FileCopy'
-import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline'
-import ViewListIcon from '@material-ui/icons/ViewList'
-import TrendingUpIcon from '@material-ui/icons/TrendingUp'
-import HistoryIcon from '@material-ui/icons/History'
-import ChevronRightIcon from "@material-ui/icons/ChevronRight"
-import AssignmentIcon from "@material-ui/icons/Assignment"
-import InfoIcon from "@material-ui/icons/Info"
-import WhatshotIcon from "@material-ui/icons/Whatshot"
-import ScatterPlotIcon from "@material-ui/icons/ScatterPlot"
-import SettingsEthernetIcon from "@material-ui/icons/SettingsEthernet"
-import { withStyles } from '@material-ui/core/styles'
+import LaunchIcon from "@mui/icons-material/Launch"
+import TimelineIcon from '@mui/icons-material/Timeline'
+import CancelIcon from '@mui/icons-material/Cancel'
+import FileCopyIcon from '@mui/icons-material/FileCopy'
+import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline'
+import ViewListIcon from '@mui/icons-material/ViewList'
+import TrendingUpIcon from '@mui/icons-material/TrendingUp'
+import HistoryIcon from '@mui/icons-material/History'
+import ChevronRightIcon from "@mui/icons-material/ChevronRight"
+import AssignmentIcon from "@mui/icons-material/Assignment"
+import InfoIcon from "@mui/icons-material/Info"
+import WhatshotIcon from "@mui/icons-material/Whatshot"
+import ScatterPlotIcon from "@mui/icons-material/ScatterPlot"
+import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet"
+import withStyles from '@mui/styles/withStyles';
 
 
 const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);

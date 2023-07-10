@@ -1,10 +1,10 @@
 import "../../styles/home.scss"
 
 import { Link } from 'react-router-dom'
-import Avatar from "@material-ui/core/Avatar"
-import Badge from "@material-ui/core/Badge"
-import Button from "@material-ui/core/Button"
-import Grid from "@material-ui/core/Grid"
+import Avatar from "@mui/material/Avatar"
+import Badge from "@mui/material/Badge"
+import Button from "@mui/material/Button"
+import Grid from "@mui/material/Grid"
 import React, { Component } from "react"
 import TTriageLogo from '../../images/avatar/ttriage.png'
 
@@ -15,8 +15,8 @@ class UserBox extends Component {
     render() {
         let {data} = this.props
         return data && (
-            <Grid container className="userBox" direction="column" justify="center">
-                <Grid container justify="center">
+            <Grid container className="userBox" direction="column" justifyContent="center">
+                <Grid container justifyContent="center">
                     <Grid item>
                         <Avatar alt={data.displayName} src={
                           this.props.data.avatar ?
@@ -27,7 +27,7 @@ class UserBox extends Component {
                 </Grid>
                 <Grid item className="userFullName">{data.displayName}</Grid>
             </Grid>
-        )
+        );
     }
 }
 export default UserBox;

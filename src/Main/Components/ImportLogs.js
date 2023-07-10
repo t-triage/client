@@ -5,7 +5,7 @@ import axios from 'axios'
 import {styles} from "./Globals";
 
 //Material-ui Core imports:
-import { withStyles,
+import {
     Button,
     DialogActions,
     Dialog,
@@ -13,11 +13,13 @@ import { withStyles,
     DialogContentText,
     DialogTitle,
     MenuItem,
-    Chip,} from '@material-ui/core';
+    Chip,
+} from '@mui/material';
+import withStyles from '@mui/styles/withStyles';
 import { TextFieldInput } from "../../Admin/AdminUtils";
 import Downshift from 'downshift';
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
 
 
 const renderInput = (inputProps) => {

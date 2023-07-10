@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import Api from "../Main/Components/Api"
 import PickerCalendar from '../Main/Components/PickerCalendar'
-import {Grid, Paper} from "@material-ui/core"
+import {Grid, Paper} from "@mui/material"
 import {styles} from '../Main/Components/Globals'
-import {withStyles} from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 import HorizontalBarChart from './HorizontalBarChart'
 
 class ManualTestAndTestExecution extends Component {
@@ -124,7 +124,7 @@ class ManualTestAndTestExecution extends Component {
         let {data}=this.state
         return (
             <div style={{ width: '100%' }}>
-                <Grid container spacing={24} justify="center">
+                <Grid container spacing={24} justifyContent="center">
                     <Grid item xs={8}>
                         <PickerCalendar  timeHandler={this.timeHandler} />
                     </Grid>
@@ -136,7 +136,7 @@ class ManualTestAndTestExecution extends Component {
 
                 </Grid>
             </div>
-        )
+        );
     }
 }
 

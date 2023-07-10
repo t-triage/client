@@ -6,27 +6,27 @@ import classNames from 'classnames'
 import { MySnackbarContent, snackbarStyle } from './Globals'
 
 // UI Components
-import Grid from "@material-ui/core/Grid"
-import FormControl from "@material-ui/core/FormControl"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import DialogActions from "@material-ui/core/DialogActions"
-import DialogTitle from "@material-ui/core/DialogTitle"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
-import Checkbox from '@material-ui/core/Checkbox'
-import Select from '@material-ui/core/Select'
-import InputLabel from '@material-ui/core/InputLabel'
-import TextField from "@material-ui/core/TextField"
-import MenuItem from "@material-ui/core/MenuItem"
-import Button from "@material-ui/core/Button"
-import Snackbar from '@material-ui/core/Snackbar'
-import SnackbarContent from '@material-ui/core/SnackbarContent'
-import { withStyles } from '@material-ui/core/styles'
-import green from '@material-ui/core/colors/green'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import ErrorIcon from '@material-ui/icons/Error'
-import IconButton from '@material-ui/core/IconButton'
-import CloseIcon from '@material-ui/icons/Close'
+import Grid from "@mui/material/Grid"
+import FormControl from "@mui/material/FormControl"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import DialogActions from "@mui/material/DialogActions"
+import DialogTitle from "@mui/material/DialogTitle"
+import Dialog from "@mui/material/Dialog"
+import DialogContent from "@mui/material/DialogContent"
+import Checkbox from '@mui/material/Checkbox'
+import Select from '@mui/material/Select'
+import InputLabel from '@mui/material/InputLabel'
+import TextField from "@mui/material/TextField"
+import MenuItem from "@mui/material/MenuItem"
+import Button from "@mui/material/Button"
+import Snackbar from '@mui/material/Snackbar'
+import SnackbarContent from '@mui/material/SnackbarContent'
+import withStyles from '@mui/styles/withStyles';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import ErrorIcon from '@mui/icons-material/Error'
+import IconButton from '@mui/material/IconButton'
+import CloseIcon from '@mui/icons-material/Close'
+import { green } from '@mui/material/colors';
 
 const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
@@ -157,7 +157,7 @@ class FileTicketDialog extends Component {
 };
 
   FiledTicketDialog = (props) => {
-    return(
+    return (
       <div>
         <Dialog
           open={this.props.isOpen}
@@ -172,7 +172,7 @@ class FileTicketDialog extends Component {
 
             <Grid container >
                 <Grid item xs={12}>
-                    <Grid container alignItems="flex-end" direction="row" justify="space-between" spacing={24}>
+                    <Grid container alignItems="flex-end" direction="row" justifyContent="space-between" spacing={24}>
                           <Grid item xs={12}>
                               <FormControl style={ !this.state.autoGenerateEnabled ? { "display" : "none" } : {width: '97%'} }>
                                   <TextField
@@ -300,7 +300,7 @@ class FileTicketDialog extends Component {
           />
       </Snackbar>
     </div>
-    )
+    );
   }
 
   render() {

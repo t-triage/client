@@ -1,5 +1,5 @@
 import React from 'react';
-import {_} from "underscore";
+import * as _  from "underscore";
 import {DEFAULT_AUTOMATED_TEST_FILTERS as test, TEST_PLAN_STATUS_ALL} from "../Components/Globals";
 import TestRepository from "./TestRepository";
 import {TestListItem} from "./TestListItem";

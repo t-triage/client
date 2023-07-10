@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import Api from "../Main/Components/Api"
-import {withStyles} from '@material-ui/core/styles'
-import {Grid, Paper} from "@material-ui/core"
+import withStyles from '@mui/styles/withStyles';
+import {Grid, Paper} from "@mui/material"
 import { styles } from '../Main/Components/Globals'
 import HorizontalBarChart from './HorizontalBarChart'
 import PickerCalendar from '../Main/Components/PickerCalendar'
@@ -72,7 +72,7 @@ class TestExecuted extends Component {
         let {dataAssignee}=this.state
         return (
             <div style={{ width: '100%' }}>
-                <Grid container spacing={24} justify="center">
+                <Grid container spacing={24} justifyContent="center">
                     <Grid item xs={8}>
                         <PickerCalendar  timeHandler={this.timeHandler} />
                     </Grid>
@@ -83,7 +83,7 @@ class TestExecuted extends Component {
                         </Paper>
                 </Grid>
             </div>
-        )
+        );
     }
 }
 export default withStyles(styles)(TestExecuted)

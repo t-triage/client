@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Api from "./Components/Api"
 import axios from 'axios'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import queryString from 'query-string';
 
 import ImportLogs from './Components/ImportLogs';
@@ -9,39 +9,39 @@ import ImportTests from './Components/ImportTests';
 import ImportFilesPopover from './Components/ImportFilesPopover';
 
 
-import IconButton from '@material-ui/core/IconButton'
-import Checkbox from "@material-ui/core/Checkbox"
-import DialogTitle from "@material-ui/core/DialogTitle"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
-import DialogActions from "@material-ui/core/DialogActions"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Snackbar from '@material-ui/core/Snackbar'
-import RemoveIcon from "@material-ui/icons/RemoveCircle"
-import Grid from '@material-ui/core/Grid'
-import TablePagination from '@material-ui/core/TablePagination';
+import IconButton from '@mui/material/IconButton'
+import Checkbox from "@mui/material/Checkbox"
+import DialogTitle from "@mui/material/DialogTitle"
+import Dialog from "@mui/material/Dialog"
+import DialogContent from "@mui/material/DialogContent"
+import DialogActions from "@mui/material/DialogActions"
+import CircularProgress from "@mui/material/CircularProgress"
+import Snackbar from '@mui/material/Snackbar'
+import RemoveIcon from "@mui/icons-material/RemoveCircle"
+import Grid from '@mui/material/Grid'
+import TablePagination from '@mui/material/TablePagination';
 import Nav from "./Components/Nav"
 import AutomatedTestEdit from './Components/AutomatedTestEdit'
 import AutomatedTestFilters from './Components/AutomatedTestFilters'
 import AutomatedTestNameFilter from './Components/AutomatedTestNameFilter'
 import CopyrightFooter from "./Components/CopyrightFooter"
 import { SnackBarAutomatedTestInfo } from './Components/SnackBarAutomatedTestInfo'
-import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown"
-import TextField from "@material-ui/core/TextField"
-import MenuItem from "@material-ui/core/MenuItem"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import { withStyles } from '@material-ui/core/styles'
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown"
+import TextField from "@mui/material/TextField"
+import MenuItem from "@mui/material/MenuItem"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import withStyles from '@mui/styles/withStyles';
 import {
   styles,
   COLORS,
   DEFAULT_AUTOMATED_TEST_FILTERS,
   snackbarStyle,
   MySnackbarContent,
-  WIKI_URL
+  GITBOOK_URL
 } from './Components/Globals'
-import Tooltip from '@material-ui/core/Tooltip';
-import Button from '@material-ui/core/Button'
-import CloudUploadIcon from "@material-ui/icons/CloudUpload"
+import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button'
+import CloudUploadIcon from "@mui/icons-material/CloudUpload"
 import AutomatedTestPipelineEdit from './Components/AutomatedTestPipelineEdit'
 import {scrollToTop, TextFieldInput} from '../Admin/AdminUtils'
 import SetAutomatedComponentPicker from "./Components/SetAutomatedComponentPicker";
@@ -114,7 +114,7 @@ class AutomatedTestRepository extends Component {
         },
         {
           title: 'DOCUMENTATION',
-          text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-7103"}>HERE</a>`
+          text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/manual-test-cases"}>HERE</a>`
         },
         {
           title: null,
@@ -598,7 +598,6 @@ class AutomatedTestRepository extends Component {
           automatedTestsList && automatedTestsList.map((test, index) => {
 
               return (
-
                 <div key={index} className="manualTestListItem" >
                   <div className="manualTestListSummary">
                     <Checkbox
@@ -624,7 +623,9 @@ class AutomatedTestRepository extends Component {
                             popper: classes.popper,
                           }} title="Remove from pipeline"
                           style={{display: "flex"}}>
-                          <IconButton onClick={this.deleteByPipelineAndCase.bind(this, test.id, filters.pipeline)}>
+                          <IconButton
+                            onClick={this.deleteByPipelineAndCase.bind(this, test.id, filters.pipeline)}
+                            size="large">
                               <RemoveIcon style={{color: "red"}} />
                           </IconButton>
                         </Tooltip>
@@ -646,7 +647,7 @@ class AutomatedTestRepository extends Component {
                   }
 
                 </div>
-              )
+              );
             })
         }
         {automatedTestsList &&
@@ -658,17 +659,16 @@ class AutomatedTestRepository extends Component {
             component="div"
             count={this.state.totalElements}
             page={this.state.page}
-            onChangePage={this.onPageChange}
+            onPageChange={this.onPageChange}
             rowsPerPage={this.state.rowsPerPage}
             rowsPerPageOptions={[25, 50, 75, 200]}
-            onChangeRowsPerPage={this.onRowsPerPageChange}
+            onRowsPerPageChange={this.onRowsPerPageChange}
           />
           </div>
         }
 
       </div>
-                                  
-    )
+    );
   }
 
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography"
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography"
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { formatException } from './TriageUtils'
 import { COLORS } from './Globals'
 

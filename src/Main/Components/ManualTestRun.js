@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import {COLORS, TECHNIQUE_LIST, SUITE_TYPE_LIST, MANUAL_PRIORITY_LIST, styles} from './Globals';
 
-import InputBase from "@material-ui/core/InputBase"
-import Button from "@material-ui/core/Button"
-import TextField from "@material-ui/core/TextField"
-import Tooltip from '@material-ui/core/Tooltip';
-import StarsIcon from "@material-ui/icons/Star"
-import Grid from "@material-ui/core/Grid"
-import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
-import {withStyles} from '@material-ui/core/styles/index';
+import InputBase from "@mui/material/InputBase"
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
+import Tooltip from '@mui/material/Tooltip';
+import StarsIcon from "@mui/icons-material/Star"
+import Grid from "@mui/material/Grid"
+import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
+import withStyles from '@mui/styles/withStyles';
 
 class ManualTestRun extends Component {
   state = {
@@ -362,7 +362,7 @@ class ManualTestRun extends Component {
 						className="manualTestRunDescription"
 						value={comment}
 						placeholder="No comments yet"
-						rowsMax={5}
+						maxRows={5}
 						onChange={(ev) => {
 							this.setState({comment: ev.target.value})
 							this.showButtons()
@@ -399,7 +399,7 @@ class ManualTestRun extends Component {
 					)
 				}
 			</div>
-		]
+		];
 	}
 
   render() {

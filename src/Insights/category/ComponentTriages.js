@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import Api from "../../Main/Components/Api"
 import axios from 'axios'
 import HorizontalBarChart from '../HorizontalBarChart'
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
 
 import { styles } from '../../Main/Components/Globals'
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 
 class ComponentTriages extends Component {
 
@@ -28,7 +28,7 @@ class ComponentTriages extends Component {
         let {componentTriages} = this.state
         return (
             <div style={{ width: '100%' }}>
-                <Grid container spacing={24} justify="center">
+                <Grid container spacing={24} justifyContent="center">
                     <Grid item xs={10}>
                         <Paper className='chartBigContainer'>
                             <HorizontalBarChart
@@ -40,7 +40,7 @@ class ComponentTriages extends Component {
                     </Grid>
                 </Grid>
             </div>
-        )
+        );
     }
 }
 

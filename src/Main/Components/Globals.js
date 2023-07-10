@@ -1,24 +1,26 @@
 import React from 'react'
-import SnackbarContent from "@material-ui/core/SnackbarContent"
-import CloseIcon from "@material-ui/icons/Close"
-import ErrorIcon from "@material-ui/icons/Error"
-import IconButton from "@material-ui/core/IconButton"
-import CheckCircleIcon from "@material-ui/icons/CheckCircle"
-import AccessTimeIcon from "@material-ui/icons/AccessTime"
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import RestoreIcon from '@material-ui/icons/Restore';
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
-import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import Tooltip from "@material-ui/core/Tooltip"
-import Typography from "@material-ui/core/Typography"
+import SnackbarContent from "@mui/material/SnackbarContent"
+import CloseIcon from "@mui/icons-material/Close"
+import ErrorIcon from "@mui/icons-material/Error"
+import IconButton from "@mui/material/IconButton"
+import CheckCircleIcon from "@mui/icons-material/CheckCircle"
+import AccessTimeIcon from "@mui/icons-material/AccessTime"
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import RestoreIcon from '@mui/icons-material/Restore';
+import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import ImportantDevicesIcon from '@mui/icons-material/ImportantDevices';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
 import classNames from 'classnames'
-// Colors
-import Orange from "@material-ui/core/colors/amber"
-import Blue from "@material-ui/core/colors/blue"
-import Red from "@material-ui/core/colors/red"
-import Green from "@material-ui/core/colors/green"
-import Yellow from "@material-ui/core/colors/yellow"
+
+import {
+  amber as Orange,
+  blue as Blue,
+  red as Red,
+  green as Green,
+  yellow as Yellow,
+} from '@mui/material/colors';
 
 export const DEFAULT_MANUAL_TEST_FILTERS = {
   owner: null,
@@ -60,8 +62,7 @@ export const DEFAULT_PIPELINE_FILTERS = {
   name: null,
 }
 
-export const WIKI_URL = "http://wiki.clarolab.com/";
-
+export const GITBOOK_URL = "https://t-triage.gitbook.io/";
 export const BOARD_ACTIVITY_TYPE_ICONS = [
 	{ id: 0, type: "BUILD_TRIAGE_GENERATED_FOR_EXECUTOR", icon: <RestoreIcon /> },
 	{ id: 1, type: "BUILD_TRIAGED", icon: <TrendingUpIcon /> },
@@ -211,7 +212,7 @@ export const snackbarStyle = theme => ({
   },
   iconVariant: {
     opacity: 0.9,
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(1),
   },
   message: {
     display: 'flex',
@@ -241,7 +242,7 @@ export const MySnackbarContent = (props) => {
           color="inherit"
           className={classes.close}
           onClick={onClose}
-        >
+          size="large">
           <CloseIcon className={classes.icon} />
         </IconButton>,
       ]}
@@ -290,7 +291,7 @@ export const styles = theme => ({
     width: '200px',
     marginLeft: '-5px',
     zIndex: 9999,
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(1),
     left: 0,
     right: 0,
   },
@@ -308,7 +309,7 @@ export const styles = theme => ({
     flexGrow: 0,
   },
   divider: {
-    height: theme.spacing.unit * 2,
+    height: theme.spacing(2),
   },
   avatar: {
     marginRight: 10,
@@ -341,10 +342,10 @@ export const styles = theme => ({
     width: '100%'
   },
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
   },
   rightIcon: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
   },
   chip: {
     marginRight: 5,

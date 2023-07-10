@@ -4,39 +4,39 @@ import Api from "./Api"
 import { styles, validURL, COLORS } from './Globals'
 
 // MATERIAL COMPONENTS
-import Grid from "@material-ui/core/Grid"
-import FormControl from "@material-ui/core/FormControl"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import FormLabel from "@material-ui/core/FormLabel"
-import RadioGroup from "@material-ui/core/RadioGroup"
-import Radio from "@material-ui/core/Radio"
-import Checkbox from "@material-ui/core/Checkbox"
-import List from "@material-ui/core/List"
-import IconButton from "@material-ui/core/IconButton"
-import Select from "@material-ui/core/Select"
-import MenuItem from "@material-ui/core/MenuItem"
-import TextField from "@material-ui/core/TextField"
-import Typography from "@material-ui/core/Typography"
-import Button from "@material-ui/core/Button"
-import ExpansionPanel from "@material-ui/core/ExpansionPanel"
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
-import Tooltip from "@material-ui/core/Tooltip"
-import Avatar from "@material-ui/core/Avatar"
-import DialogTitle from "@material-ui/core/DialogTitle"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
-import Popover from "@material-ui/core/Popover"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import { withStyles } from '@material-ui/core/styles'
+import Grid from "@mui/material/Grid"
+import FormControl from "@mui/material/FormControl"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import FormLabel from "@mui/material/FormLabel"
+import RadioGroup from "@mui/material/RadioGroup"
+import Radio from "@mui/material/Radio"
+import Checkbox from "@mui/material/Checkbox"
+import List from "@mui/material/List"
+import IconButton from "@mui/material/IconButton"
+import Select from "@mui/material/Select"
+import MenuItem from "@mui/material/MenuItem"
+import TextField from "@mui/material/TextField"
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button"
+import Accordion from "@mui/material/Accordion"
+import AccordionSummary from "@mui/material/AccordionSummary"
+import AccordionDetails from "@mui/material/AccordionDetails"
+import Tooltip from "@mui/material/Tooltip"
+import Avatar from "@mui/material/Avatar"
+import DialogTitle from "@mui/material/DialogTitle"
+import Dialog from "@mui/material/Dialog"
+import DialogContent from "@mui/material/DialogContent"
+import Popover from "@mui/material/Popover"
+import CircularProgress from "@mui/material/CircularProgress"
+import withStyles from '@mui/styles/withStyles';
 
 // ICONS
-import HelpIcon from "@material-ui/icons/Help"
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
-import ExpandLessIcon from "@material-ui/icons/ExpandLess"
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import DoneIcon from "@material-ui/icons/Done"
-import LaunchIcon from "@material-ui/icons/Launch"
+import HelpIcon from "@mui/icons-material/Help"
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
+import ExpandLessIcon from "@mui/icons-material/ExpandLess"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import DoneIcon from "@mui/icons-material/Done"
+import LaunchIcon from "@mui/icons-material/Launch"
 
 const formLabelHeight = '30px';
 
@@ -317,12 +317,12 @@ class TestTriageFooter extends Component {
     ]
 
     return (
-      <ExpansionPanel
+      <Accordion
           className='TriageFooterExpansionPanel'
           elevation={0}
           expanded={this.props.panelExpanded}
           onChange={this.props.expandPanel}>
-          <ExpansionPanelSummary className='TriageFooterExpansionPanelSummary'
+          <AccordionSummary className='TriageFooterExpansionPanelSummary'
               classes={{
                 content: classes.expPanelSummary
               }}
@@ -335,8 +335,8 @@ class TestTriageFooter extends Component {
                       style={{ paddingRight: 15 }} />
               </Tooltip>
               <Typography variant="button"><b>Triage Action</b></Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails className='TriageFooterExpansionPanelDetails'>
+          </AccordionSummary>
+          <AccordionDetails className='TriageFooterExpansionPanelDetails'>
               <Grid  style={isLoading ? {opacity:0.7} : {}} container spacing={24}>
                   <Grid item xs={6} md={4}>
                       <Grid container>
@@ -712,7 +712,7 @@ class TestTriageFooter extends Component {
                               variant="outlined"
                               InputLabelProps={{shrink: true}}
                               rows={3}
-                              rowsMax={3}
+                              maxRows={3}
                               InputProps={{ style: { padding: '10px', fontSize: '.875rem' } }}
                               style={{ marginTop: '5px' }}
                               fullWidth
@@ -769,9 +769,9 @@ class TestTriageFooter extends Component {
 								</div>
 							)
 						}
-          </ExpansionPanelDetails>
-      </ExpansionPanel>
-    )
+          </AccordionDetails>
+      </Accordion>
+    );
   }
 }
 export default withStyles(styles)(TestTriageFooter)

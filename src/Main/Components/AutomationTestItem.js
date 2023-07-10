@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 //UI Components
 import UserPicker from "./UserPicker"
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Tooltip from '@material-ui/core/Tooltip'
-import Button from "@material-ui/core/Button"
-import TextField from "@material-ui/core/TextField"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Tooltip from '@mui/material/Tooltip'
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
 
 // Icons
-import TuneIcon from "@material-ui/icons/Tune"
+import TuneIcon from "@mui/icons-material/Tune"
 import Pin from "../../images/pin.svg"
 import PinDisabled from "../../images/pin-disabled.svg"
 
@@ -21,7 +21,7 @@ import {
   Tooltip as TooltipRechart,
 } from 'recharts'
 
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@mui/styles/withStyles';
 import { styles, COLORS } from './Globals'
 import {renderPopover} from './TriageUtils';
 
@@ -266,7 +266,7 @@ class AutomationTestItem extends Component {
                 multiline
                 defaultValue={!!issue.note ? issue.note.description : !!issue.testTriage.note ? issue.testTriage.note.description : ""}
                 placeholder="No comments yet"
-                rowsMax={3}
+                maxRows={3}
                 disabled={false}
                 onChange={this.changeNote.bind(this)}
                 inputProps={{
@@ -314,7 +314,7 @@ class AutomationTestItem extends Component {
 
         </Paper>
       </Grid>
-    )
+    );
   }
 }
 

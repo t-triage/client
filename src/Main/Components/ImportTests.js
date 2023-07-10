@@ -8,8 +8,9 @@ import {
     DialogContent,
     DialogContentText,
     DialogTitle,
-    withStyles
-} from "@material-ui/core";
+} from "@mui/material";
+
+import withStyles from '@mui/styles/withStyles';
 
 class ImportTests extends Component {
 

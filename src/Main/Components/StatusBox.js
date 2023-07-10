@@ -1,14 +1,13 @@
 import React, { Component } from "react"
-import Grid from "@material-ui/core/Grid"
+import Grid from "@mui/material/Grid"
 
-import Red from "@material-ui/core/colors/red"
-import Blue from "@material-ui/core/colors/blue"
-import Amber from "@material-ui/core/colors/amber"
 import InfoBox from "./InfoBox"
-import Tooltip from "@material-ui/core/Tooltip"
-import { withStyles } from '@material-ui/core/styles';
+import Tooltip from "@mui/material/Tooltip"
+import withStyles from '@mui/styles/withStyles';
 
 import { styles, COLORS } from './Globals'
+
+import { red as Red, blue as Blue, amber as Amber } from '@mui/material/colors';
 
 const height = 12;
 

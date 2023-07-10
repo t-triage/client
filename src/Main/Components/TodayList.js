@@ -4,23 +4,23 @@ import { Link } from 'react-router-dom'
 import StatusBox from "./StatusBox"
 import PriorityPicker from "./PriorityPicker"
 
-import PriorityIcon from "@material-ui/icons/TrendingUp"
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon"
+import PriorityIcon from "@mui/icons-material/TrendingUp"
+import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon"
 
 // UI Components
-import AccessTimeIcon from "@material-ui/icons/AccessTime"
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Table from "@material-ui/core/Table"
-import TableBody from "@material-ui/core/TableBody"
-import TableCell from "@material-ui/core/TableCell"
-import TableHead from "@material-ui/core/TableHead"
-import TableRow from "@material-ui/core/TableRow"
-import Typography from "@material-ui/core/Typography"
-import Tooltip from "@material-ui/core/Tooltip"
-import CircularProgress from "@material-ui/core/CircularProgress"
+import AccessTimeIcon from "@mui/icons-material/AccessTime"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Table from "@mui/material/Table"
+import TableBody from "@mui/material/TableBody"
+import TableCell from "@mui/material/TableCell"
+import TableHead from "@mui/material/TableHead"
+import TableRow from "@mui/material/TableRow"
+import Typography from "@mui/material/Typography"
+import Tooltip from "@mui/material/Tooltip"
+import CircularProgress from "@mui/material/CircularProgress"
 import { renderPopover } from './TriageUtils'
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@mui/styles/withStyles';
 import { styles, renderDeadLine } from './Globals'
 
 

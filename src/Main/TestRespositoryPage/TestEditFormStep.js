@@ -1,16 +1,16 @@
 import react from "react"
-import ListItemText from "@material-ui/core/ListItemText";
-import Grid from "@material-ui/core/Grid";
+import ListItemText from "@mui/material/ListItemText";
+import Grid from "@mui/material/Grid";
 import {show} from "./TestRepository";
-import InputBase from "@material-ui/core/InputBase";
-import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from "@material-ui/core/IconButton";
-import StarsIcon from "@material-ui/icons/Star";
+import InputBase from "@mui/material/InputBase";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import StarsIcon from "@mui/icons-material/Star";
 import {COLORS} from "../Components/Globals";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
-import ListItem from "@material-ui/core/ListItem";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import ListItem from "@mui/material/ListItem";
 import React from "react";
 
 
@@ -104,7 +104,8 @@ export const TestEditFormStep = (props) => {
                                         <IconButton
                                             style={{ padding: '0px 6px' }}
                                             onClick={props.this.markMainStep.bind(props.this, index)}
-                                            aria-label="Move down">
+                                            aria-label="Move down"
+                                            size="large">
                                             <StarsIcon style={{ color: COLORS.yellow }} />
                                         </IconButton>
                                     </Tooltip>
@@ -114,7 +115,8 @@ export const TestEditFormStep = (props) => {
                                         <IconButton
                                             style={{ padding: '0px 6px' }}
                                             onClick={props.this.moveStepUp.bind(props.this, index)}
-                                            aria-label="Move up">
+                                            aria-label="Move up"
+                                            size="large">
                                             <ExpandLessIcon />
                                         </IconButton>
                                     </Tooltip>
@@ -122,7 +124,8 @@ export const TestEditFormStep = (props) => {
                                         <IconButton
                                             style={{ padding: '0px 6px' }}
                                             onClick={props.this.moveStepDown.bind(props.this, index)}
-                                            aria-label="Move down">
+                                            aria-label="Move down"
+                                            size="large">
                                             <ExpandMoreIcon />
                                         </IconButton>
                                     </Tooltip>
@@ -131,7 +134,8 @@ export const TestEditFormStep = (props) => {
                                     <IconButton
                                         onClick={props.this.removeStep.bind(props.this, index)}
                                         style={{ padding: '0px 6px' }}
-                                        aria-label="Remove Step">
+                                        aria-label="Remove Step"
+                                        size="large">
                                         <RemoveCircleIcon />
                                     </IconButton>
                                 </Tooltip>
@@ -139,5 +143,5 @@ export const TestEditFormStep = (props) => {
                         </Grid>
                     } />
             </ListItem>
-        )
+        );
 }

@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import axios from 'axios'
 import Api from './Components/Api'
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
-import CircularProgress from "@material-ui/core/CircularProgress"
+import Paper from "@mui/material/Paper"
+import Button from "@mui/material/Button"
+import CircularProgress from "@mui/material/CircularProgress"
 
 export default class TermsAndConditions extends Component {
   state = {
@@ -16,14 +16,12 @@ export default class TermsAndConditions extends Component {
 
   fetchUserTerms() {
     axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetUsertTerms)
-    .then(res => {
-      this.setState({
-        termsAndConditionsReady: true,
-      })
-      let parser = new DOMParser()
-      let el = parser.parseFromString(res.data, "text/html");
-      el.body.style.backgroundColor = 'white'
-      document.getElementById("termsAndConditions").appendChild(el.documentElement)
+    .then( async res => {
+        await new Promise(resolve => this.setState({termsAndConditionsReady: true}, resolve))
+        let parser = new DOMParser()
+        let el = parser.parseFromString(res.data, "text/html");
+        el.body.style.backgroundColor = 'white'
+        document.getElementById("termsAndConditions").appendChild(el.documentElement)
     })
   }
 

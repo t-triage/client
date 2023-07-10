@@ -3,7 +3,7 @@ import TTriageLogo from "../../images/ttriage_greylogo.png"
 import ClarolabLogo from "../../images/clarolab_greylogo.svg"
 
 import { renderPopover } from './TriageUtils'
-import {COLORS, WIKI_URL} from './Globals'
+import {COLORS} from './Globals'
 
 const CopyrightFooter = (props) => {
   let buildInfo = JSON.parse(sessionStorage.getItem("buildInfo"))
@@ -25,7 +25,7 @@ const CopyrightFooter = (props) => {
             <a
                 target="_blank"
                 style={{ textDecoration: 'none', color: COLORS.primary, fontWeight: 'bold' }}
-                href= {WIKI_URL + "community/publico/t-triage-support"}>
+                href= {"https://github.com/orgs/t-triage/discussions"}>
                     Send Feedback
             </a>
         </div>

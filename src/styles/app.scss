@@ -384,7 +384,7 @@ a {
 }
 
 .helpPopperContainer {
-	z-index: 1000;
+	z-index: 999; //the header has 1000, so the popover is shown up front
 	margin-top: 12px;
 	margin-left: 10px;
 	cursor: default;

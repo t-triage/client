@@ -1,8 +1,8 @@
 import React from "react"
-import IconButton from "@material-ui/core/IconButton"
-import InsertLink from "@material-ui/icons/InsertLink"
-import ExploreOutlinedIcon from "@material-ui/icons/ExploreOutlined";
-import Tooltip from  "@material-ui/core/Tooltip"
+import IconButton from "@mui/material/IconButton"
+import InsertLink from "@mui/icons-material/InsertLink"
+import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
+import Tooltip from  "@mui/material/Tooltip"
 
 //copio en el portapapeles
 const copyClipboard = (text) => {
@@ -27,13 +27,12 @@ export const ShareTestButton = (props) => {
     const { textId } = props;
     const url = location + '?id=' + textId;
     return (
-
         <Tooltip title="copy Link">
-            <IconButton onClick={onClickReturnFunction(url)}>
+            <IconButton onClick={onClickReturnFunction(url)} size="large">
                     <InsertLink/>
             </IconButton>
         </Tooltip>
-    )
+    );
 }
 
 

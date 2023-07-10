@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Tooltip from '@material-ui/core/Tooltip'
-import FiberManualRecordRoundedIcon from '@material-ui/icons/FiberManualRecordRounded'
+import Tooltip from '@mui/material/Tooltip'
+import FiberManualRecordRoundedIcon from '@mui/icons-material/FiberManualRecordRounded'
 import FlakyTestIcon from "../../images/FlakyTestIcon.svg"
 import {
   getStatusTagColor,
