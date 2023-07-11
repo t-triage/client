@@ -42,7 +42,6 @@ import { MenuItem } from "@mui/material";
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { MySnackbarContent, snackbarStyle } from '../Main/Components/Globals'
 import withStyles from '@mui/styles/withStyles';
 import AlertDialogSlide from '../Main/Components/AlertDialogJira';
 import SideMenu from "./SideMenu"
@@ -56,8 +55,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
+import Alert from '@mui/material/Alert';
 
 const jiraVersions = [
     { value: "cloud", text: "Cloud" },
@@ -2259,11 +2257,10 @@ export default class Product extends Component {
                                             autoHideDuration={2200}
                                             onClose={this.closeSnackbar.bind(this)}
                                         >
-                                            <MySnackbarContentWrapper
-                                                onClose={this.closeSnackbar.bind(this)}
-                                                variant={'success'}
-                                                message={"Product saved"}
-                                            />
+                                            <Alert variant={"filled"} severity="success" onClose={this.closeSnackbar.bind(this)}>
+                                                Product saved
+                                            </Alert>
+                                            
                                         </Snackbar>
                                     </div>
 

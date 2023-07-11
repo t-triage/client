@@ -24,14 +24,12 @@ import Paper from "@mui/material/Paper"
 import DialogContent from "@mui/material/DialogContent"
 import Dialog from "@mui/material/Dialog"
 import Snackbar from '@mui/material/Snackbar'
+import Alert from '@mui/material/Alert';
 import withStyles from '@mui/styles/withStyles';
 import Nav from "../Main/Components/Nav"
-import {styles, MySnackbarContent, snackbarStyle, COLORS, GITBOOK_URL} from './Components/Globals'
+import {styles, COLORS, GITBOOK_URL} from './Components/Globals'
 
 import DialogTitle from "@mui/material/DialogTitle";
-
-
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 class CustomTooltip extends Component {
   render() {
@@ -616,11 +614,9 @@ class AutomationIssueList extends Component {
               autoHideDuration={2000}
               onClose={this.hideSnackbar}
             >
-              <MySnackbarContentWrapper
-                onClose={this.hideSnackbar}
-                variant="success"
-                message="Comment updated"
-              />
+              <Alert variant={"filled"} severity="success" onClose={this.hideSnackbar}>
+                  Comment updated
+              </Alert>
           </Snackbar>
           <Snackbar
               anchorOrigin={{
@@ -631,11 +627,9 @@ class AutomationIssueList extends Component {
               autoHideDuration={2000}
               onClose={this.hideSnackbarError}
             >
-              <MySnackbarContentWrapper
-                onClose={this.hideSnackbarError}
-                variant="error"
-                message="Something went wrong"
-              />
+              <Alert variant={"filled"} severity="error" onClose={this.hideSnackbarError}>
+                  Something went wrong
+              </Alert>
           </Snackbar>
       </div>
     );
