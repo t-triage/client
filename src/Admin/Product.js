@@ -523,7 +523,7 @@ export default class Product extends Component {
                 'Content-Type': 'application/json'
             },
         })
-            .then(res => {
+            .then(async res => {
                 let idProduct = res.data.id;
 
                 if (!!this.props.storeData)
@@ -533,7 +533,6 @@ export default class Product extends Component {
                     this.saveRepositories(idProduct)
                 });
 
-                //Acá hago el post del productGoal asociado
                 axios({
                     method: "POST",
                     url: Api.getBaseUrl() + Api.ENDPOINTS.CreateProductGoal,
@@ -556,7 +555,7 @@ export default class Product extends Component {
                 if (this.state.productId != null) {
                     this.enableJiraConfig(test)
                 } else {
-                    this.setState({ productId: res.data.id });
+                    await new Promise(resolve => this.setState({ productId: res.data.id }, resolve))
                     this.enableJiraConfig(test)
                 }
                 if (test === false) {
