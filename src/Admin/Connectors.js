@@ -3,7 +3,7 @@ import Api from "../Main/Components/Api"
 import axios from 'axios'
 
 import SuiteActionDialog from '../Main/Components/SuiteActionDialog'
-import {MySnackbarContent, snackbarStyle, COLORS, GITBOOK_URL} from '../Main/Components/Globals'
+import {COLORS, GITBOOK_URL} from '../Main/Components/Globals'
 import { scrollToTop, TextFieldInput } from './AdminUtils'
 import { copyToClipboard } from '../Main/Components/TriageUtils'
 
@@ -37,10 +37,10 @@ import Snackbar from "@mui/material/Snackbar"
 import Grid from "@mui/material/Grid"
 import CircularProgress from "@mui/material/CircularProgress"
 import withStyles from '@mui/styles/withStyles';
+import Alert from '@mui/material/Alert';
+
 
 import SideMenu from "./SideMenu"
-
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 const types = [
   {value: 'BAMBOO', text: 'Bamboo'},
@@ -254,7 +254,7 @@ export default class Connector extends Component {
         } else {
           this.disableConnector(connector.id)
           this.enableEditConnector(null, connector)
-          this.showSnackbar('Connector test failed and it is temporarily disabled.<br />Please review your configuration, enable, edit and try again.', 'error')
+          this.showSnackbar("Connector test failed and it is temporarily disabled.\nPlease review your configuration, enable, edit and try again.", 'error')
           this.setState({validatedConnector: false})
         }
       })
@@ -309,11 +309,14 @@ export default class Connector extends Component {
             autoHideDuration={2000}
             onClose={this.hideSnackbar.bind(this)}
           >
-            <MySnackbarContentWrapper
-              onClose={this.hideSnackbar.bind(this)}
-              variant={this.state.snackbarVariant}
-              message={this.state.snackbarMsg}
-            />
+            <Alert variant={"filled"} severity={this.state.snackbarVariant} onClose={this.hideSnackbar.bind(this)}>
+                {this.state.snackbarMsg.split('\n').map((line, index) => (
+                    <React.Fragment key={index}>
+                        {line}
+                        <br />
+                    </React.Fragment>
+                ))}
+            </Alert>
         </Snackbar>
       )
     }

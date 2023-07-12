@@ -5,7 +5,7 @@ import axios from 'axios'
 import { find } from "underscore"
 import UserPicker from "../Main/Components/UserPicker"
 import SuiteActionDialog from "../Main/Components/SuiteActionDialog"
-import { MySnackbarContent, snackbarStyle, COLORS } from '../Main/Components/Globals'
+import { COLORS } from '../Main/Components/Globals'
 import {
   PriorityList,
   WeekList,
@@ -51,10 +51,48 @@ import CircularProgress from "@mui/material/CircularProgress"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import withStyles from '@mui/styles/withStyles';
 import SideMenu from "./SideMenu"
+import Alert from '@mui/material/Alert';
 
 import { blue as Blue } from '@mui/material/colors';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
+const reportTypes = [
+    {
+        value: 'UNKNOWN',
+        label: 'UNKNOWN',
+    },
+    {
+        value: 'ROBOT',
+        label: 'ROBOT',
+    },
+    {
+        value: 'TESTNG',
+        label: 'TESTNG',
+    },
+    {
+        value: 'JUNIT',
+        label: 'JUNIT',
+    },
+    {
+        value: 'CUCUMBER',
+        label: 'CUCUMBER',
+    },
+    {
+        value: 'ALLURE',
+        label: 'ALLURE',
+    },
+    {
+        value: 'PROTRACTOR',
+        label: 'PROTRACTOR',
+    },
+    {
+        value: 'PROTRACTOR_STEPS',
+        label: 'PROTRACTOR_STEPS',
+    },
+    {
+        value: 'CYPRESS',
+        label: 'CYPRESS',
+    },
+];
 
 export default class Connector extends Component {
 
@@ -194,7 +232,7 @@ export default class Connector extends Component {
         } else {
           this.disableContainer(container.id)
           this.enableEditContainer(null, container)
-          this.addSnackbar('Container test failed and it is temporarily disabled.<br />Please review your configuration, enable, edit and try again.', 'error')
+          this.addSnackbar('Container test failed and it is temporarily disabled.\nPlease review your configuration, enable, edit and try again.', 'error')
           this.setState({validatedContainer: false})
         }
       })
@@ -254,7 +292,7 @@ export default class Connector extends Component {
 					this.addSnackbar('Slack integration test passed successfully', 'success')
 				}
         else {
-				  this.addSnackbar(`Slack integration test failed.<br />Please review your configuration. <br /> ${JSON.stringify(data)}`, 'error')
+				  this.addSnackbar("Slack integration test failed.\nPlease review your configuration.\n${JSON.stringify(data)}", 'error')
         }
 			})
 			.catch(err => {
@@ -393,11 +431,14 @@ export default class Connector extends Component {
 								 autoHideDuration={2000}
 								 onClose={this.removeSnackbar.bind(this, snack, index)}
 							 >
-								 <MySnackbarContentWrapper
-									 onClose={this.removeSnackbar.bind(this, snack, index)}
-									 variant={snack.snackbarVariant}
-									 message={snack.snackbarMsg}
-								 />
+                                 <Alert variant={"filled"} severity={snack.snackbarVariant} onClose={this.removeSnackbar.bind(this, snack, index)}>
+                                     {snack.snackbarMsg.split('\n').map((line, index) => (
+                                         <React.Fragment key={index}>
+                                             {line}
+                                             <br />
+                                         </React.Fragment>
+                                     ))}
+                                 </Alert>
 							 </Snackbar>
 						 )
 					 })
@@ -878,15 +919,11 @@ export default class Connector extends Component {
                                             }
                                         }}
                                         >
-                                            <option value="UNKNOWN">UNKNOWN</option>
-                                            <option value="ROBOT">ROBOT</option>
-                                            <option value="TESTNG">TESTNG</option>
-                                            <option value="JUNIT">JUNIT</option>
-                                            <option value="CUCUMBER">CUCUMBER</option>
-                                            <option value="ALLURE">ALLURE</option>
-                                            <option value="PROTRACTOR">PROTRACTOR</option>
-                                            <option value="PROTRACTOR_STEPS">PROTRACTOR_STEPS</option>
-                                            <option value="CYPRESS">CYPRESS</option>
+                                            {reportTypes.map((option) => (
+                                                <MenuItem key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </MenuItem>
+                                            ))}
 
                                         </TextFieldInput>
 
