@@ -38,6 +38,8 @@ class ExecutorsPicker extends Component {
 
 
     selectExecutor = (ev) => {
+        console.log(ev.target)
+        console.log(ev.target.value)
         this.setState({selectedExecutor: ev.target.value})
         if(ev.target.value !== -2)
             this.props.fetchExecutor(this.state.executors[ev.target.value].id, this.state.executors[ev.target.value].name)
@@ -45,12 +47,13 @@ class ExecutorsPicker extends Component {
 
     fetchExecutorsList = () => {
         axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetExecutors)
-          .then(res => {
-            this.setState({
-                executors: res.data,
-                executorLoaded: true,
-                selectedExecutor: res.data[0]
-            }, () => {this.props.fetchExecutor(this.state.selectedExecutor.id, this.state.selectedExecutor.name)})
+          .then(async res => {
+              await new Promise(resolve => this.setState({
+                  executors: res.data,
+                  executorLoaded: true,
+                  selectedExecutor: res.data[0]
+              }, resolve))
+             ,() => {this.props.fetchExecutor(this.state.selectedExecutor.id, this.state.selectedExecutor.name)}
             })
     }
 
