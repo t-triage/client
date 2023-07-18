@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import { withStyles } from '@material-ui/core/styles';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import withStyles from '@mui/styles/withStyles';
 
 import { styles, COLORS } from './Globals'
 

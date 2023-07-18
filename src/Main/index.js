@@ -1,6 +1,6 @@
 import "../styles/home.scss"
 import React, { Component } from "react"
-import Globals, {WIKI_URL} from "./Components/Globals"
+import Globals, {GITBOOK_URL} from "./Components/Globals"
 import history from "./Components/History"
 import CopyrightFooter from "./Components/CopyrightFooter"
 
@@ -9,9 +9,9 @@ import Nav from "./Components/Nav"
 import SuiteList from "./SuiteList"
 import Triage from "./Triage"
 
-const workspaceUrl = WIKI_URL + 'docs/DOC-6974#jive_content_id_Triage'
-const kanbanUrl = WIKI_URL + 'docs/DOC-6974#jive_content_id_Kanban_view_of_a_suite'
-const triageUrl = WIKI_URL + 'docs/DOC-6974#jive_content_id_Test_details'
+const workspaceUrl = GITBOOK_URL + 'docs/user-guide/triage'
+const kanbanUrl = GITBOOK_URL + 'docs/user-guide/kanban-view-of-a-suite'
+const triageUrl = GITBOOK_URL + 'docs/user-guide/test-details'
 
 export default class Home extends Component {
     constructor(props) {

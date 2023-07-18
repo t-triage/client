@@ -1,8 +1,8 @@
-import Checkbox from "@material-ui/core/Checkbox";
-import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from "@material-ui/core/IconButton";
-import RemoveIcon from "@material-ui/icons/RemoveCircle";
-import ClearIcon from "@material-ui/icons/Clear";
+import Checkbox from "@mui/material/Checkbox";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import RemoveIcon from "@mui/icons-material/RemoveCircle";
+import ClearIcon from "@mui/icons-material/Clear";
 import TestEditForm from "./TestEditForm";
 import React from "react";
 
@@ -128,7 +128,9 @@ export const TestListItem = (props) => {
                                     popper: props.classes.popper,
                                 }} title="Remove from plan"
                                 style={{display: "flex"}}>
-                                <IconButton onClick={props.that.deleteExecution.bind(props.that, props.test.id, props.filters.testPlan)}>
+                                <IconButton
+                                    onClick={props.that.deleteExecution.bind(props.that, props.test.id, props.filters.testPlan)}
+                                    size="large">
                                     <RemoveIcon style={{color: "red"}} />
                                 </IconButton>
                             </Tooltip>
@@ -145,7 +147,9 @@ export const TestListItem = (props) => {
                             popper: props.classes.popper,
                         }} title="Cancel"
                         style={{display: props.expandedTests.indexOf(props.test.id) === -1 ? 'none' : "flex"}}>
-                        <IconButton onClick={() => handleExpantion(props.that, props.test.id, false)}>
+                        <IconButton
+                            onClick={() => handleExpantion(props.that, props.test.id, false)}
+                            size="large">
                             <ClearIcon />
                         </IconButton>
                     </Tooltip>
@@ -162,5 +166,5 @@ export const TestListItem = (props) => {
                 )
             }
         </div>
-    )
+    );
 }

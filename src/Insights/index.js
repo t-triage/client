@@ -3,18 +3,18 @@ import axios from 'axios'
 import "../styles/insights.scss"
 
 import InsightsBox from './InsightsBox'
-import {COLORS, WIKI_URL} from '../Main/Components/Globals'
+import {COLORS, GITBOOK_URL} from '../Main/Components/Globals'
 
 import SideMenu from "../Main/Components/SideMenu"
 import CopyrightFooter from "../Main/Components/CopyrightFooter"
 import Api from "../Main/Components/Api"
-import Grid from "@material-ui/core/Grid"
-import Tooltip from "@material-ui/core/Tooltip"
-import IconButton from "@material-ui/core/IconButton"
-import Tabs from "@material-ui/core/Tabs"
-import Tab from "@material-ui/core/Tab"
-import AppBar from "@material-ui/core/AppBar"
-import HelpIcon from "@material-ui/icons/Help"
+import Grid from "@mui/material/Grid"
+import Tooltip from "@mui/material/Tooltip"
+import IconButton from "@mui/material/IconButton"
+import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
+import AppBar from "@mui/material/AppBar"
+import HelpIcon from "@mui/icons-material/Help"
 
 import Nav from "../Main/Components/Nav"
 import ProductHealth from './category/ProductHealth'
@@ -45,7 +45,6 @@ export default class Insights extends Component {
 			helpEnabled: false,
 			currentUser: null,
       navValue: 0,
-      freeLicense: true,
     }
 		this.helpItems= [
 		    [
@@ -59,7 +58,7 @@ export default class Insights extends Component {
                 },
                 {
                     title: 'DOCUMENTATION',
-                    text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-6974#jive_content_id_Insights"}>HERE</a>`
+                    text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/insights"}>HERE</a>`
                 },
                 {
                     title: null,
@@ -90,17 +89,6 @@ export default class Insights extends Component {
     })
   }
 
-  fetchLicense() {
-    axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetLicense)
-      .then(res => {
-          let license = res.data
-          if (!!license) {
-              this.setState({
-                  freeLicense: license.free
-              })
-          }
-      })
-  }
 
   componentWillMount() {
     document.title = "t-Triage - Insights"
@@ -138,7 +126,6 @@ export default class Insights extends Component {
             this.setState({ achievedDeadlines: res.data })
         })
     this.getCurrentUser()
-    this.fetchLicense()
   }
 
   changeTab = (ev, value) => {
@@ -147,10 +134,8 @@ export default class Insights extends Component {
   }
 
   validateNav = (navValue) => {
-    let {freeLicense} = this.state;
-
-    if (navValue == 'trend-goals' || navValue == 'trend goals')
-      return !freeLicense
+    if (navValue == 'trend-goals')
+      return false
     else
       return true
   }

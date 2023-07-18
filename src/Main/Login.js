@@ -3,23 +3,23 @@ import Api from "./Components/Api"
 import axios from 'axios'
 
 // Icons
-import AccountIcon from "@material-ui/icons/Email"
-import LockIcon from "@material-ui/icons/Lock"
-import ErrorIcon from "@material-ui/icons/Error"
-import CloseIcon from "@material-ui/icons/Close"
-import QuoteIcon from "@material-ui/icons/FormatQuote"
+import AccountIcon from "@mui/icons-material/Email"
+import LockIcon from "@mui/icons-material/Lock"
+import ErrorIcon from "@mui/icons-material/Error"
+import CloseIcon from "@mui/icons-material/Close"
+import QuoteIcon from "@mui/icons-material/FormatQuote"
 
 // Components
-import Paper from "@material-ui/core/Paper"
-import InputBase from "@material-ui/core/InputBase"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import Button from "@material-ui/core/Button"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-import Grid from "@material-ui/core/Grid"
-import Snackbar from "@material-ui/core/Snackbar"
-import IconButton from "@material-ui/core/IconButton"
+import Paper from "@mui/material/Paper"
+import InputBase from "@mui/material/InputBase"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import Button from "@mui/material/Button"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemText from "@mui/material/ListItemText"
+import Grid from "@mui/material/Grid"
+import Snackbar from "@mui/material/Snackbar"
+import IconButton from "@mui/material/IconButton"
 
 // Temporal until we have a full logo svg
 import TTriageLogo from "../images/favicon.png"
@@ -162,7 +162,7 @@ export default class Login extends Component {
         var buttons = []
         this.state.providers.map(provider => {
             if (buttons.length > 0)
-                buttons.push(<ListItem style={{ padding: 0 }} key={provider+Math.floor(Math.random()*1000)}><Grid container justify="center" style={{color: "gray", fontSize:"0.8em"}}>OR</Grid></ListItem>)
+                buttons.push(<ListItem style={{ padding: 0 }} key={provider+Math.floor(Math.random()*1000)}><Grid container justifyContent="center" style={{color: "gray", fontSize:"0.8em"}}>OR</Grid></ListItem>)
             if (provider == "internal" && this.state.showInternalLogin) {
                 buttons = buttons.concat([<ListItem key={provider+Math.floor(Math.random()*1000)}>
                     <ListItemIcon>
@@ -352,12 +352,12 @@ export default class Login extends Component {
                             aria-label="Close"
                             color="inherit"
                             onClick={this.closeLoginErrorSnackbar}
-                        >
+                            size="large">
                             <CloseIcon />
                         </IconButton>,
                     ]}
                 />
             </div>
-        )
+        );
     }
 }

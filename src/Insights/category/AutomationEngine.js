@@ -3,8 +3,8 @@ import Api from "../../Main/Components/Api"
 import axios from 'axios'
 import CircularChart from '../CircularChart'
 import BugsFiledChart from '../BugsFiledChart'
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
 import SuiteEvolutionChart from '../SuiteEvolutionChart'
 
 export default class AutomationEngine extends Component {
@@ -31,7 +31,7 @@ export default class AutomationEngine extends Component {
 
   render() {
     return (
-      <Grid container spacing={24} justify="center">
+      <Grid container spacing={24} justifyContent="center">
           <Grid item xs={10}>
               <Paper className='chartBigContainer'>
                   <CircularChart
@@ -53,6 +53,6 @@ export default class AutomationEngine extends Component {
               </Paper>
           </Grid>
       </Grid>
-    )
+    );
   }
 }

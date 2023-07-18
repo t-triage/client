@@ -6,27 +6,27 @@ import SearchUI from "./SearchUI"
 import Api from "./Api"
 
 // Icons
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import FolderIcon from "@material-ui/icons/Folder"
-import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown"
-import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import FolderIcon from "@mui/icons-material/Folder"
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown"
+import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied"
 
 // UI Components
-import Grid from "@material-ui/core/Grid"
-import Select from "@material-ui/core/Select"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import Avatar from "@material-ui/core/Avatar"
-import List from "@material-ui/core/List"
-import MenuItem from "@material-ui/core/MenuItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import LinearProgress from "@material-ui/core/LinearProgress"
+import Grid from "@mui/material/Grid"
+import Select from "@mui/material/Select"
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import Avatar from "@mui/material/Avatar"
+import List from "@mui/material/List"
+import MenuItem from "@mui/material/MenuItem"
+import ListItemText from "@mui/material/ListItemText"
+import LinearProgress from "@mui/material/LinearProgress"
 import Globals from "./Globals"
-import Typography from "@material-ui/core/Typography"
-import Tooltip from "@material-ui/core/Tooltip"
-import InputBase from "@material-ui/core/InputBase"
-import { withStyles } from '@material-ui/core/styles'
+import Typography from "@mui/material/Typography"
+import Tooltip from "@mui/material/Tooltip"
+import InputBase from "@mui/material/InputBase"
+import withStyles from '@mui/styles/withStyles';
 import { styles } from './Globals'
-import TextField from "@material-ui/core/TextField"
+import TextField from "@mui/material/TextField"
 
 const BootstrapInput = withStyles(theme => ({
     input: {

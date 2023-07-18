@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { _ } from "underscore"
+import * as _  from "underscore"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -15,22 +15,22 @@ import {styles, renderDeadLine, snackbarStyle, MySnackbarContent, COLORS} from '
 
 
 // UI Components
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Table from "@material-ui/core/Table"
-import TableBody from "@material-ui/core/TableBody"
-import TableCell from "@material-ui/core/TableCell"
-import TableHead from "@material-ui/core/TableHead"
-import TablePagination from "@material-ui/core/TablePagination"
-import TableRow from "@material-ui/core/TableRow"
-import Typography from "@material-ui/core/Typography"
-import Tooltip from "@material-ui/core/Tooltip"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import PriorityIcon from "@material-ui/icons/TrendingUp"
-import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline"
-import DoneIcon from '@material-ui/icons/Done';
-import { withStyles } from '@material-ui/core/styles'
-import Snackbar from '@material-ui/core/Snackbar'
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Table from "@mui/material/Table"
+import TableBody from "@mui/material/TableBody"
+import TableCell from "@mui/material/TableCell"
+import TableHead from "@mui/material/TableHead"
+import TablePagination from "@mui/material/TablePagination"
+import TableRow from "@mui/material/TableRow"
+import Typography from "@mui/material/Typography"
+import Tooltip from "@mui/material/Tooltip"
+import CircularProgress from "@mui/material/CircularProgress"
+import PriorityIcon from "@mui/icons-material/TrendingUp"
+import CheckCircleOutline from "@mui/icons-material/CheckCircleOutline"
+import DoneIcon from '@mui/icons-material/Done';
+import withStyles from '@mui/styles/withStyles';
+import Snackbar from '@mui/material/Snackbar'
 import SuiteListEdit from "./Components/SuiteListEdit";
 import { scrollToTop } from '../Admin/AdminUtils'
 
@@ -489,7 +489,7 @@ class SuiteList extends Component {
                             nextIconButtonProps={{
                                 'aria-label': 'Next Page',
                             }}
-                            onChangePage={() => {}}
+                            onPageChange={() => {}}
                             disabled={true}
                         />
                     </Grid>

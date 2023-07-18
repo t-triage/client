@@ -1,6 +1,6 @@
 import "../styles/home.scss"
 import React, { Component } from "react"
-import Globals, {WIKI_URL} from "./Components/Globals"
+import Globals, {GITBOOK_URL} from "./Components/Globals"
 import history from "./Components/History"
 import CopyrightFooter from "./Components/CopyrightFooter"
 import Kanban from "./Kanban"
@@ -10,11 +10,11 @@ import Triage from "./Triage"
 import PipelineKanban from "./PipelineKanban"
 import PipelineList from "./PipelineList"
 
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@mui/styles/withStyles';
 import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS, snackbarStyle, PipeStage } from './Components/Globals'
-const workspaceUrl = WIKI_URL + 'docs/DOC-7272'
-const kanbanUrl = WIKI_URL + 'docs/DOC-7272'
-const triageUrl = WIKI_URL + 'docs/DOC-6974#jive_content_id_Test_details'
+const workspaceUrl = GITBOOK_URL + 'docs/user-guide/pipeline-checkpoints'
+const kanbanUrl = GITBOOK_URL + 'docs/user-guide/pipeline-checkpoints'
+const triageUrl = GITBOOK_URL + 'docs/user-guide/test-details'
 
 class Pipeline extends Component {
   constructor(props) {

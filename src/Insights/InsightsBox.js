@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import Paper from "@material-ui/core/Paper"
-import Tooltip from "@material-ui/core/Tooltip"
-import { withStyles } from '@material-ui/core/styles';
+import Paper from "@mui/material/Paper"
+import Tooltip from "@mui/material/Tooltip"
+import withStyles from '@mui/styles/withStyles';
 
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import FingerprintIcon from '@material-ui/icons/Fingerprint'
-import WhatshotIcon from '@material-ui/icons/Whatshot'
-import TimerIcon from '@material-ui/icons/Timer'
-import HelpIcon from "@material-ui/icons/Help"
-import BugReportIcon from "@material-ui/icons/BugReport"
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import FingerprintIcon from '@mui/icons-material/Fingerprint'
+import WhatshotIcon from '@mui/icons-material/Whatshot'
+import TimerIcon from '@mui/icons-material/Timer'
+import HelpIcon from "@mui/icons-material/Help"
+import BugReportIcon from "@mui/icons-material/BugReport"
 
 import { styles } from '../Main/Components/Globals'
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import "../styles/app.scss"
-import Button from "@material-ui/core/Button"
+import Button from "@mui/material/Button"
 import history from "./Components/History"
 import { COLORS } from './Components/Globals'
 

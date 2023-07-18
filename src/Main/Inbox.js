@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@mui/styles/withStyles';
 import COLORS from './Components/Globals'
 import Api from "./Components/Api"
 import Nav from "../Main/Components/Nav"
 import axios from 'axios'
 
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Tooltip from '@material-ui/core/Tooltip';
-import Popover from "@material-ui/core/Popover";
-import Divider from "@material-ui/core/Divider";
-import MenuItem from "@material-ui/core/MenuItem";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Tooltip from '@mui/material/Tooltip';
+import Popover from "@mui/material/Popover";
+import Divider from "@mui/material/Divider";
+import MenuItem from "@mui/material/MenuItem";
+import CircularProgress from '@mui/material/CircularProgress';
 
 // Icons
-import IconButton from '@material-ui/core/IconButton';
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import CheckIcon from '@material-ui/icons/Check';
-import ClearIcon from '@material-ui/icons/Clear';
+import IconButton from '@mui/material/IconButton';
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const classes = theme => ({
     fontSize: {
@@ -169,7 +169,7 @@ class Inbox extends Component {
                                 <CircularProgress color="primary" />
                             </div>
                         : 
-                        <Grid container justify="center">
+                        <Grid container justifyContent="center">
                             {notifications.length > 0 ? (
                                 <Paper style={{width: "75%"}} >
                                     <Table >
@@ -209,7 +209,8 @@ class Inbox extends Component {
                                                                 <div>
                                                                     <IconButton
                                                                         id={"notificationOptions-" + index}
-                                                                        onClick={() => this.setState({notificationSelected: index})}>
+                                                                        onClick={() => this.setState({notificationSelected: index})}
+                                                                        size="large">
                                                                         <MoreHorizIcon color='action'/>
                                                                     </IconButton>
                                                                 </div>
@@ -258,7 +259,7 @@ class Inbox extends Component {
                     }
                 </main>
             </div>
-        )
+        );
     }
     
 }

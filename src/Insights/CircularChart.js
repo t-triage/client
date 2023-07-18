@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import { styles, COLORS } from '../Main/Components/Globals'
 
-import Typography from "@material-ui/core/Typography"
-import Tooltip from "@material-ui/core/Tooltip"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import { withStyles } from '@material-ui/core/styles';
+import Typography from "@mui/material/Typography"
+import Tooltip from "@mui/material/Tooltip"
+import CircularProgress from "@mui/material/CircularProgress"
+import withStyles from '@mui/styles/withStyles';
 
-import HelpIcon from "@material-ui/icons/Help"
+import HelpIcon from "@mui/icons-material/Help"
 
 import {
   PieChart,

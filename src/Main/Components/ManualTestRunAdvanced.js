@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 
-import Button from "@material-ui/core/Button"
-import TextField from "@material-ui/core/TextField"
-import MenuItem from "@material-ui/core/MenuItem"
-import Grid from "@material-ui/core/Grid"
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
+import MenuItem from "@mui/material/MenuItem"
+import Grid from "@mui/material/Grid"
 import { TECHNIQUE_LIST, SUITE_TYPE_LIST } from './Globals'
 
 export default class ManualTestRunAdvanced extends Component {
@@ -129,7 +129,7 @@ export default class ManualTestRunAdvanced extends Component {
             }}
             value={comment}
             placeholder="No comments yet"
-            rowsMax={5}
+            maxRows={5}
             onChange={(ev) => this.setState({ comment: ev.target.value })}
             spellCheck={false}
         />
@@ -173,6 +173,6 @@ export default class ManualTestRunAdvanced extends Component {
           })
         }
       </div>
-    )
+    );
   }
 }

@@ -1,22 +1,22 @@
 import React, {Component} from "react";
 
-import {styles, WIKI_URL} from "./Globals";
-import {withStyles} from "@material-ui/core/styles";
+import {styles, GITBOOK_URL} from "./Globals";
+import withStyles from '@mui/styles/withStyles';
 
 // UI Components
-import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from "@material-ui/core/IconButton";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import Popover from "@material-ui/core/Popover";
-import {Divider, MenuItem} from "@material-ui/core";
-import FlipToFrontIcon from "@material-ui/icons/Launch"
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Popover from "@mui/material/Popover";
+import {Divider, MenuItem} from "@mui/material";
+import FlipToFrontIcon from "@mui/icons-material/Launch"
 import AutomatedTestPipelineEdit from "./AutomatedTestPipelineEdit";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogActions from "@material-ui/core/DialogActions"
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions"
 
-import Button from "@material-ui/core/Button"
+import Button from "@mui/material/Button"
 import axios from "axios";
 import Api from "./Api";
 
@@ -258,7 +258,7 @@ class PipelineOptionListPopover extends Component{
 
                         <div style={{marginBottom: 10}}>
                             <label>See more at: wiki link (
-                                <a href={WIKI_URL + "docs/DOC-7272"} target="_blank"> {WIKI_URL + "docs/DOC-7272"} </a>
+                                <a href={GITBOOK_URL + "docs/user-guide/pipeline-checkpoints"} target="_blank"> {GITBOOK_URL + "docs/user-guide/pipeline-checkpoints"} </a>
                                 )</label>
 
                         </div>
@@ -271,7 +271,7 @@ class PipelineOptionListPopover extends Component{
 
     render(){
         const { pipeline, classes } = this.props;
-        return(
+        return (
             <div>
                 {this.renderActionDialog()}
                 {this.renderDialog()}
@@ -283,7 +283,8 @@ class PipelineOptionListPopover extends Component{
                     <div>
                         <IconButton
                             id={"pipelineListMenu-"+pipeline.id}
-                            onClick={() => this.setState({ pipelineListOptionsOpen: true})}>
+                            onClick={() => this.setState({ pipelineListOptionsOpen: true})}
+                            size="large">
                             <MoreHorizIcon color='action'/>
                         </IconButton>
                     </div>
@@ -322,7 +323,7 @@ class PipelineOptionListPopover extends Component{
                 </Popover>
                 {this.renderConfirmationDialog()} 
             </div>
-        )
+        );
     }
 
 }

@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import axios from 'axios'
 import Api from './Api'
 import { Link } from 'react-router-dom'
 
 import ManualTestRunContainer from './ManualTestRunContainer'
 
-import FormatClearIcon from '@material-ui/icons/FormatClear';
-import TextFieldsIcon from '@material-ui/icons/TextFields';
-import Snackbar from '@material-ui/core/Snackbar'
+import FormatClearIcon from '@mui/icons-material/FormatClear';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import Snackbar from '@mui/material/Snackbar'
 
 import {styles, COLORS, snackbarStyle, MySnackbarContent, TEST_PLAN_STATUS_ALL} from './Globals'
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@mui/styles/withStyles';
 import SearchUI from "./SearchUI";
-import Grid from "@material-ui/core/Grid";
+import Grid from "@mui/material/Grid";
 
 const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 

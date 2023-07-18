@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Api from "./Components/Api"
 import axios from 'axios'
-import { _ } from "underscore"
+import * as _  from "underscore"
 
 import "../styles/issuesList.scss"
 
@@ -13,25 +13,23 @@ import CopyrightFooter from "./Components/CopyrightFooter"
 import { renderStackTraceDialog, renderErrorDetailsDialog } from './Components/TriageUtils'
 
 // Icons
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
-import KeyboardCapslockIcon from "@material-ui/icons/KeyboardCapslock"
-import ReportIcon from "@material-ui/icons/Report"
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import KeyboardCapslockIcon from "@mui/icons-material/KeyboardCapslock"
+import ReportIcon from "@mui/icons-material/Report"
 
 //UI Components
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import DialogContent from "@material-ui/core/DialogContent"
-import Dialog from "@material-ui/core/Dialog"
-import Snackbar from '@material-ui/core/Snackbar'
-import { withStyles } from '@material-ui/core/styles'
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import DialogContent from "@mui/material/DialogContent"
+import Dialog from "@mui/material/Dialog"
+import Snackbar from '@mui/material/Snackbar'
+import Alert from '@mui/material/Alert';
+import withStyles from '@mui/styles/withStyles';
 import Nav from "../Main/Components/Nav"
-import {styles, MySnackbarContent, snackbarStyle, COLORS, WIKI_URL} from './Components/Globals'
+import {styles, COLORS, GITBOOK_URL} from './Components/Globals'
 
-import DialogTitle from "@material-ui/core/DialogTitle";
-
-
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
+import DialogTitle from "@mui/material/DialogTitle";
 
 class CustomTooltip extends Component {
   render() {
@@ -536,7 +534,7 @@ class AutomationIssueList extends Component {
                 },
                 {
                     title: 'DOCUMENTATION',
-                    text: `Detailed documentation <a target="_blank" href=${WIKI_URL + "docs/DOC-6974#jive_content_id_Automation_Issues"}>HERE</a>`
+                    text: `Detailed documentation <a target="_blank" href=${GITBOOK_URL + "docs/user-guide/automation-issues"}>HERE</a>`
                 },
                 {
                     title: null,
@@ -557,88 +555,84 @@ class AutomationIssueList extends Component {
 		let helpItems = this.getHelpItems(isAutomation, isCreation);
 
     return (
-        <div className="homeRoot">
-            {this.renderAddTestDialog()}
-					<Nav
-						helpEnabled={helpEnabled}
-						helpItems={helpItems}
-						screen={'automationIssueList'}
-						title={isAutomation ? "Automation Issues" : (isCreation ? "Automation Creation" : '')}
-						onHelpClick={this.onHelpClick.bind(this)}
-					/>
-          <main id="automationListDiv" style={{ marginTop: helpEnabled ? 245 : 100 }}>
+      <div className="homeRoot">
+          {this.renderAddTestDialog()}
+                  <Nav
+                      helpEnabled={helpEnabled}
+                      helpItems={helpItems}
+                      screen={'automationIssueList'}
+                      title={isAutomation ? "Automation Issues" : (isCreation ? "Automation Creation" : '')}
+                      onHelpClick={this.onHelpClick.bind(this)}
+                  />
+        <main id="automationListDiv" style={{ marginTop: helpEnabled ? 245 : 100 }}>
 
-                {renderStackTraceDialog(
-                  this.state.stackTraceDialog,
-                  this.closeStackTraceDialog.bind(this),
-                  this.state.stackTrace,
-                  this.state.productPackages,
-                )}
-                {renderErrorDetailsDialog(
-                  this.state.errorDetailsDialog,
-                  this.closeErrorDetailsDialog.bind(this),
-                  this.state.errorDetails,
-                )}
-
-
-
-                <div style={{padding: '0', backgroundColor: "transparent"}} classes={{root: classes.noShadow}}>
-                  <Grid container justify="flex-end" style={{ marginBottom: -30 }}>
-                      <Grid item style={{ display: 'flex', alignItems: 'center' }}>
-                          <SearchUI
-                              automationList={true}
-                              sort={true}
-                              filterSelected={this.filterList}
-                              isKanban={false}
-                              placeHolder="What issue are you looking for?"/>
-                          <SuitePicker
-                              executorNames={this.state.executorNames}
-                              executorFilter={this.filterByExecutor.bind(this)}/>
-                      </Grid>
-                  </Grid>
-                </div>
-
-
-                { isAutomation && this.state.listRows }
-                { isCreation && manualTestsList.length > 0 && this.getToAutomateList() }
+              {renderStackTraceDialog(
+                this.state.stackTraceDialog,
+                this.closeStackTraceDialog.bind(this),
+                this.state.stackTrace,
+                this.state.productPackages,
+              )}
+              {renderErrorDetailsDialog(
+                this.state.errorDetailsDialog,
+                this.closeErrorDetailsDialog.bind(this),
+                this.state.errorDetails,
+              )}
 
 
 
+              <div style={{padding: '0', backgroundColor: "transparent"}} classes={{root: classes.noShadow}}>
+                <Grid container justifyContent="flex-end" style={{ marginBottom: -30 }}>
+                    <Grid item style={{ display: 'flex', alignItems: 'center' }}>
+                        <SearchUI
+                            automationList={true}
+                            sort={true}
+                            filterSelected={this.filterList}
+                            isKanban={false}
+                            placeHolder="What issue are you looking for?"/>
+                        <SuitePicker
+                            executorNames={this.state.executorNames}
+                            executorFilter={this.filterByExecutor.bind(this)}/>
+                    </Grid>
+                </Grid>
+              </div>
 
-            </main>
-            <CopyrightFooter helpEnabled={helpEnabled}/>
-            <Snackbar
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'center',
-                }}
-                open={this.state.openSnackbar}
-                autoHideDuration={2000}
-                onClose={this.hideSnackbar}
-              >
-                <MySnackbarContentWrapper
-                  onClose={this.hideSnackbar}
-                  variant="success"
-                  message="Comment updated"
-                />
-            </Snackbar>
-            <Snackbar
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'center',
-                }}
-                open={this.state.openSnackbarError}
-                autoHideDuration={2000}
-                onClose={this.hideSnackbarError}
-              >
-                <MySnackbarContentWrapper
-                  onClose={this.hideSnackbarError}
-                  variant="error"
-                  message="Something went wrong"
-                />
-            </Snackbar>
-        </div>
-    )
+
+              { isAutomation && this.state.listRows }
+              { isCreation && manualTestsList.length > 0 && this.getToAutomateList() }
+
+
+
+
+          </main>
+          <CopyrightFooter helpEnabled={helpEnabled}/>
+          <Snackbar
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              open={this.state.openSnackbar}
+              autoHideDuration={2000}
+              onClose={this.hideSnackbar}
+            >
+              <Alert variant={"filled"} severity="success" onClose={this.hideSnackbar}>
+                  Comment updated
+              </Alert>
+          </Snackbar>
+          <Snackbar
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              open={this.state.openSnackbarError}
+              autoHideDuration={2000}
+              onClose={this.hideSnackbarError}
+            >
+              <Alert variant={"filled"} severity="error" onClose={this.hideSnackbarError}>
+                  Something went wrong
+              </Alert>
+          </Snackbar>
+      </div>
+    );
   }
 
 }

@@ -1,4 +1,4 @@
-import { _ } from "underscore"
+import * as _  from "underscore"
 import React, { Component } from "react"
 import "../styles/kanban.scss"
 import axios from 'axios'
@@ -16,55 +16,50 @@ import { getKanbanTagColor, getCheckIcon, getCheckIconTooltip } from './Componen
 import {getTestFailTagName, getApplicationFailTagName, renderPopover} from './Components/TriageUtils'
 import SearchUI from "./Components/SearchUI"
 
-// Colors
-import Amber from "@material-ui/core/colors/amber"
-import Red from "@material-ui/core/colors/red"
-import Green from "@material-ui/core/colors/green"
-import Blue from "@material-ui/core/colors/blue"
-import Grey from "@material-ui/core/colors/grey"
-
 // Icons
-import SvgIcon from "@material-ui/core/SvgIcon"
-import CommentIcon from "@material-ui/icons/Notes"
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import CloseIcon from '@material-ui/icons/Close'
-import ActionIcon from "@material-ui/icons/MoreHoriz"
-import SearchIcon from "@material-ui/icons/Search"
-import AccessTimeIcon from "@material-ui/icons/AccessTime"
-import SettingsIcon from "@material-ui/icons/Settings"
-import AssignmentIcon from "@material-ui/icons/Assignment"
+import SvgIcon from "@mui/material/SvgIcon"
+import CommentIcon from "@mui/icons-material/Notes"
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import CloseIcon from '@mui/icons-material/Close'
+import ActionIcon from "@mui/icons-material/MoreHoriz"
+import SearchIcon from "@mui/icons-material/Search"
+import AccessTimeIcon from "@mui/icons-material/AccessTime"
+import SettingsIcon from "@mui/icons-material/Settings"
+import AssignmentIcon from "@mui/icons-material/Assignment"
 import PinIcon from "../images/pin-grey.svg"
-import ExpandLessIcon from "@material-ui/icons/ExpandLess"
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import TuneIcon from "@material-ui/icons/Tune"
-import LaunchIcon from "@material-ui/icons/Launch"
-import SpellcheckIcon from "@material-ui/icons/Spellcheck"
-import FlipToFrontIcon from "@material-ui/icons/Launch"
-import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace"
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
-import KeyboardCapslockIcon from "@material-ui/icons/KeyboardCapslock"
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight"
+import ExpandLessIcon from "@mui/icons-material/ExpandLess"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import TuneIcon from "@mui/icons-material/Tune"
+import LaunchIcon from "@mui/icons-material/Launch"
+import SpellcheckIcon from "@mui/icons-material/Spellcheck"
+import FlipToFrontIcon from "@mui/icons-material/Launch"
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace"
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import KeyboardCapslockIcon from "@mui/icons-material/KeyboardCapslock"
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight"
 import FlakyTestIcon from "../images/FlakyTestIcon.svg"
-import PersonIcon from "@material-ui/icons/Person"
+import PersonIcon from "@mui/icons-material/Person"
 
 // UI Components
-import Drawer from "@material-ui/core/Drawer"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import Grid from "@material-ui/core/Grid"
-import Button from "@material-ui/core/Button"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import Tooltip from "@material-ui/core/Tooltip"
-import Typography from "@material-ui/core/Typography"
-import Paper from "@material-ui/core/Paper"
-import Snackbar from '@material-ui/core/Snackbar'
-import SnackbarContent from '@material-ui/core/SnackbarContent'
-import IconButton from '@material-ui/core/IconButton'
-import { withStyles } from '@material-ui/core/styles'
-import Avatar from "@material-ui/core/Avatar"
-import Popover from "@material-ui/core/Popover"
-import InputBase from "@material-ui/core/InputBase"
+import Drawer from "@mui/material/Drawer"
+import CircularProgress from "@mui/material/CircularProgress"
+import Grid from "@mui/material/Grid"
+import Button from "@mui/material/Button"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import Paper from "@mui/material/Paper"
+import Snackbar from '@mui/material/Snackbar'
+import SnackbarContent from '@mui/material/SnackbarContent'
+import IconButton from '@mui/material/IconButton'
+import withStyles from '@mui/styles/withStyles';
+import Avatar from "@mui/material/Avatar"
+import Popover from "@mui/material/Popover"
+import InputBase from "@mui/material/InputBase"
+
+import { amber as Amber, red as Red, green as Green, blue as Blue, grey as Grey } from '@mui/material/colors';
 
 const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
@@ -962,209 +957,209 @@ class PipelineKanban extends Component {
           let hasNewData = data.newInfo;
 
           return (
-            <div id={props.data.id}
-                draggable={props.category !== "TRIAGEDONE" ? true : false}
-                onDragStart={this.drag.bind(this, props.category)}
-                onDragEnd={this.onDragEnd.bind(this)}>
-                <ListItem style={{padding: 0, paddingBottom: 10}}>  
-                    <Paper
-                        className="kanbanColumnElementContainer"
-                        data-testcase-triage-category={props.category}
-                        data-testcase-triage-id={data.id}>
-                        
-                        <Link style={{textDecoration: 'none', color: 'inherit'}}
-                            onClick={this.goTriage.bind(this, data.id)}
-                            to={data.id === null ? this.props.params: "/Test/" + data.id + "/Pipeline"}>
-                            <div
-                                id={"test-" + props.data.id}
-                                style={{display: "grid", gridTemplateColumns: "2px auto"}}>
-                                <div style={{backgroundColor: props.catcolor}}></div>
-                                <div>
-                                    <List className="wordBreak" style={{width: "100%"}}>
-                                        <ListItem className="kanbanColumnElementTitle">
-                                            <div style={ data.triaged && data.autoTriaged ? { color: COLORS.grey } : {} }>
-                                                {data.testExecution.displayName}
-                                            </div>
-                                            {
-                                              data.testExecution.pin && (
-                                                <Tooltip
-                                                    classes={{
-                                                      tooltip: classes.tooltip,
-                                                      popper: classes.popper,
-                                                    }}
-                                                    title={
-                                                      <div>
-                                                          <div><b>{data.testExecution.pinAuthor.displayName}</b></div>
-                                                          <div>
-                                                              {new Date(data.testExecution.pinDate).toLocaleDateString("en-US", {
-                                                                weekday: 'long',
-                                                                year: 'numeric',
-                                                                month: 'long',
-                                                                day: 'numeric'
-                                                              })}
-                                                          </div>
-                                                      </div>
-                                                    }>
-                                                        <img
-                                                            height={30}
-                                                            width={30}
-                                                            style={{
-                                                              transform: 'rotate(45deg)',
-                                                              marginTop: -10,
-                                                              marginRight: -5,
-                                                            }}
-                                                            src={PinIcon} />
-                                                </Tooltip>
-                                              )
-                                            }
-                                        </ListItem>
-                                        <ListItem className="kanbanColumnElementGroupName">
-                                            {data.testExecution.groupName}
-                                        </ListItem>
-                                        {
-                                          data.testExecution.parameters.length > 0 && (
-                                            <ListItem className="kanbanColumnElementParams">
-                                                <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                    <TuneIcon style={{ fontSize: 12, marginRight: 5, marginTop: 3.4 }} />
-                                                    {data.testExecution.parameters.join(', ')}
-                                                </div>
-                                            </ListItem>
-                                          )
-                                        }
-                                        <ListItem className="kanbanColumnElementAssignee">
-                                            <div key={props.data.id}>
-                                                <PersonIcon   style={{ fontSize: 18, marginRight: 6, marginLeft: -3 , verticalAlign: 'bottom', color: "rgb(204, 204, 204, 0.56)" }}/> 
-                                                     {data.triager.displayName}
-                                            </div>
-                                        </ListItem>
-                                        <ListItem style={{padding:0}}>
-                                            <Grid container justify="space-between" alignItems="center">
-                                                <Grid item style={{marginRight: 8, display: 'flex', alignItems: 'center'}}>
-                                                    {
-                                                      data.triaged && data.autoTriaged && (
-                                                        <Tooltip
-                                                            classes={{
-                                                              tooltip: classes.tooltip,
-                                                              popper: classes.popper,
-                                                            }}
-                                                            title={
-                                                              <div>
-                                                                  <div><b>Auto Triaged</b></div>
-                                                                  <div>
-                                                                    {data.deducedReason}
-                                                                  </div>
-                                                              </div>
-                                                          }>
-                                                            <SpellcheckIcon style={{ color: '#ccc', marginLeft: 8 }} />
-                                                        </Tooltip>
-                                                      )
-                                                    }
-
-                                                    {
-                                                      this.renderCheckIcon(hasNewData, data.applicationFailType, data.testFailType, data.triaged)
-                                                    }
-                                                    {
-                                                      data.flaky && (
-                                                        <Tooltip
-                                                            classes={{
-                                                              tooltip: this.props.classes.tooltip,
-                                                              popper: this.props.classes.popper,
-                                                            }}
-                                                            title="Flaky Test">
-                                                            <img height={20} width={20} src={FlakyTestIcon} style={{ marginLeft: 8 }} />
-                                                        </Tooltip>
-                                                      )
-                                                    }
-                                                </Grid>
-                                                <Grid item style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginRight: 8}}>
-                                                    <div>{ this.renderPriorityIcon(data) }</div>
-                                                    <TagLabel
-                                                        classes={classes}
-                                                        style={{ marginLeft: 8 }}
-                                                        color={getKanbanTagColor(hasNewData, data.pastState === "PASS",
-                                                          hasNewData ?
-                                                            data.applicationFailType
-                                                          : data.pastApplicationFailType
-                                                        )}
-                                                        tooltip={
-                                                          <div>
-                                                            <div><b>{
-                                                              hasNewData ?
-                                                                'In Progress Triage'
-                                                              : 'Previous Triage'
-                                                            }</b></div>
+              <div id={props.data.id}
+                  draggable={props.category !== "TRIAGEDONE" ? true : false}
+                  onDragStart={this.drag.bind(this, props.category)}
+                  onDragEnd={this.onDragEnd.bind(this)}>
+                  <ListItem style={{padding: 0, paddingBottom: 10}}>  
+                      <Paper
+                          className="kanbanColumnElementContainer"
+                          data-testcase-triage-category={props.category}
+                          data-testcase-triage-id={data.id}>
+                          
+                          <Link style={{textDecoration: 'none', color: 'inherit'}}
+                              onClick={this.goTriage.bind(this, data.id)}
+                              to={data.id === null ? this.props.params: "/Test/" + data.id + "/Pipeline"}>
+                              <div
+                                  id={"test-" + props.data.id}
+                                  style={{display: "grid", gridTemplateColumns: "2px auto"}}>
+                                  <div style={{backgroundColor: props.catcolor}}></div>
+                                  <div>
+                                      <List className="wordBreak" style={{width: "100%"}}>
+                                          <ListItem className="kanbanColumnElementTitle">
+                                              <div style={ data.triaged && data.autoTriaged ? { color: COLORS.grey } : {} }>
+                                                  {data.testExecution.displayName}
+                                              </div>
+                                              {
+                                                data.testExecution.pin && (
+                                                  <Tooltip
+                                                      classes={{
+                                                        tooltip: classes.tooltip,
+                                                        popper: classes.popper,
+                                                      }}
+                                                      title={
+                                                        <div>
+                                                            <div><b>{data.testExecution.pinAuthor.displayName}</b></div>
                                                             <div>
-                                                              {'Product: '}
-                                                              {
-                                                                hasNewData ?
-                                                                  getApplicationFailTagName(data.applicationFailType)
-                                                                : getApplicationFailTagName(data.pastApplicationFailType)
-                                                              }
+                                                                {new Date(data.testExecution.pinDate).toLocaleDateString("en-US", {
+                                                                  weekday: 'long',
+                                                                  year: 'numeric',
+                                                                  month: 'long',
+                                                                  day: 'numeric'
+                                                                })}
                                                             </div>
-                                                          </div>
-                                                        }
-                                                        />
-                                                    <TagLabel
-                                                        classes={classes}
-                                                        color={getKanbanTagColor(hasNewData, data.pastState === "PASS",
-                                                          hasNewData ?
-                                                            data.testFailType
-                                                          : data.pastTestFailType
-                                                        )}
-                                                        tooltip={
-                                                          <div>
-                                                            <div><b>{
-                                                              hasNewData ?
-                                                                'In Progress Triage'
-                                                              : 'Previous Triage'
-                                                            }</b></div>
-                                                            <div>
-                                                              {'Automated Test: '}
-                                                              {
-                                                                hasNewData ?
-                                                                  getTestFailTagName(data.testFailType)
-                                                                : getTestFailTagName(data.pastTestFailType)
-                                                              }
-                                                            </div>
-                                                          </div>
-                                                        }
-                                                        />
-                                                    <Tooltip
-                                                        classes={{
-                                                          tooltip: classes.tooltip,
-                                                          popper: classes.popper,
-                                                        }}
-                                                        title={
-                                                          <div style={{maxWidth: 500}}>
-                                                              <div><b>Comment</b></div>
-                                                              {hasNewData ?
-                                                                data.note ?
-                                                                  data.note.description
-                                                                : ''
-                                                              : data.pastNote ?
-                                                                  data.pastNote.description
-                                                                : ''}
-                                                          </div>
-                                                        }>
-                                                          <CommentIcon
-                                                              color="action"
+                                                        </div>
+                                                      }>
+                                                          <img
+                                                              height={30}
+                                                              width={30}
                                                               style={{
-                                                                color: (hasNewData && data.note && data.note.description ||
-                                                                !hasNewData && data.pastNote && data.pastNote.description) ? COLORS.grey : '#F5F5F5',
-                                                                pointerEvents: 'initial',
-                                                              }} />
-                                                    </Tooltip>
-                                                </Grid>
-                                            </Grid>
-                                        </ListItem>
-                                    </List>
-                                </div>
-                            </div>
-                        </Link>
-                    </Paper>
-                </ListItem>
-            </div>
-          )
+                                                                transform: 'rotate(45deg)',
+                                                                marginTop: -10,
+                                                                marginRight: -5,
+                                                              }}
+                                                              src={PinIcon} />
+                                                  </Tooltip>
+                                                )
+                                              }
+                                          </ListItem>
+                                          <ListItem className="kanbanColumnElementGroupName">
+                                              {data.testExecution.groupName}
+                                          </ListItem>
+                                          {
+                                            data.testExecution.parameters.length > 0 && (
+                                              <ListItem className="kanbanColumnElementParams">
+                                                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                                                      <TuneIcon style={{ fontSize: 12, marginRight: 5, marginTop: 3.4 }} />
+                                                      {data.testExecution.parameters.join(', ')}
+                                                  </div>
+                                              </ListItem>
+                                            )
+                                          }
+                                          <ListItem className="kanbanColumnElementAssignee">
+                                              <div key={props.data.id}>
+                                                  <PersonIcon   style={{ fontSize: 18, marginRight: 6, marginLeft: -3 , verticalAlign: 'bottom', color: "rgb(204, 204, 204, 0.56)" }}/> 
+                                                       {data.triager.displayName}
+                                              </div>
+                                          </ListItem>
+                                          <ListItem style={{padding:0}}>
+                                              <Grid container justifyContent="space-between" alignItems="center">
+                                                  <Grid item style={{marginRight: 8, display: 'flex', alignItems: 'center'}}>
+                                                      {
+                                                        data.triaged && data.autoTriaged && (
+                                                          <Tooltip
+                                                              classes={{
+                                                                tooltip: classes.tooltip,
+                                                                popper: classes.popper,
+                                                              }}
+                                                              title={
+                                                                <div>
+                                                                    <div><b>Auto Triaged</b></div>
+                                                                    <div>
+                                                                      {data.deducedReason}
+                                                                    </div>
+                                                                </div>
+                                                            }>
+                                                              <SpellcheckIcon style={{ color: '#ccc', marginLeft: 8 }} />
+                                                          </Tooltip>
+                                                        )
+                                                      }
+
+                                                      {
+                                                        this.renderCheckIcon(hasNewData, data.applicationFailType, data.testFailType, data.triaged)
+                                                      }
+                                                      {
+                                                        data.flaky && (
+                                                          <Tooltip
+                                                              classes={{
+                                                                tooltip: this.props.classes.tooltip,
+                                                                popper: this.props.classes.popper,
+                                                              }}
+                                                              title="Flaky Test">
+                                                              <img height={20} width={20} src={FlakyTestIcon} style={{ marginLeft: 8 }} />
+                                                          </Tooltip>
+                                                        )
+                                                      }
+                                                  </Grid>
+                                                  <Grid item style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginRight: 8}}>
+                                                      <div>{ this.renderPriorityIcon(data) }</div>
+                                                      <TagLabel
+                                                          classes={classes}
+                                                          style={{ marginLeft: 8 }}
+                                                          color={getKanbanTagColor(hasNewData, data.pastState === "PASS",
+                                                            hasNewData ?
+                                                              data.applicationFailType
+                                                            : data.pastApplicationFailType
+                                                          )}
+                                                          tooltip={
+                                                            <div>
+                                                              <div><b>{
+                                                                hasNewData ?
+                                                                  'In Progress Triage'
+                                                                : 'Previous Triage'
+                                                              }</b></div>
+                                                              <div>
+                                                                {'Product: '}
+                                                                {
+                                                                  hasNewData ?
+                                                                    getApplicationFailTagName(data.applicationFailType)
+                                                                  : getApplicationFailTagName(data.pastApplicationFailType)
+                                                                }
+                                                              </div>
+                                                            </div>
+                                                          }
+                                                          />
+                                                      <TagLabel
+                                                          classes={classes}
+                                                          color={getKanbanTagColor(hasNewData, data.pastState === "PASS",
+                                                            hasNewData ?
+                                                              data.testFailType
+                                                            : data.pastTestFailType
+                                                          )}
+                                                          tooltip={
+                                                            <div>
+                                                              <div><b>{
+                                                                hasNewData ?
+                                                                  'In Progress Triage'
+                                                                : 'Previous Triage'
+                                                              }</b></div>
+                                                              <div>
+                                                                {'Automated Test: '}
+                                                                {
+                                                                  hasNewData ?
+                                                                    getTestFailTagName(data.testFailType)
+                                                                  : getTestFailTagName(data.pastTestFailType)
+                                                                }
+                                                              </div>
+                                                            </div>
+                                                          }
+                                                          />
+                                                      <Tooltip
+                                                          classes={{
+                                                            tooltip: classes.tooltip,
+                                                            popper: classes.popper,
+                                                          }}
+                                                          title={
+                                                            <div style={{maxWidth: 500}}>
+                                                                <div><b>Comment</b></div>
+                                                                {hasNewData ?
+                                                                  data.note ?
+                                                                    data.note.description
+                                                                  : ''
+                                                                : data.pastNote ?
+                                                                    data.pastNote.description
+                                                                  : ''}
+                                                            </div>
+                                                          }>
+                                                            <CommentIcon
+                                                                color="action"
+                                                                style={{
+                                                                  color: (hasNewData && data.note && data.note.description ||
+                                                                  !hasNewData && data.pastNote && data.pastNote.description) ? COLORS.grey : '#F5F5F5',
+                                                                  pointerEvents: 'initial',
+                                                                }} />
+                                                      </Tooltip>
+                                                  </Grid>
+                                              </Grid>
+                                          </ListItem>
+                                      </List>
+                                  </div>
+                              </div>
+                          </Link>
+                      </Paper>
+                  </ListItem>
+              </div>
+          );
         }
 
         for (var cat in testTags) {

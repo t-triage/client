@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Api from "./Api"
 import axios from 'axios'
-import Avatar from "@material-ui/core/Avatar"
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
+import Avatar from "@mui/material/Avatar"
+import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
 import Downshift from 'downshift';
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 
 import { styles, COLORS } from './Globals'
 

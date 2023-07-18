@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { _ } from 'underscore'
+import * as _  from 'underscore'
 import Api from "./Api"
 import axios from 'axios'
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Chip from '@material-ui/core/Chip';
+import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+import Chip from '@mui/material/Chip';
 import Downshift from 'downshift';
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@mui/styles/withStyles';
 
 import { styles, COLORS } from './Globals'
 

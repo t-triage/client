@@ -2,8 +2,9 @@ import React, { Component } from "react"
 import axios from 'axios'
 import { logout } from './Main/Components/Globals'
 import ReactDOM from "react-dom"
+import { createRoot } from 'react-dom/client';
 import Api from './Main/Components/Api'
-import { Switch, Route, Router, Redirect } from "react-router-dom"
+import { Switch, Route, BrowserRouter as Router, Redirect } from "react-router-dom"
 import history from "./Main/Components/History"
 import JiraConnect from "./Main/Components/JiraConnect"
 
@@ -30,24 +31,23 @@ import Connector from "./Admin/Connectors"
 import Container from "./Admin/Containers"
 import Properties from "./Admin/Properties"
 import Users from "./Admin/Users"
-import License from "./Admin/License"
 
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
-import Button from "@material-ui/core/Button"
+import { ThemeProvider, StyledEngineProvider, createTheme, adaptV4Theme } from "@mui/material/styles";
+import Button from "@mui/material/Button"
 
-import blue from "@material-ui/core/colors/blue"
-import red from "@material-ui/core/colors/red"
 import Success from "./Main/Components/Success";
 import Logs from "./Admin/Logs"
 
 
-const theme = createMuiTheme({
+import { blue, red } from '@mui/material/colors';
+
+
+const theme = createTheme(adaptV4Theme({
     palette: {
         primary: blue,
         secondary: red,
     },
     typography: {
-        useNextVariants: true,
         fontFamily: [
             'Open Sans',
             "Roboto",
@@ -82,7 +82,7 @@ const theme = createMuiTheme({
             }
         }
     }
-})
+}))
 
 class App extends Component {
     constructor(props) {
@@ -192,130 +192,131 @@ class App extends Component {
             return Promise.reject(error);
           }
         });
-        return(
-            <MuiThemeProvider theme={theme}>
-                {(()=>{
-                    if (this.state.isConfigLoaded) {
-                        if (this.state.isLogged) {
-                          this.fetchBuildData()
-                          this.fetchProductAmount()
-                          if (currentUser) {
-                            if (currentUser.agreedTermsConditions) {
-                              if (this.state.productsAmountLoaded)
-                                return(
-                                    <Switch>
-                                        <Route exact path="/" render={this.state.isInitialized ? 
-                                          () => <Redirect to="/SuiteList" /> :
-                                          () => <Redirect to={{pathname: "/Admin", state: {showSetup: true}}} />} />
-                                        <Route exact path="/v1/info/health" component={Health} />
-                                        <Route exact path="/AutomationIssues/:suiteName/" component={AutomationIssueList} />
-                                        <Route exact path="/AutomationIssues" component={AutomationIssueList} />
-                                        <Route exact path="/AutomationCreation" component={AutomationIssueList} />
-                                        <Route exact path="/Issues" component={IssueList} />
-                                        <Route path="/Test/:testId/Triage" component={Main} />
-                                        <Route path="/SuiteList/Container/:containerID/" component={Main} />
-                                        <Route path="/SuiteList/:suiteID/Kanban" component={Main} />
-                                        <Route path="/SuiteList" component={Main} />
-                                        <Route exact path="/AutomatedTestRepository" component={AutomatedTestRepository} />
-                                        <Route path="/PipelineList/:pipelineID/Kanban" component={Pipeline} />
-                                        <Route exact path="/PipelineList/Container/:containerID/" component={Pipeline}  />
-                                        <Route path="/Test/:testId/Pipeline" component={Pipeline} />
-                                        <Route path="/PipelineList" component={Pipeline} />
-                                        <Route path="/TestRepository" component={TestRepository} />
-                                        <Route path="/TestRuns/Run/:planId" component={TestRuns} />
-                                        <Route path="/TestRuns" component={TestRuns} />
-                                        <Route path="/Admin/Products" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                            () => <Product/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin/Milestones" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <Milestones/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin/Connectors" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <Connector/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin/Containers" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <Container/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin/Properties" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <Properties/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin/Users" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <Users/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin/License" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <License/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin/Logs" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <Logs/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/Admin" render={
-                                          currentUser && currentUser.roleType === "ROLE_ADMIN" ?
-                                          () => <Product/> : () => <Redirect to="/SuiteList" />
-                                        }/>
-                                        <Route path="/insights/:navValue?" component={Insights} />
-                                        <Route path="/notifications" component={Inbox} />
-                                        <Route path="/v1/jiraCode/success" component={Success} />
-                                        <Route path="/auth/jira" component={JiraConnect}/>
-                                        <Route component={NotFound} />
-                                    </Switch>
-                                )
+        return (
+            <StyledEngineProvider injectFirst>
+                <ThemeProvider theme={theme}>
+                    {(()=>{
+                        if (this.state.isConfigLoaded) {
+                            if (this.state.isLogged) {
+                              this.fetchBuildData()
+                              this.fetchProductAmount()
+                              if (currentUser) {
+                                if (currentUser.agreedTermsConditions) {
+                                  if (this.state.productsAmountLoaded)
+                                    return(
+                                        <Switch>
+                                            <Route exact path="/" render={this.state.isInitialized ? 
+                                              () => <Redirect to="/SuiteList" /> :
+                                              () => <Redirect to={{pathname: "/Admin", state: {showSetup: true}}} />} />
+                                            <Route exact path="/v1/info/health" component={Health} />
+                                            <Route exact path="/AutomationIssues/:suiteName/" component={AutomationIssueList} />
+                                            <Route exact path="/AutomationIssues" component={AutomationIssueList} />
+                                            <Route exact path="/AutomationCreation" component={AutomationIssueList} />
+                                            <Route exact path="/Issues" component={IssueList} />
+                                            <Route path="/Test/:testId/Triage" component={Main} />
+                                            <Route path="/SuiteList/Container/:containerID/" component={Main} />
+                                            <Route path="/SuiteList/:suiteID/Kanban" component={Main} />
+                                            <Route path="/SuiteList" component={Main} />
+                                            <Route exact path="/AutomatedTestRepository" component={AutomatedTestRepository} />
+                                            <Route path="/PipelineList/:pipelineID/Kanban" component={Pipeline} />
+                                            <Route exact path="/PipelineList/Container/:containerID/" component={Pipeline}  />
+                                            <Route path="/Test/:testId/Pipeline" component={Pipeline} />
+                                            <Route path="/PipelineList" component={Pipeline} />
+                                            <Route path="/TestRepository" component={TestRepository} />
+                                            <Route path="/TestRuns/Run/:planId" component={TestRuns} />
+                                            <Route path="/TestRuns" component={TestRuns} />
+                                            <Route path="/Admin/Products" render={
+                                              currentUser && currentUser.roleType === "ROLE_ADMIN" ?
+                                                () => <Product/> : () => <Redirect to="/SuiteList" />
+                                            }/>
+                                            <Route path="/Admin/Milestones" render={
+                                              currentUser && currentUser.roleType === "ROLE_ADMIN" ?
+                                              () => <Milestones/> : () => <Redirect to="/SuiteList" />
+                                            }/>
+                                            <Route path="/Admin/Connectors" render={
+                                              currentUser && currentUser.roleType === "ROLE_ADMIN" ?
+                                              () => <Connector/> : () => <Redirect to="/SuiteList" />
+                                            }/>
+                                            <Route path="/Admin/Containers" render={
+                                              currentUser && currentUser.roleType === "ROLE_ADMIN" ?
+                                              () => <Container/> : () => <Redirect to="/SuiteList" />
+                                            }/>
+                                            <Route path="/Admin/Properties" render={
+                                              currentUser && currentUser.roleType === "ROLE_ADMIN" ?
+                                              () => <Properties/> : () => <Redirect to="/SuiteList" />
+                                            }/>
+                                            <Route path="/Admin/Users" render={
+                                              currentUser && currentUser.roleType === "ROLE_ADMIN" ?
+                                              () => <Users/> : () => <Redirect to="/SuiteList" />
+                                            }/>
+                                            <Route path="/Admin/Logs" render={
+                                              currentUser && currentUser.roleType === "ROLE_ADMIN" ?
+                                              () => <Logs/> : () => <Redirect to="/SuiteList" />
+                                            }/>
+                                            <Route path="/Admin" render={
+                                              currentUser && currentUser.roleType === "ROLE_ADMIN" ?
+                                              () => <Product/> : () => <Redirect to="/SuiteList" />
+                                            }/>
+                                            <Route path="/insights/:navValue?" component={Insights} />
+                                            <Route path="/notifications" component={Inbox} />
+                                            <Route path="/v1/jiraCode/success" component={Success} />
+                                            <Route path="/auth/jira" component={JiraConnect}/>
+                                            <Route component={NotFound} />
+                                        </Switch>
+                                    )
+                                } else {
+                                  return <TermsAndConditions fetchCurrentUser={this.fetchCurrentUser.bind(this)} />
+                                }
+                              } else {
+                                this.fetchCurrentUser()
+                                return <div>Loading..</div>
+                              }
                             } else {
-                              return <TermsAndConditions fetchCurrentUser={this.fetchCurrentUser.bind(this)} />
+                                // TODO: Change
+                                                            // history.pushState({url: "login"}, "login", "/login")
+                                if (window.location.pathname == "/v1/info/health") {
+                                  return <Health />
+                                } else {
+                                  return <Login
+                                              setIsLogged={this.setIsLogged}
+                                              setAgreedTermsConditions={this.setAgreedTermsConditions}/>
+                                }
                             }
-                          } else {
-                            this.fetchCurrentUser()
-                            return <div>Loading..</div>
-                          }
-                        } else {
-                            // TODO: Change
-														// history.pushState({url: "login"}, "login", "/login")
-                            if (window.location.pathname == "/v1/info/health") {
-                              return <Health />
-                            } else {
-                              return <Login
-                                          setIsLogged={this.setIsLogged}
-                                          setAgreedTermsConditions={this.setAgreedTermsConditions}/>
-                            }
-                        }
-                    } else return <div>Loading..</div>
-                })()}
-                {
-                  this.state.showCookieBanner && (
-                    <div className="Cookie-Banner-Container">
-                        <div className="Cookie-Banner">
-                            <div>
-                                We use cookies to ensure that we give you the best experience on our website.
+                        } else return <div>Loading..</div>
+                    })()}
+                    {
+                      this.state.showCookieBanner && (
+                        <div className="Cookie-Banner-Container">
+                            <div className="Cookie-Banner">
+                                <div>
+                                    We use cookies to ensure that we give you the best experience on our website.
+                                </div>
+                                <Button
+                                    variant="outlined"
+                                    className="globalButton"
+                                    color="primary"
+                                    onClick={this.hideCookieBanner.bind(this)}
+                                    style={{
+                                      backgroundColor: 'white',
+                                      marginLeft: 20,
+                                    }}>OK</Button>
                             </div>
-                            <Button
-                                variant="outlined"
-                                className="globalButton"
-                                color="primary"
-                                onClick={this.hideCookieBanner.bind(this)}
-                                style={{
-                                  backgroundColor: 'white',
-                                  marginLeft: 20,
-                                }}>OK</Button>
                         </div>
-                    </div>
-                  )
-                }
-            </MuiThemeProvider>
-        )
+                      )
+                    }
+                </ThemeProvider>
+            </StyledEngineProvider>
+        );
     }
 }
 
-ReactDOM.render(
+const container = document.getElementById('app');
+const root = createRoot(container);
+
+root.render(
     <Router history={history}>
         <Switch>
             <Route component={App} />
         </Switch>
-    </Router>, document.getElementById('app')
+    </Router>
 )

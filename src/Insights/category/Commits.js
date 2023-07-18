@@ -3,8 +3,8 @@ import Api from "../../Main/Components/Api"
 import axios from 'axios'
 
 import HorizontalBarChart from '../HorizontalBarChart'
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
 import CircularChart from "../CircularChart";
 import BugsFiledChart from "../BugsFiledChart";
 import SuiteEvolutionChart from "../SuiteEvolutionChart";
@@ -40,7 +40,7 @@ export default class Commits extends Component {
 
     render() {
         return (
-            <Grid container spacing={24} justify="center">
+            <Grid container spacing={24} justifyContent="center">
                 <Grid item xs={10}>
                     <Paper className='chartBigContainer'>
                         <CommitsByPersonChart
@@ -67,8 +67,7 @@ export default class Commits extends Component {
                     </Paper>
                 </Grid>
             </Grid>
-
-        )
+        );
     }
 
 }

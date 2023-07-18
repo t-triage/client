@@ -5,7 +5,7 @@ import axios from 'axios'
 import { find } from "underscore"
 import UserPicker from "../Main/Components/UserPicker"
 import SuiteActionDialog from "../Main/Components/SuiteActionDialog"
-import { MySnackbarContent, snackbarStyle, COLORS } from '../Main/Components/Globals'
+import { COLORS } from '../Main/Components/Globals'
 import {
   PriorityList,
   WeekList,
@@ -18,43 +18,81 @@ import {
   extraDataTooltip,
 } from './AdminUtils'
 
-import Blue from "@material-ui/core/colors/blue"
-
 // Icons
-import FolderIcon from "@material-ui/icons/Folder"
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle"
-import AddCircleIcon from "@material-ui/icons/AddCircle"
-import EditIcon from "@material-ui/icons/Edit"
-import RotateRightIcon from "@material-ui/icons/RotateRight"
-import FileCopyIcon from "@material-ui/icons/FileCopy"
+import FolderIcon from "@mui/icons-material/Folder"
 
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
+import EditIcon from "@mui/icons-material/Edit"
+import RotateRightIcon from "@mui/icons-material/RotateRight"
+import FileCopyIcon from "@mui/icons-material/FileCopy"
 // UI Components
-import TextField from "@material-ui/core/TextField"
-import Grid from "@material-ui/core/Grid"
-import Divider from "@material-ui/core/Divider"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction"
-import IconButton from "@material-ui/core/IconButton"
-import Paper from "@material-ui/core/Paper"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardActions from "@material-ui/core/CardActions"
-import Button from "@material-ui/core/Button"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import Avatar from "@material-ui/core/Avatar"
-import MenuItem from "@material-ui/core/MenuItem"
-import Checkbox from "@material-ui/core/Checkbox"
-import Tooltip from "@material-ui/core/Tooltip"
-import Snackbar from "@material-ui/core/Snackbar"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import { withStyles } from '@material-ui/core/styles'
+import TextField from "@mui/material/TextField"
 
+import Grid from "@mui/material/Grid"
+import Divider from "@mui/material/Divider"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction"
+import IconButton from "@mui/material/IconButton"
+import Paper from "@mui/material/Paper"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
+import Button from "@mui/material/Button"
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import Avatar from "@mui/material/Avatar"
+import MenuItem from "@mui/material/MenuItem"
+import Checkbox from "@mui/material/Checkbox"
+import Tooltip from "@mui/material/Tooltip"
+import Snackbar from "@mui/material/Snackbar"
+import CircularProgress from "@mui/material/CircularProgress"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import withStyles from '@mui/styles/withStyles';
 import SideMenu from "./SideMenu"
+import Alert from '@mui/material/Alert';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
+import { blue as Blue } from '@mui/material/colors';
+
+const reportTypes = [
+    {
+        value: 'UNKNOWN',
+        label: 'UNKNOWN',
+    },
+    {
+        value: 'ROBOT',
+        label: 'ROBOT',
+    },
+    {
+        value: 'TESTNG',
+        label: 'TESTNG',
+    },
+    {
+        value: 'JUNIT',
+        label: 'JUNIT',
+    },
+    {
+        value: 'CUCUMBER',
+        label: 'CUCUMBER',
+    },
+    {
+        value: 'ALLURE',
+        label: 'ALLURE',
+    },
+    {
+        value: 'PROTRACTOR',
+        label: 'PROTRACTOR',
+    },
+    {
+        value: 'PROTRACTOR_STEPS',
+        label: 'PROTRACTOR_STEPS',
+    },
+    {
+        value: 'CYPRESS',
+        label: 'CYPRESS',
+    },
+];
 
 export default class Connector extends Component {
 
@@ -100,10 +138,12 @@ export default class Connector extends Component {
       axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetProducts + '?query=enabled:true&sort=name,asc')
       .then(res => {
         let {content} = res.data;
-        this.setState({
-          productList: content,
-          product: content[0].id,
-        })
+        if (content[0]){
+            this.setState({
+                productList: content,
+                product: content[0].id,
+            })
+        }
       })
     }
 
@@ -111,11 +151,13 @@ export default class Connector extends Component {
       axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetConnectors + '?query=enabled:true&sort=name,asc')
       .then(res => {
         let {content} = res.data;
-        this.setState({
-          connectorList: content,
-          connector: content[0].id,
-          connectorName: content[0].type
-        })
+        if (content[0]) {
+            this.setState({
+                connectorList: content,
+                connector: content[0].id,
+                connectorName: content[0].type
+            })
+        }
       })
     }
 
@@ -190,7 +232,7 @@ export default class Connector extends Component {
         } else {
           this.disableContainer(container.id)
           this.enableEditContainer(null, container)
-          this.addSnackbar('Container test failed and it is temporarily disabled.<br />Please review your configuration, enable, edit and try again.', 'error')
+          this.addSnackbar('Container test failed and it is temporarily disabled.\nPlease review your configuration, enable, edit and try again.', 'error')
           this.setState({validatedContainer: false})
         }
       })
@@ -250,7 +292,7 @@ export default class Connector extends Component {
 					this.addSnackbar('Slack integration test passed successfully', 'success')
 				}
         else {
-				  this.addSnackbar(`Slack integration test failed.<br />Please review your configuration. <br /> ${JSON.stringify(data)}`, 'error')
+				  this.addSnackbar("Slack integration test failed.\nPlease review your configuration.\n${JSON.stringify(data)}", 'error')
         }
 			})
 			.catch(err => {
@@ -389,11 +431,14 @@ export default class Connector extends Component {
 								 autoHideDuration={2000}
 								 onClose={this.removeSnackbar.bind(this, snack, index)}
 							 >
-								 <MySnackbarContentWrapper
-									 onClose={this.removeSnackbar.bind(this, snack, index)}
-									 variant={snack.snackbarVariant}
-									 message={snack.snackbarMsg}
-								 />
+                                 <Alert variant={"filled"} severity={snack.snackbarVariant} onClose={this.removeSnackbar.bind(this, snack, index)}>
+                                     {snack.snackbarMsg.split('\n').map((line, index) => (
+                                         <React.Fragment key={index}>
+                                             {line}
+                                             <br />
+                                         </React.Fragment>
+                                     ))}
+                                 </Alert>
 							 </Snackbar>
 						 )
 					 })
@@ -565,77 +610,81 @@ export default class Connector extends Component {
 
     getListItem(container, index) {
       return (
-            <ListItem key={container.id} style={{ opacity: !container.enabled ? '.5' : '1' }}>
-            <ListItemAvatar>
-                <Avatar>
-                    <FolderIcon />
-                </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-                primary={container.name}
-                secondary={container.description}
-            />
-            <ListItemSecondaryAction>
-                <Tooltip title={'Pull tests from CI'}>
-                    <IconButton
-                        style={{
-                          opacity: container.enabled ? '1' : '.5',
-                          cursor: container.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                          container.enabled ?
-                              this.openActionDialog.bind(this, container.id)
+          <ListItem key={container.id} style={{ opacity: !container.enabled ? '.5' : '1' }}>
+          <ListItemAvatar>
+              <Avatar>
+                  <FolderIcon />
+              </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+              primary={container.name}
+              secondary={container.description}
+          />
+          <ListItemSecondaryAction>
+              <Tooltip title={'Pull tests from CI'}>
+                  <IconButton
+                      style={{
+                        opacity: container.enabled ? '1' : '.5',
+                        cursor: container.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                        container.enabled ?
+                            this.openActionDialog.bind(this, container.id)
+                        :   null
+                      }
+                      aria-label="Populate"
+                      size="large">
+                      <RotateRightIcon />
+                  </IconButton>
+              </Tooltip>
+              <Tooltip title={'Edit'}>
+                  <IconButton
+                      style={{
+                        opacity: container.enabled ? '1' : '.5',
+                        cursor: container.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
+                          container.enabled ?//********** UNO *************
+                              this.enableEditContainer.bind(this, index, null)
                           :   null
-                        }
-                        aria-label="Populate">
-                        <RotateRightIcon />
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title={'Edit'}>
-                    <IconButton
-                        style={{
-                          opacity: container.enabled ? '1' : '.5',
-                          cursor: container.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            container.enabled ?//********** UNO *************
-                                this.enableEditContainer.bind(this, index, null)
-                            :   null
-                        }
-                        aria-label="Edit">
-                        <EditIcon />
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title={container.enabled ? 'Deactivate' : 'Activate'}>
-                    <IconButton
-                        onClick={
+                      }
+                      aria-label="Edit"
+                      size="large">
+                      <EditIcon />
+                  </IconButton>
+              </Tooltip>
+              <Tooltip title={container.enabled ? 'Deactivate' : 'Activate'}>
+                  <IconButton
+                      onClick={
+                        container.enabled ?
+                          this.disableContainer.bind(this, container.id)
+                        : this.enableContainer.bind(this, container)
+                      }
+                      aria-label="Delete"
+                      size="large">
+                      { container.enabled && <RemoveCircleIcon /> }
+                      { !container.enabled && <AddCircleIcon /> }
+                  </IconButton>
+              </Tooltip>
+              <Tooltip title={"Copy"}>
+                  <IconButton
+                      style={{
+                        opacity: container.enabled ? '1' : '.5',
+                        cursor: container.enabled ? 'pointer' : 'default',
+                      }}
+                      onClick={
                           container.enabled ?
-                            this.disableContainer.bind(this, container.id)
-                          : this.enableContainer.bind(this, container)
-                        }
-                        aria-label="Delete">
-                        { container.enabled && <RemoveCircleIcon /> }
-                        { !container.enabled && <AddCircleIcon /> }
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title={"Copy"}>
-                    <IconButton
-                        style={{
-                          opacity: container.enabled ? '1' : '.5',
-                          cursor: container.enabled ? 'pointer' : 'default',
-                        }}
-                        onClick={
-                            container.enabled ?
-                                this.copyContainer.bind(this, index, null)
-                            :   null
-                        }
-                        aria-label="Copy">
-                        <FileCopyIcon />
-                    </IconButton>
-                </Tooltip>
-            </ListItemSecondaryAction>
-        </ListItem>
-      )
+                              this.copyContainer.bind(this, index, null)
+                          :   null
+                      }
+                      aria-label="Copy"
+                      size="large">
+                      <FileCopyIcon />
+                  </IconButton>
+              </Tooltip>
+          </ListItemSecondaryAction>
+      </ListItem>
+      );
     }
 
     renderList = () => {
@@ -778,11 +827,11 @@ export default class Connector extends Component {
                     {this.renderSnackbars()}
                     <div className="Containers-Main">
                         <Card>
-                            <CardContent style={{ 'max-width': '80vw'}}>
+                            <CardContent style={{ 'maxWidth': '80vw'}}>
                                 <h4>CI Containers</h4>
                                 <div>Generally a container is a view or folder with a set of jobs that together represents a Test Suite like smoke test, regression or personal view. Basically it makes sense to analize all these test executors together. <br />This will be used in the list view.</div>
 
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={6}>
                                         <TextFieldInput
                                             id="shortName"
@@ -870,15 +919,11 @@ export default class Connector extends Component {
                                             }
                                         }}
                                         >
-                                            <option value="UNKNOWN">UNKNOWN</option>
-                                            <option value="ROBOT">ROBOT</option>
-                                            <option value="TESTNG">TESTNG</option>
-                                            <option value="JUNIT">JUNIT</option>
-                                            <option value="CUCUMBER">CUCUMBER</option>
-                                            <option value="ALLURE">ALLURE</option>
-                                            <option value="PROTRACTOR">PROTRACTOR</option>
-                                            <option value="PROTRACTOR_STEPS">PROTRACTOR_STEPS</option>
-                                            <option value="CYPRESS">CYPRESS</option>
+                                            {reportTypes.map((option) => (
+                                                <MenuItem key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </MenuItem>
+                                            ))}
 
                                         </TextFieldInput>
 
@@ -906,7 +951,7 @@ export default class Connector extends Component {
 
 
 
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={6}>
                                         <div style={{marginTop:20}}>Triage Spec</div>
                                         <div className={'Containers-AssigneeContainer'}>
@@ -1036,7 +1081,7 @@ export default class Connector extends Component {
                                                     </Tooltip>
                                                 </div>
                                         </div>
-                                        <Grid container spacing={16}>
+                                        <Grid container spacing={2}>
                                             <Grid item xs={6}>
                                                 <TextFieldInput
                                                     id="triageFrecuencyWeek"
@@ -1079,9 +1124,9 @@ export default class Connector extends Component {
                                     </Grid>
                                 </Grid>
 
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Grid container spacing={16}>
+                                        <Grid container spacing={2}>
                                             <Grid item xs={12}
                                                   style={{ paddingBottom: 0, paddingTop: 5, marginBottom: '-10' }}>
                                                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -1096,7 +1141,7 @@ export default class Connector extends Component {
                                             </Grid>
                                             <Grid item xs={12}>
                                                 { showAdvanced && (
-                                                    <Grid container spacing={16}>
+                                                    <Grid container spacing={2}>
                                                         <Grid item xs={6}>
                                                             <TextFieldInput
                                                                 id="rate"
@@ -1167,7 +1212,7 @@ export default class Connector extends Component {
                                                                 }}
                                                             />
 
-                                                            <Grid container spacing={16}>
+                                                            <Grid container spacing={2}>
                                                                 <Grid item xs={6}>
 
                                                                     <TextFieldInput
