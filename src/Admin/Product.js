@@ -196,8 +196,10 @@ export default class Product extends Component {
     }
 
     onJiraProjects() {
-        let { productId, isFetchedToken, isValidToken, clientId } = this.state
+        let { productId, isFetchedToken, isValidToken, clientId } = this.state;
         if (!isFetchedToken || !isValidToken) {
+            const oAuthUrl = `https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=${clientId}&scope=offline_access%20read%3Ajira-work%20write%3Ajira-work%20manage%3Ajira-configuration&&redirect_uri=${window.location.origin}/auth/jira&state=${productId}&response_type=code&prompt=consent`;
+
             let oAuthWindow;
 
             let popupCenter = ({ url, title, w, h }) => {
@@ -209,25 +211,32 @@ export default class Product extends Component {
                 width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
                 height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
                 systemZoom = width / window.screen.availWidth;
-                left = (width - w) / 2 / systemZoom + dualScreenLeft
-                top = (height - h) / 2 / systemZoom + dualScreenTop
-                oAuthWindow = window.open(url, title,
-                    `scrollbars=yes, width=${w}, height=${h}, top=${top}, left=${left}`)
+                left = (width - w) / 2 / systemZoom + dualScreenLeft;
+                top = (height - h) / 2 / systemZoom + dualScreenTop;
+
+                oAuthWindow = window.open(url, title, `scrollbars=yes,width=${w},height=${h},top=${top},left=${left}`);
                 if (window.focus) oAuthWindow.focus();
-            }
-            popupCenter({ url: `https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=${clientId}&scope=offline_access%20read%3Ajira-work%20write%3Ajira-work%20manage%3Ajira-configuration&&redirect_uri=${window.location.origin}/auth/jira&state=${productId}&response_type=code&prompt=consent`, title: 'OAuthAtlassian', w: 702, h: 907 }); window.addEventListener("message", (event) => {
-                if (event.data.status == "OK") {
-                    this.fetchJiraProjects()
-                    this.setState({ validateTest: true, isFetchedToken: true, isErrorToken: false, isValidToken: true })
+            };
+
+            popupCenter({ url: oAuthUrl, title: 'OAuthAtlassian', w: 702, h: 907 });
+
+            const receiveMessageHandler = (event) => {
+                if (event.source === oAuthWindow) {
+                    console.log(event.data);
+                    if (event.data.status === 'OK') {
+                        this.fetchJiraProjects();
+                        this.setState({ validateTest: true, isFetchedToken: true, isErrorToken: false, isValidToken: true });
+                    } else {
+                        this.setState({ validateTest: true, isFetchedToken: true, isErrorToken: true, isValidToken: false });
+                    }
+                    window.removeEventListener('message', receiveMessageHandler);
                 }
-                else {
-                    this.setState({ validateTest: true, isFetchedToken: true, isErrorToken: true, isValidToken: false })
-                }
-            });
-        }
-        else {
-            this.enableJiraConfig()
-            this.fetchJiraProjects()
+            };
+
+            window.addEventListener('message', receiveMessageHandler);
+        } else {
+            this.enableJiraConfig();
+            this.fetchJiraProjects();
         }
     }
 
