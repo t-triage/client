@@ -8,7 +8,7 @@ import SuiteActionDialog from "./Components/SuiteActionDialog"
 import UserPicker from "./Components/UserPicker"
 import StatusBar from "./Components/StatusBar"
 import SuiteHistoryChart from './Components/SuiteHistoryChart'
-import {styles, MySnackbarContent, snackbarStyle, getDeadlineIconColor, COLORS} from './Components/Globals'
+import {styles, getDeadlineIconColor, COLORS} from './Components/Globals'
 import {getKanbanTagColor, getCheckIcon, getCheckIconTooltip} from './Components/KanbanUtils'
 import {getTestFailTagName, getApplicationFailTagName, renderPopover} from './Components/TriageUtils'
 import SearchUI from "./Components/SearchUI"
@@ -49,10 +49,10 @@ import Paper from "@mui/material/Paper"
 import Snackbar from '@mui/material/Snackbar'
 import withStyles from '@mui/styles/withStyles';
 import Avatar from "@mui/material/Avatar"
+import Alert from '@mui/material/Alert';
 
 import { amber as Amber, red as Red, green as Green, blue as Blue } from '@mui/material/colors';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 const emptyTestTriages = {
     FAIL: [],
@@ -182,11 +182,9 @@ class Kanban extends Component {
                 autoHideDuration={2000}
                 onClose={this.hideSnackbar.bind(this)}
             >
-                <MySnackbarContentWrapper
-                    onClose={this.hideSnackbar.bind(this)}
-                    variant={this.state.variant}
-                    message={this.state.snackbarMsg}
-                />
+                <Alert variant={"filled"} severity={this.state.variant} onClose={this.hideSnackbar.bind(this)}>
+                    {this.state.snackbarMsg}
+                </Alert>
             </Snackbar>
         )
     }

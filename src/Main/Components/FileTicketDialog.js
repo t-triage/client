@@ -3,7 +3,6 @@ import Api from "./Api"
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { MySnackbarContent, snackbarStyle } from './Globals'
 
 // UI Components
 import Grid from "@mui/material/Grid"
@@ -27,8 +26,8 @@ import ErrorIcon from '@mui/icons-material/Error'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 import { green } from '@mui/material/colors';
+import Alert from '@mui/material/Alert';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 class FileTicketDialog extends Component {
 
@@ -278,11 +277,9 @@ class FileTicketDialog extends Component {
           autoHideDuration={2000}
           onClose={this.hideSnackbar}
         >
-          <MySnackbarContentWrapper
-            onClose={this.hideSnackbar}
-            variant="success"
-            message="Issue created successfully"
-          />
+          <Alert variant={"filled"} severity="success" onClose={this.hideSnackbar}>
+              Issue created successfully
+          </Alert>
       </Snackbar>
       <Snackbar
           anchorOrigin={{
@@ -293,11 +290,9 @@ class FileTicketDialog extends Component {
           autoHideDuration={2000}
           onClose={this.hideSnackbarError}
         >
-          <MySnackbarContentWrapper
-            onClose={this.hideSnackbarError}
-            variant="error"
-            message="Sorry! Something was wrong!"
-          />
+          <Alert variant={"filled"} severity="error" onClose={this.hideSnackbarError}>
+              Sorry! Something was wrong!
+          </Alert>
       </Snackbar>
     </div>
     );

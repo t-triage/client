@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Api from "../Main/Components/Api"
 import axios from 'axios'
 import { find } from "underscore"
-import { MySnackbarContent, snackbarStyle, COLORS } from '../Main/Components/Globals'
+import { COLORS } from '../Main/Components/Globals'
 
 
 import { scrollToTop, TextFieldInput } from './AdminUtils'
@@ -38,8 +38,7 @@ import Snackbar from "@mui/material/Snackbar"
 import withStyles from '@mui/styles/withStyles';
 
 import SideMenu from "./SideMenu"
-
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
+import Alert from '@mui/material/Alert';
 
 const RoleList = [
   // { value: 1, label: 'View' },
@@ -436,11 +435,9 @@ export default class Users extends Component {
                    autoHideDuration={2000}
                    onClose={this.removeSnackbar.bind(this, snack, index)}
                  >
-                   <MySnackbarContentWrapper
-                     onClose={this.removeSnackbar.bind(this, snack, index)}
-                     variant={snack.snackbarVariant}
-                     message={snack.snackbarMsg}
-                   />
+                     <Alert variant={"filled"} severity={snack.snackbarVariant} onClose={this.removeSnackbar.bind(this, snack, index)}>
+                         {snack.snackbarMsg}
+                     </Alert>
                  </Snackbar>
                )
              })

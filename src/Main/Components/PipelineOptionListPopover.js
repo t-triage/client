@@ -19,6 +19,7 @@ import DialogActions from "@mui/material/DialogActions"
 import Button from "@mui/material/Button"
 import axios from "axios";
 import Api from "./Api";
+import Alert from '@mui/material/Alert';
 
 
 class PipelineOptionListPopover extends Component{
@@ -77,11 +78,9 @@ class PipelineOptionListPopover extends Component{
                 autoHideDuration={2000}
                 onClose={this.hideSnackbar.bind(this)}
             >
-                <MySnackbarContentWrapper
-                    onClose={this.hideSnackbar.bind(this)}
-                    variant={this.state.variant}
-                    message={this.state.snackbarMsg}
-                />
+                <Alert variant={"filled"} severity={this.state.variant} onClose={this.hideSnackbar.bind(this)}>
+                    {this.state.snackbarMsg}
+                </Alert>
             </Snackbar>
         )
     }

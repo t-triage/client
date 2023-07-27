@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid'
 import { Link } from 'react-router-dom'
 import UserPicker from "../Components/UserPicker";
 import PipelineStatusBox from "../Components/PipelineStatusBox"
-import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS, snackbarStyle, MySnackbarContent } from '../Components/Globals'
+import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS } from '../Components/Globals'
 
 class PipelineItemTable extends Component {
 

@@ -35,8 +35,6 @@ import {
   styles,
   COLORS,
   DEFAULT_AUTOMATED_TEST_FILTERS,
-  snackbarStyle,
-  MySnackbarContent,
   GITBOOK_URL
 } from './Components/Globals'
 import Tooltip from '@mui/material/Tooltip';
@@ -45,7 +43,8 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload"
 import AutomatedTestPipelineEdit from './Components/AutomatedTestPipelineEdit'
 import {scrollToTop, TextFieldInput} from '../Admin/AdminUtils'
 import SetAutomatedComponentPicker from "./Components/SetAutomatedComponentPicker";
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
+import Alert from '@mui/material/Alert';
+
 
 const CancelToken = axios.CancelToken;
 let cancel;
@@ -856,11 +855,9 @@ class AutomatedTestRepository extends Component {
         autoHideDuration={2000}
         onClose={this.hideSnackbar.bind(this)}
       >
-        <MySnackbarContentWrapper
-          onClose={this.hideSnackbar.bind(this)}
-          variant={this.state.snackbarVariant}
-          message={this.state.snackbarMsg}
-        />
+        <Alert variant={"filled"} severity={this.state.snackbarVariant} onClose={this.hideSnackbar.bind(this)}>
+          {this.state.snackbarMsg}
+        </Alert>
 
       </Snackbar>
 

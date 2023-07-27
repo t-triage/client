@@ -11,7 +11,7 @@ import PipelineKanban from "./PipelineKanban"
 import PipelineList from "./PipelineList"
 
 import withStyles from '@mui/styles/withStyles';
-import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS, snackbarStyle, PipeStage } from './Components/Globals'
+import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS, PipeStage } from './Components/Globals'
 const workspaceUrl = GITBOOK_URL + 'docs/user-guide/pipeline-checkpoints'
 const kanbanUrl = GITBOOK_URL + 'docs/user-guide/pipeline-checkpoints'
 const triageUrl = GITBOOK_URL + 'docs/user-guide/test-details'

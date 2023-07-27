@@ -23,7 +23,7 @@ import {
     formatException, isEmptyOrNull,
 } from './Components/TriageUtils'
 import { scrollToTop } from '../Admin/AdminUtils'
-import { styles, MySnackbarContent, snackbarStyle, COLORS } from './Components/Globals'
+import { styles, COLORS } from './Components/Globals'
 
 // MATERIAL COMPONENTS
 import Grid from "@mui/material/Grid"
@@ -35,6 +35,7 @@ import ListItem from "@mui/material/ListItem"
 import Typography from "@mui/material/Typography"
 import CircularProgress from "@mui/material/CircularProgress"
 import Tooltip from "@mui/material/Tooltip"
+import Alert from '@mui/material/Alert';
 
 // ICONS
 import PinIcon from "../images/pin.svg"
@@ -56,7 +57,6 @@ import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet"
 import withStyles from '@mui/styles/withStyles';
 
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 class Triage extends Component {
 
@@ -147,11 +147,9 @@ class Triage extends Component {
                 autoHideDuration={2000}
                 onClose={this.hideSnackbar.bind(this)}
             >
-                <MySnackbarContentWrapper
-                    onClose={this.hideSnackbar.bind(this)}
-                    variant="success"
-                    message={this.state.snackbarMsg}
-                />
+                <Alert variant={"filled"} severity="success" onClose={this.hideSnackbar.bind(this)}>
+                    {this.state.snackbarMsg}
+                </Alert>
             </Snackbar>
         )
     }

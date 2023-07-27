@@ -18,13 +18,11 @@ import {
   COLORS,
   renderDeadLine,
   DEFAULT_PIPELINE_FILTERS,
-  snackbarStyle,
-  MySnackbarContent,
   GITBOOK_URL
 } from './Components/Globals'
 import { scrollToTop } from '../Admin/AdminUtils'
+import Alert from '@mui/material/Alert';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 const CancelToken = axios.CancelToken;
 let cancel;
@@ -170,11 +168,9 @@ class PipelineList extends Component {
         autoHideDuration={2000}
         onClose={this.hideSnackbar.bind(this)}
       >
-        <MySnackbarContentWrapper
-          onClose={this.hideSnackbar.bind(this)}
-          variant={this.state.snackbarVariant}
-          message={this.state.snackbarMsg}
-        />
+        <Alert variant={"filled"} severity={this.state.snackbarVariant} onClose={this.hideSnackbar.bind(this)}>
+          {this.state.snackbarMsg}
+        </Alert>
 
       </Snackbar>
 

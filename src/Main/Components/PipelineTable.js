@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow"
 import withStyles from '@mui/styles/withStyles';
 
 import PipelineItemTable from '../Components/PipelineItemTable'
-import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS, snackbarStyle, MySnackbarContent } from '../Components/Globals'
+import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS } from '../Components/Globals'
 
 class PipelineTable extends Component {
 

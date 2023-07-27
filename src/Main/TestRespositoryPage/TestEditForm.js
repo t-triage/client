@@ -33,8 +33,6 @@ import FunctionalityPicker from '../Components/FunctionalityPicker'
 
 import {
   styles,
-  MySnackbarContent,
-  snackbarStyle,
   COLORS,
   TECHNIQUE_LIST,
   AUTOMATION_LIST,
@@ -47,8 +45,7 @@ import withStyles from '@mui/styles/withStyles';
 import {show} from "./TestRepository";
 import {ShareTestButton} from "../Components/ShareTestButton";
 import {TestEditFormStep} from "./TestEditFormStep";
-
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
+import Alert from '@mui/material/Alert';
 
 const EMPTY_FUNCTIONALITY = {
   id: null,
@@ -588,11 +585,9 @@ class TestEditForm extends Component {
                   >
 
 
-                    <MySnackbarContentWrapper
-                        onClose={this.removeSnackbar.bind(this, snack, index)}
-                        variant={snack.snackbarVariant}
-                        message={snack.snackbarMsg}
-                    />
+                    <Alert variant={"filled"} severity={snack.snackbarVariant} onClose={this.removeSnackbar.bind(this, snack, index)}>
+                      {snack.snackbarMsg}
+                    </Alert>
                   </Snackbar>
               )
             })

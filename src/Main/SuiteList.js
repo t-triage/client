@@ -11,7 +11,7 @@ import TodayList from "./Components/TodayList"
 import SuiteNavigation from "./Components/SuiteNavigation"
 import SuiteActionDialog from "./Components/SuiteActionDialog";
 import SuiteOptionListPopover from "./Components/SuiteOptionListPopover";
-import {styles, renderDeadLine, snackbarStyle, MySnackbarContent, COLORS} from './Components/Globals'
+import {styles, renderDeadLine, COLORS} from './Components/Globals'
 
 
 // UI Components
@@ -33,8 +33,8 @@ import withStyles from '@mui/styles/withStyles';
 import Snackbar from '@mui/material/Snackbar'
 import SuiteListEdit from "./Components/SuiteListEdit";
 import { scrollToTop } from '../Admin/AdminUtils'
+import Alert from '@mui/material/Alert';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 class SuiteList extends Component {
     constructor(props) {
@@ -95,11 +95,9 @@ class SuiteList extends Component {
             autoHideDuration={2000}
             onClose={this.hideSnackbar.bind(this)}
           >
-            <MySnackbarContentWrapper
-              onClose={this.hideSnackbar.bind(this)}
-              variant="success"
-              message={this.state.snackbarMsg}
-            />
+            <Alert variant={"filled"} severity="success" onClose={this.hideSnackbar.bind(this)}>
+                message={this.state.snackbarMsg}
+            </Alert>
         </Snackbar>
       )
     }

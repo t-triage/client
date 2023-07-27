@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import Api from "./Api"
 import axios from 'axios'
-import { MySnackbarContent, snackbarStyle } from './Globals'
 
 // UI Components
 import Grid from "@mui/material/Grid"
@@ -13,8 +12,8 @@ import {renderChangePasswordDialog, TextFieldInput} from './TriageUtils'
 import InputAdornment from "@mui/material/InputAdornment"
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Alert from '@mui/material/Alert';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 class ChangePasswordDialog extends Component {
 
@@ -271,11 +270,9 @@ class ChangePasswordDialog extends Component {
           autoHideDuration={2000}
           onClose={this.hideSnackbar}
         >
-        <MySnackbarContentWrapper
-          onClose={this.hideSnackbar}
-          variant="success"
-          message="Password updated successfully"
-        />
+				<Alert variant={"filled"} severity="success" onClose={this.hideSnackbar}>
+					Password updated successfully
+				</Alert>
       </Snackbar>,
       <Snackbar
 				key="errorSnackbar"
@@ -287,11 +284,9 @@ class ChangePasswordDialog extends Component {
         autoHideDuration={2000}
         onClose={this.hideSnackbarError}
       >
-        <MySnackbarContentWrapper
-          onClose={this.hideSnackbarError}
-          variant="error"
-          message="Sorry! Something went wrong!"
-        />
+		  <Alert variant={"filled"} severity="error" onClose={this.hideSnackbarError}>
+			  Sorry! Something went wrong!
+		  </Alert>
       </Snackbar>
       ]
   }

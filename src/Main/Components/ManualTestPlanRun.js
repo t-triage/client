@@ -10,12 +10,12 @@ import FormatClearIcon from '@mui/icons-material/FormatClear';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import Snackbar from '@mui/material/Snackbar'
 
-import {styles, COLORS, snackbarStyle, MySnackbarContent, TEST_PLAN_STATUS_ALL} from './Globals'
+import {styles, COLORS, TEST_PLAN_STATUS_ALL} from './Globals'
 import withStyles from '@mui/styles/withStyles';
 import SearchUI from "./SearchUI";
 import Grid from "@mui/material/Grid";
+import Alert from '@mui/material/Alert';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 class ManualTestPlanRun extends Component {
   state = {
@@ -246,11 +246,9 @@ class ManualTestPlanRun extends Component {
           autoHideDuration={2000}
           onClose={this.hideSnackbar.bind(this)}
         >
-          <MySnackbarContentWrapper
-            onClose={this.hideSnackbar.bind(this)}
-            variant="success"
-            message={this.state.snackbarMsg}
-          />
+		  <Alert variant={"filled"} severity="success" onClose={this.hideSnackbar.bind(this)}>
+			  {this.state.snackbarMsg}
+		  </Alert>
       </Snackbar>
     )
   }

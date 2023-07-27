@@ -38,15 +38,13 @@ import {
     COLORS,
     DEFAULT_MANUAL_TEST_FILTERS,
     TEST_PLAN_STATUS_ALL,
-    snackbarStyle,
-    MySnackbarContent,
     GITBOOK_URL
 } from '../Components/Globals'
 import {ShareTestButton} from "../Components/ShareTestButton";
 import {TestListItem} from "./TestListItem";
 import {TestList} from "./TestList";
+import Alert from '@mui/material/Alert';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 const CancelToken = axios.CancelToken;
 let cancel;
@@ -548,11 +546,9 @@ class TestRepository extends Component {
           autoHideDuration={2000}
           onClose={this.hideSnackbar.bind(this)}
         >
-          <MySnackbarContentWrapper
-            onClose={this.hideSnackbar.bind(this)}
-            variant={this.state.snackbarVariant}
-            message={this.state.snackbarMsg}
-          />
+          <Alert variant={"filled"} severity={this.state.snackbarVariant} onClose={this.hideSnackbar.bind(this)}>
+              {this.state.snackbarMsg}
+          </Alert>
       </Snackbar>
     )
   }

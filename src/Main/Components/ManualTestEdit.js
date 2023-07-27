@@ -27,14 +27,13 @@ import FormControl from '@mui/material/FormControl'
 import Checkbox from '@mui/material/Checkbox'
 import Chip from '@mui/material/Chip'
 import Snackbar from "@mui/material/Snackbar"
+import Alert from '@mui/material/Alert';
 
 import ComponentsPicker from './ComponentsPicker'
 import FunctionalityPicker from './FunctionalityPicker'
 
 import {
   styles,
-  MySnackbarContent,
-  snackbarStyle,
   COLORS,
   TECHNIQUE_LIST,
   AUTOMATION_LIST,
@@ -45,7 +44,6 @@ import {
 
 import withStyles from '@mui/styles/withStyles';
 
-const MySnackbarContentWrapper = withStyles(snackbarStyle)(MySnackbarContent);
 
 const EMPTY_FUNCTIONALITY = {
   id: null,
@@ -505,11 +503,9 @@ class ManualTestEdit extends Component {
                  autoHideDuration={2000}
                  onClose={this.removeSnackbar.bind(this, snack, index)}
                >
-                 <MySnackbarContentWrapper
-                   onClose={this.removeSnackbar.bind(this, snack, index)}
-                   variant={snack.snackbarVariant}
-                   message={snack.snackbarMsg}
-                 />
+                 <Alert variant={"filled"} severity={snack.snackbarVariant} onClose={this.removeSnackbar.bind(this, snack, index)}>
+                   {snack.snackbarMsg}
+                 </Alert>
                </Snackbar>
              )
            })
