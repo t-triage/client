@@ -285,38 +285,46 @@ export default class Product extends Component {
                 })
         }
     }
-
+    
     fetchJiraConfig(productId) {
         axios.get(Api.getBaseUrl() + Api.ENDPOINTS.GetJiraConfig, { params: { productId } })
             .then(res => {
+                return Promise.resolve(res.data);
+            })
+            .then(data => {
                 this.setState({
-                    jiraServer: res.data.jiraUrl ? res.data.jiraUrl : '',
-                    projectKey: res.data.projectKey ? res.data.projectKey : '',
-                    issueType: res.data.issueType,
-                    initialStateId: res.data.initialStateId,
-                    resolvedStateId: res.data.resolvedStateId,
-                    closedStateId: res.data.closedStateId,
-                    reopenStateId: res.data.reopenStateId,
-                    reporterEmail: res.data.reporterEmail ? res.data.reporterEmail : '',
-                    clientId: res.data.clientID ? res.data.clientID : '',
-                    clientSecret: res.data.clientSecret ? res.data.clientSecret : '',
-                    jiraVersion: res.data.jiraVersion ? res.data.jiraVersion : 'cloud',
-                    defaultValuesFields: res.data.defaultFieldsValues ? res.data.defaultFieldsValues : '',
+                    jiraServer: data.jiraUrl ? data.jiraUrl : '',
+                    projectKey: data.projectKey ? data.projectKey : '',
+                    issueType: data.issueType,
+                    initialStateId: data.initialStateId,
+                    resolvedStateId: data.resolvedStateId,
+                    closedStateId: data.closedStateId,
+                    reopenStateId: data.reopenStateId,
+                    reporterEmail: data.reporterEmail ? data.reporterEmail : '',
+                    clientId: data.clientID ? data.clientID : '',
+                    clientSecret: data.clientSecret ? data.clientSecret : '',
+                    jiraVersion: data.jiraVersion ? data.jiraVersion : 'cloud',
+                    defaultValuesFields: data.defaultFieldsValues ? data.defaultFieldsValues : '',
                     searching: false,
-                    isFetchedToken: res.data.isFetchedToken,
-                    isValidToken: res.data.isValidToken,
+                    isFetchedToken: data.isFetchedToken,
+                    isValidToken: data.isValidToken,
                     jiraProjects: [],
                     issueTypes: [],
                     projectIdSelect: []
                 });
-                if (this.state.isFetchedToken) {
-                    this.fetchJiraProjects();
+                return data.isFetchedToken;
+            })
+            .then(isFetchedToken => {
+                if (isFetchedToken) {
+                    return this.fetchJiraProjects();
+                } else {
+                    return Promise.resolve();
                 }
             })
             .catch(err => {
                 console.log("Error fetchJiraConfig...")
                 this.setState({ fetchError: err })
-            })
+            });
     }
 
     fetchJavaConfiguration() {
@@ -1179,9 +1187,9 @@ export default class Product extends Component {
         })
     }
 
-    handlechangeJiraProjects(event) {
+    async handlechangeJiraProjects(event) {
         let { value } = event.target
-        this.setState({
+        await this.setState({
             projectKey: value,
         })
         this.fetchisuetype()
