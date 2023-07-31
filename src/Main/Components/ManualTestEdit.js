@@ -605,7 +605,7 @@ class ManualTestEdit extends Component {
                                 minHeight: '18px'
                             }
                         }}
-                        rowsMax={15}
+                        maxRows={15}
                         fullWidth
                         multiline
                     />
@@ -626,7 +626,7 @@ class ManualTestEdit extends Component {
                               minHeight: '18px'
                             }
                         }}
-                        rowsMax={15}
+                        maxRows={15}
                         fullWidth
                         multiline
                     />
@@ -1010,8 +1010,7 @@ class ManualTestEdit extends Component {
                 }}
                 input={
                   <OutlinedInput
-                      fullWidth
-                      labelWidth={95}
+                      fullWidth={true}
                       id={`testTechniques`}
                       style={{
                         padding: 0

@@ -16,7 +16,7 @@ import React from "react";
 
 export const TestEditFormStep = (props) => {
         let step = props.step;
-        let index = props.step;
+        let index = props.index;
         return (
             <ListItem
                 key={index}
@@ -67,7 +67,7 @@ export const TestEditFormStep = (props) => {
                                                 minHeight: '18px'
                                             }
                                         }}
-                                        rowsMax={15}
+                                        maxRows={15}
                                         fullWidth
                                         multiline
                                     />
@@ -90,7 +90,7 @@ export const TestEditFormStep = (props) => {
                                                 minHeight: '18px'
                                             }
                                         }}
-                                        rowsMax={15}
+                                        maxRows={15}
                                         fullWidth
                                         multiline
                                     />

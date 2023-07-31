@@ -997,8 +997,7 @@ class TestEditForm extends Component {
                         }}
                         input={
                           <OutlinedInput
-                              fullWidth
-                              labelWidth={95}
+                              fullWidth={true}
                               id={`testTechniques`}
                               style={{
                                 padding: 0
