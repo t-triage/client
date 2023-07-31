@@ -771,13 +771,15 @@ class AutomatedTestRepository extends Component {
           fileReport: reader.result,
           importingTests: true,
         }, () => {
+          const dataString = JSON.stringify(this1.state.fileReport).slice(1, -1);
           axios({
             method: "POST",
             url: Api.getBaseUrl() + Api.ENDPOINTS.EventExecutionImportLogs+"?productId="+productId,
-            data: this1.state.fileReport,
+            data: dataString,
             headers: {
               'Content-Type': 'application/json'
             },
+            transformRequest: [(data, headers) => data],
           })
               .then(res => {
                 this1.setState({
@@ -812,13 +814,15 @@ class AutomatedTestRepository extends Component {
           fileReport: reader.result,
           importingTests: true,
         }, () => {
+          const dataString = JSON.stringify(this1.state.fileReport).slice(1, -1);
           axios({
             method: "POST",
             url: Api.getBaseUrl() + Api.ENDPOINTS.AutomationImportReport,
-            data: this1.state.fileReport,
+            data: dataString,
             headers: {
               'Content-Type': 'application/json'
             },
+            transformRequest: [(data, headers) => data],
           })
             .then(res => {
               this1.setState({
@@ -833,6 +837,7 @@ class AutomatedTestRepository extends Component {
 
             })
             .catch(error => {
+              console.log(error.message)
               this1.setState({
                 importingTests: false,
               })
