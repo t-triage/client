@@ -564,13 +564,15 @@ class TestRepository extends Component {
             fileReport: reader.result,
             importingTests: true,
           },() => {
+            const dataString = JSON.stringify(this1.state.fileReport).slice(1, -1);
             axios({
                 method: "POST",
                 url: Api.getBaseUrl() + Api.ENDPOINTS.ImportReport,
-                data: this1.state.fileReport,
+                data: dataString,
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                transformRequest: [(data, headers) => data],
             })
             .then(res => {
               this1.setState({
