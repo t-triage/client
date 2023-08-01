@@ -7,7 +7,6 @@ import axios from 'axios'
 import DoneIcon from '@mui/icons-material/Done'
 import Tooltip from "@mui/material/Tooltip"
 import Grid from '@mui/material/Grid'
-import { Link } from 'react-router-dom'
 import UserPicker from "../Components/UserPicker";
 import PipelineStatusBox from "../Components/PipelineStatusBox"
 import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS } from '../Components/Globals'
@@ -44,14 +43,14 @@ class PipelineItemTable extends Component {
     return (
       <TableRow className="jobsTableRow" className="jobsTableRow" style={{ height: "10px", backgroundColor: "white" }} >
                           <TableCell className="SuiteList-NameCell" style={{ width: "30%" }}>
-                            <Link style={{ textDecoration: 'none', color: 'inherit' }} onClick={this.props.selectPipeline.bind(this,pipeline.id)} to={`/PipelineList/${pipeline.id}/Kanban`}>
+                            <a style={{ textDecoration: 'none', color: 'inherit' }} onClick={this.props.selectPipeline.bind(this,pipeline.id)} href={`/PipelineList/${pipeline.id}/Kanban`} >
                               <div style={{ paddingTop: 15, paddingBottom: 15 }}>
                                 <div>{pipeline.name}</div>
                                 <div style={{
                                   color: "#BEBEBE"
                                 }}><b>{pipeline.description}</b></div>
                               </div>
-                            </Link>
+                            </a>
                           </TableCell>
                           <TableCell className="jobStatusTableCell" style={{ width: "35%" }}>
                             <Grid container alignItems='center'>

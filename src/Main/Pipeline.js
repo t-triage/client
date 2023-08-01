@@ -120,8 +120,7 @@ class Pipeline extends Component {
   }
 
   selectPipeline = (pipelineID) => {
-
-    selectedPipeline = parseInt(pipelineID)
+    let selectedPipeline = parseInt(pipelineID)
     if (!isNaN(pipelineID)) {
       this.setState({
         selectedPipeline,
