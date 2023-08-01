@@ -26,8 +26,7 @@ export const TestListItem = (props) => {
             select: selectedTests.length !== props.testList.length,
         })
     }
-
-//funcion que expande el test seleccionado
+    
     const handleExpantion = (id, fetchData=false, expandedTests) => {
         let index = expandedTests.indexOf(id)
         if (index !== -1) {
@@ -148,7 +147,7 @@ export const TestListItem = (props) => {
                         }} title="Cancel"
                         style={{display: props.expandedTests.indexOf(props.test.id) === -1 ? 'none' : "flex"}}>
                         <IconButton
-                            onClick={() => handleExpantion(props.that, props.test.id, false)}
+                            onClick={() => handleExpantion(props.test.id, false, props.that.state.expandedTests)}
                             size="large">
                             <ClearIcon />
                         </IconButton>
@@ -161,7 +160,7 @@ export const TestListItem = (props) => {
                         <TestEditForm
                             test={props.test}
                             currentUser={props.that.state.currentUser}
-                            onClose={() => handleExpantion(props.that, props.test.id, false)} />
+                            onClose={() => handleExpantion(props.test.id, false, props.that.state.expandedTests)} />
                     </div>
                 )
             }

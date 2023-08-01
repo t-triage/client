@@ -26,7 +26,7 @@ import RemoveIcon from "@mui/icons-material/RemoveCircle"
 
 import TablePagination from '@mui/material/TablePagination';
 import Nav from "../Components/Nav"
-import ManualTestEdit from './TestEditForm'
+import ManualTestEdit from '../Components/ManualTestEdit'
 import ManualTestFilters from '../Components/ManualTestFilters'
 import ManualTestNameFilter from '../Components/ManualTestNameFilter'
 import ManualTestPlanEdit from '../Components/ManualTestPlanEdit'
