@@ -569,7 +569,7 @@ class ManualTestEdit extends Component {
           <ListItemText
               style={{ padding: 0 }}
               primary={
-                <Grid className="manualTestStepListItemText" container spacing={16}>
+                <Grid className="manualTestStepListItemText" container spacing={2}>
                   <Grid item xs={4}>
                     <InputBase
                         id={`stepName-${index}`}
@@ -700,7 +700,7 @@ class ManualTestEdit extends Component {
           className="manualTestEditForm"
           style={{ width: fullWidth ? '100%' : '80%' }}>
         {this.renderSnackbars()}
-        <Grid container spacing={16} style={{ marginTop: 0 }}>
+        <Grid container spacing={2} style={{ marginTop: 0 }}>
           <Grid item xs={12} sm={12}>
             <TextField
                   id={`testName-${testEdit.id ? testEdit.id : 'new'}`}
@@ -778,7 +778,7 @@ class ManualTestEdit extends Component {
                       <span>Functionality</span>
                     </legend>
 
-                    <Grid container spacing={16} style={{padding: 5}}>
+                    <Grid container spacing={2} style={{padding: 5}}>
                       <Grid item xs={3} sm={6}>
                         <TextField
                             id={`externalId-${testEdit.id ? testEdit.id : 'new'}`}
@@ -1077,7 +1077,7 @@ class ManualTestEdit extends Component {
           </Grid>
 
           <Grid item xs={12} style={{ marginTop: 20, color: 'rgba(0, 0, 0, 0.54)', fontSize: '0.75rem' }}>
-            <Grid container spacing={16}>
+            <Grid container spacing={2}>
               <Grid item xs={4}><b>STEP</b></Grid>
               <Grid item xs={3}><b>DATA</b></Grid>
               <Grid item xs={5}><b>EXPECTED</b></Grid>

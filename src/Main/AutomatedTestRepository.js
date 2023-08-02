@@ -1000,7 +1000,6 @@ class AutomatedTestRepository extends Component {
                                     paddingLeft: 20,
                                     paddingTop: 2,
                                     borderRadius: 3,
-                                    border: 'none',
                                     fontWeight: "bold"
                                   }
                                 }}
@@ -1010,7 +1009,8 @@ class AutomatedTestRepository extends Component {
                                   },
                                   IconComponent: () => <KeyboardArrowDown/>
                                 }}
-                                onChange={this.handleOnChange.bind(this)}>
+                                onChange={this.handleOnChange.bind(this)}
+                                variant="standard" >
                               {(pipelineList && pipelineList.length) && pipelineList.map(p => (
                                   <MenuItem
                                       className={`globalMenuItem ${p.hide ? 'menuItemHidden' : ''} ${p.hasIcon ? 'menuItemHasIcon' : ''}`}
@@ -1051,7 +1051,6 @@ class AutomatedTestRepository extends Component {
                                   paddingLeft: 20,
                                   paddingTop: 2,
                                   borderRadius: 3,
-                                  border: 'none',
                                   fontWeight: "bold",
                                   width: 'fit-content',
                                 }
@@ -1067,6 +1066,7 @@ class AutomatedTestRepository extends Component {
                                   this.onSetComponentOpen.bind(this)()
                                 }
                               }}
+                              variant="standard"
                           >
                             {(assignComponentList && assignComponentList.length) && assignComponentList.map(c => (
                                 <MenuItem

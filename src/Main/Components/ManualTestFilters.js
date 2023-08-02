@@ -254,7 +254,8 @@ class ManualTestFilters extends Component {
 						},
 						IconComponent: () => <KeyboardArrowDown />
 					}}
-					onChange={this.updateTestList("testPlan")}>
+					onChange={this.updateTestList("testPlan")}
+                    variant="standard">
 					{testPlanList.map(p => (
 						p.id !== -1 &&
 						<MenuItem className="globalMenuItem" key={p.id} value={p.id}>
@@ -279,7 +280,8 @@ class ManualTestFilters extends Component {
 						},
 						IconComponent: () => <KeyboardArrowDown />
 					}}
-					onChange={this.updateTestList("excludeTestPlan")}>
+					onChange={this.updateTestList("excludeTestPlan")}
+                    variant="standard">
 					{testPlanList.map(p => (
 						p.id !== -1 &&
 						<MenuItem className="globalMenuItem" key={p.id} value={p.id}>
@@ -366,7 +368,8 @@ class ManualTestFilters extends Component {
 						},
 						IconComponent: () => <KeyboardArrowDown />
 					}}
-					onChange={this.updateTestList("priority")}>
+					onChange={this.updateTestList("priority")}
+                    variant="standard">
 					{MANUAL_PRIORITY_LIST.map(p => (
 						<MenuItem className="globalMenuItem" key={p.id} value={p.id}>
 							{p.value === 'SELECT' ? 'All' : p.label}
@@ -390,7 +393,8 @@ class ManualTestFilters extends Component {
                                               },
                                               IconComponent: () => <KeyboardArrowDown />
                                             }}
-                                            onChange={this.updateTestList("lastExecution")}>
+                                            onChange={this.updateTestList("lastExecution")}
+                                            variant="standard">
                                             {MANUAL_LAST_EXECUTION_LIST.map(p => (
                                                 <MenuItem className="globalMenuItem" key={p.id} value={p.value}>
                                                   {p.value === 'SELECT' ? 'All' : p.label}
@@ -414,7 +418,8 @@ class ManualTestFilters extends Component {
                                                       },
                                                       IconComponent: () => <KeyboardArrowDown />
                                                     }}
-                                                    onChange={this.updateTestList("suite")}>
+                                                    onChange={this.updateTestList("suite")}
+                                                    variant="standard">
                                                     {SUITE_TYPE_LIST.map(p => (
                                                         <MenuItem className="globalMenuItem" key={p.id} value={p.value}>
                                                           {p.value === 'SELECT' ? 'All' : p.label}
@@ -438,7 +443,8 @@ class ManualTestFilters extends Component {
                                                     },
                                                     IconComponent: () => <KeyboardArrowDown />
                                                   }}
-                                                  onChange={this.updateTestList("techniques")}>
+                                                  onChange={this.updateTestList("techniques")}
+                                                  variant="standard">
                                                   {[{ id: -1, value: "SELECT", label: "Select ..." }].concat(TECHNIQUE_LIST).map(p => (
                                                       <MenuItem className="globalMenuItem" key={p.id} value={p.id}>
                                                         {p.value === 'SELECT' ? 'All' : p.label}
@@ -462,7 +468,8 @@ class ManualTestFilters extends Component {
                                                         },
                                                         IconComponent: () => <KeyboardArrowDown />
                                                       }}
-                                                      onChange={this.updateTestList("automationStatus")}>
+                                                      onChange={this.updateTestList("automationStatus")}
+                                                      variant="standard">
                                                       {AUTOMATION_LIST.map(p => (
                                                           <MenuItem className="globalMenuItem" key={p.id} value={p.id}>
                                                             {p.value === 'SELECT' ? 'All' : p.label}
@@ -486,7 +493,8 @@ class ManualTestFilters extends Component {
                                                             },
                                                             IconComponent: () => <KeyboardArrowDown />
                                                           }}
-                                                          onChange={this.onNeedsUpdateChange.bind(this)}>
+                                                          onChange={this.onNeedsUpdateChange.bind(this)}
+                                                          variant="standard">
                                                           {NEEDS_UPDATE_LIST.map(p => (
                                                               <MenuItem className="globalMenuItem" key={p.id} value={p.value}>
                                                                 {p.value === 'SELECT' ? 'All' : p.label}

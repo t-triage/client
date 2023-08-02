@@ -729,7 +729,8 @@ class TestRepository extends Component {
                                   },
                                   IconComponent: () => <KeyboardArrowDown />
                                 }}
-                                onChange={this.handleOnChange.bind(this)}>
+                                onChange={this.handleOnChange.bind(this)}
+                                variant="standard">
                                 {testPlanList.map(p => (
                                   <MenuItem className={`globalMenuItem ${p.hide ? 'menuItemHidden' : ''} ${p.hasIcon ? 'menuItemHasIcon' : ''}`} key={p.id} value={p.id}>
                                     {p.hasIcon && <AddCircleIcon className={"itemIcon"} style={{ fill: COLORS.primary }} />}

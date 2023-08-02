@@ -668,7 +668,7 @@ class TestEditForm extends Component {
               className="manualTestEditForm"
               style={{ width: fullWidth ? '100%' : '80%' }}>
           {this.renderSnackbars()}
-          <Grid container spacing={16} style={{ marginTop: 0 }}>
+          <Grid container spacing={2} style={{ marginTop: 0 }}>
             {show.name && (
                 <Grid item xs={12} sm={12}>
                   <div style={{ display: "flex", justifyContent: "flex-end"}} >
@@ -757,7 +757,7 @@ class TestEditForm extends Component {
                               <span>Functionality</span>
                             </legend>
 
-                            <Grid container spacing={16} style={{padding: 5}}>
+                            <Grid container spacing={2} style={{padding: 5}}>
                               <Grid item xs={3} sm={6}>
                                 <TextField
                                     id={`externalId-${testEdit.id ? testEdit.id : 'new'}`}
@@ -1069,7 +1069,7 @@ class TestEditForm extends Component {
             )}
             {show.steps && (
                 <Grid item xs={12} style={{ marginTop: 20, color: 'rgba(0, 0, 0, 0.54)', fontSize: '0.75rem' }}>
-                  <Grid container spacing={16}>
+                  <Grid container spacing={2}>
                     {show.stepsHeader && (
                     <Grid item xs={4}><b>STEP</b></Grid>)}
                     {show.stepsData && (

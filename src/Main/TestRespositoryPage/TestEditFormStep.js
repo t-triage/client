@@ -28,7 +28,7 @@ export const TestEditFormStep = (props) => {
                 <ListItemText
                     style={{ padding: 0 }}
                     primary={
-                        <Grid className="manualTestStepListItemText" container spacing={16}>
+                        <Grid className="manualTestStepListItemText" container spacing={2}>
                             {show.stepsHeader && (
                                 <Grid item xs={4}>
                                     <InputBase

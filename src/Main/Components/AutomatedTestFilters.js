@@ -174,7 +174,8 @@ class AutomatedTestFilters extends Component {
         },
         IconComponent: () => <KeyboardArrowDown />
       }}
-      onChange={this.updateTestList("pipeline")}>
+      onChange={this.updateTestList("pipeline")}
+      variant="standard">
       {(pipelineList && pipelineList.length) &&
       pipelineList.map(p => (
         p.id !== -1 &&
@@ -311,6 +312,7 @@ class AutomatedTestFilters extends Component {
                   IconComponent: () => <KeyboardArrowDown />,
                 }}
                 onChange={this.updateTestList("lastExecution")}
+                variant="standard"
             >
               {MANUAL_LAST_EXECUTION_LIST.map((p) => (
                   <MenuItem className="globalMenuItem" key={p.id} value={p.value}>
@@ -345,6 +347,7 @@ class AutomatedTestFilters extends Component {
               IconComponent: () => <KeyboardArrowDown />,
             }}
             onChange={this.updateTestList("currentState")}
+            variant="standard"
           >
             {AUTOMATED_SUITE_STATUS_LIST.map((p) => (
               <MenuItem className="globalMenuItem" key={p.id} value={p.value}>
@@ -376,6 +379,7 @@ class AutomatedTestFilters extends Component {
               IconComponent: () => <KeyboardArrowDown />,
             }}
             onChange={this.updateTestList("flakyTest")}
+            variant="standard"
           >
             {AUTOMATED_SUITE_FLAKY_STATUS_LIST.map((p) => (
               <MenuItem className="globalMenuItem" key={p.id} value={p.value}>
@@ -408,6 +412,7 @@ class AutomatedTestFilters extends Component {
               IconComponent: () => <KeyboardArrowDown />,
             }}
             onChange={this.updateTestList("hideNoSuite")}
+            variant="standard"
           >
             {AUTOMATED_SUITE_HIDE_LIST.map((p) => (
               <MenuItem className="globalMenuItem" key={p.id} value={p.value}>
