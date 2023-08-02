@@ -13,6 +13,12 @@ import { styles, COLORS, renderDeadLine, DEFAULT_PIPELINE_FILTERS } from '../Com
 
 class PipelineItemTable extends Component {
 
+    selectPipeline = (event, pipelineID) => {
+        event.preventDefault();
+        this.props.selectPipeline(pipelineID)
+        window.location.href = `/PipelineList/${pipelineID}/Kanban`;
+    }
+
 
 
   render() {
@@ -43,7 +49,7 @@ class PipelineItemTable extends Component {
     return (
       <TableRow className="jobsTableRow" className="jobsTableRow" style={{ height: "10px", backgroundColor: "white" }} >
                           <TableCell className="SuiteList-NameCell" style={{ width: "30%" }}>
-                            <a style={{ textDecoration: 'none', color: 'inherit' }} onClick={this.props.selectPipeline.bind(this,pipeline.id)} href={`/PipelineList/${pipeline.id}/Kanban`} >
+                            <a style={{ textDecoration: 'none', color: 'inherit' }} onClick={(event) => this.selectPipeline(event, pipeline.id)} href={`/PipelineList/${pipeline.id}/Kanban`} >
                               <div style={{ paddingTop: 15, paddingBottom: 15 }}>
                                 <div>{pipeline.name}</div>
                                 <div style={{
