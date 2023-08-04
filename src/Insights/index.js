@@ -197,7 +197,7 @@ export default class Insights extends Component {
         <main className='chartMainSection' style={{ marginTop: helpEnabled ? 250 : 111 }}>
           <Grid
               container
-              spacing={24}>
+              spacing={3}>
               <Grid item xs={12} sm={6} md>
                 <InsightsBox
                     title='Unique Tests'

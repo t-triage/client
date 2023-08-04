@@ -52,11 +52,11 @@ export default class TrendGoals extends Component {
     render() {
         let { fromTime, toTime, executorId, executorName, stats } = this.state;
         return (
-            <Grid container spacing={24} justifyContent="center">
+            <Grid container spacing={3} justifyContent="center">
                 <Grid item xs={8}>
                     <TrendGoalDayPicker executorName={executorName} timeHandler={this.timeHandler}/>
                 </Grid>
-                <Grid container spacing={24} justifyContent="flex-start">
+                <Grid container spacing={3} justifyContent="flex-start">
                     <Grid item xs={2}>
                         <ExecutorsPicker fetchExecutor={this.fetchExecutor} />
                     </Grid>

@@ -124,7 +124,7 @@ class ManualTestAndTestExecution extends Component {
         let {data}=this.state
         return (
             <div style={{ width: '100%' }}>
-                <Grid container spacing={24} justifyContent="center">
+                <Grid container spacing={3} justifyContent="center">
                     <Grid item xs={8}>
                         <PickerCalendar  timeHandler={this.timeHandler} />
                     </Grid>

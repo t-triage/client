@@ -105,7 +105,7 @@ class SuiteNavigation extends Component {
               <MenuItem
                   value={index}
                   key={index}
-                  className="suiteNavigationListContainer">
+                  className="suiteListNavigationListContainer">
                   <ListItemAvatar style={{ position: 'absolute' }}>
                       <Avatar>
                           <FolderIcon />

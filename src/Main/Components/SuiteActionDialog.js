@@ -745,8 +745,8 @@ export default class SuiteActionDialog extends Component {
                                                 <div style={{fontSize: '.75rem'}}>More Tests! How many new tests should be created per month.</div>
                                             </Grid>
 
-                                            <Grid container item xs={6} spacing={3}>
-                                                <Grid container item xs={6} spacing={3}>
+                                            <Grid container item xs={6} spacing={1}>
+                                                <Grid container item xs={6} spacing={1}>
                                                     <b style={{fontSize: '0.85rem'}}>Triage Done </b>
                                                 </Grid>
                                                 <div style={{fontSize: '.75rem', marginBottom: 5}}>Verify your failing tests! How many tests can be left without validation? (0 I hope)</div>
@@ -786,7 +786,7 @@ export default class SuiteActionDialog extends Component {
                                             </Grid>
                                             <Grid container item xs={2}>
                                             </Grid>
-                                            <Grid container item xs={2} spacing={3}>
+                                            <Grid container item xs={2} spacing={1}>
                                                 <TextField
                                                     id="triageDoneRequired"
                                                     label="Required"
@@ -802,7 +802,7 @@ export default class SuiteActionDialog extends Component {
                                                     }}
                                                 />
                                             </Grid>
-                                            <Grid container item xs={2} spacing={3}>
+                                            <Grid container item xs={2} spacing={1}>
                                                 <TextField
                                                     id="triageDoneExpected"
                                                     label="Expected"
@@ -822,9 +822,9 @@ export default class SuiteActionDialog extends Component {
 
                                         <br/>
 
-                                        <Grid container item xs={12} spacing={3}>
-                                            <Grid container item xs={5} spacing={3}>
-                                                <Grid container item xs={6} spacing={3}>
+                                        <Grid container item xs={12} spacing={1}>
+                                            <Grid container item xs={5} spacing={1}>
+                                                <Grid container item xs={6} spacing={1}>
                                                     <b style={{fontSize: '0.85rem'}}>Pass Rate</b>
                                                 </Grid>
                                                 <div style={{fontSize: '.75rem', marginBottom: 5}}>More Pass Tests! Percentage improvement of the amount of passing tests, i.e. 5% means next month your suite will have 5% more test passing)</div>
@@ -838,7 +838,7 @@ export default class SuiteActionDialog extends Component {
                                                 <div style={{fontSize: '.75rem', marginBottom: 5}}>Less Flaky tests! Reduce the fluctuation amount of flaky tests (fail/pass/fail). 5% means next month you'll see %5 less flacky tests)</div>
                                             </Grid>
 
-                                            <Grid container item xs={2} spacing={3}>
+                                            <Grid container item xs={2} spacing={1}>
                                                 <TextField
                                                     id="passingRequired"
                                                     label="Required"
@@ -854,7 +854,7 @@ export default class SuiteActionDialog extends Component {
                                                     }}
                                                 />
                                             </Grid>
-                                            <Grid container item xs={2} spacing={3}>
+                                            <Grid container item xs={2} spacing={1}>
                                                 <TextField
                                                     id="passingExpected"
                                                     label="Expected"
@@ -872,7 +872,7 @@ export default class SuiteActionDialog extends Component {
                                             </Grid>
                                             <Grid container item xs={2}>
                                             </Grid>
-                                            <Grid container item xs={2} spacing={3}>
+                                            <Grid container item xs={2} spacing={1}>
                                                 <TextField
                                                     id="stabilityRequired"
                                                     label="Required"
@@ -888,7 +888,7 @@ export default class SuiteActionDialog extends Component {
                                                     }}
                                                 />
                                             </Grid>
-                                            <Grid container item xs={2} spacing={3}>
+                                            <Grid container item xs={2} spacing={1}>
                                                 <TextField
                                                     id="stabilityExpected"
                                                     label="Expected"
@@ -915,9 +915,9 @@ export default class SuiteActionDialog extends Component {
                                                 </Grid>
                                                 <div style={{fontSize: '.75rem', marginBottom: 5}}>Identify the number of commits, the truth is not that what other information to add here.</div>
                                             </Grid>
-                                            <Grid container item xs={2} spacing={3}>
+                                            <Grid container item xs={2} spacing={1}>
                                             </Grid>
-                                            <Grid container item xs={3} spacing={3}>
+                                            <Grid container item xs={3} spacing={1}>
                                                 <TextField
                                                     id="commitsRequired"
                                                     label="Required"
@@ -933,7 +933,7 @@ export default class SuiteActionDialog extends Component {
                                                     }}
                                                 />
                                             </Grid>
-                                            <Grid container item xs={3} spacing={3}>
+                                            <Grid container item xs={3} spacing={1}>
                                                 <TextField
                                                     id="commitsExpected"
                                                     label="Expected"

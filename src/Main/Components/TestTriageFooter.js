@@ -337,7 +337,7 @@ class TestTriageFooter extends Component {
               <Typography variant="button"><b>Triage Action</b></Typography>
           </AccordionSummary>
           <AccordionDetails className='TriageFooterExpansionPanelDetails'>
-              <Grid  style={isLoading ? {opacity:0.7} : {}} container spacing={24}>
+              <Grid  style={isLoading ? {opacity:0.7} : {}} container spacing={3}>
                   <Grid item xs={6} md={4}>
                       <Grid container>
                           <Grid item xs={12} className='TriageDialogActionSection'>
@@ -504,6 +504,7 @@ class TestTriageFooter extends Component {
                                                               error={errorEmptyProductBug && applicationFailType == 'FILED_TICKET'}
                                                               onBlur={() => !this.state.ticktetUrl ? this.setState({errorEmptyProductBug: true}) : this.setState({errorEmptyProductBug: false})}
                                                               helperText={errorEmptyProductBug && applicationFailType == 'FILED_TICKET' ? "Can not be empty" : ""}
+                                                              variant={'standard'}
                                                             />
                                                           }
                                                       />
@@ -663,7 +664,8 @@ class TestTriageFooter extends Component {
                                                         width: '150px',
                                                         fontSize: '.875rem'
                                                       }}
-                                                      disabled={testTriage && testTriage.automatedTestIssueId ? true  : false}>
+                                                      disabled={testTriage && testTriage.automatedTestIssueId ? true  : false}
+                                                      variant={'standard'}>
                                                       {
                                                         priorities.map((priority, index) => (
                                                           <MenuItem key={index} value={priority.value}>{priority.text}</MenuItem>

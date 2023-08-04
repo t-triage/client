@@ -413,19 +413,16 @@ export default class AutomatedTestPipelineEdit extends Component {
     }
 
     renderContainerList() {
-        let {containerList} = this.state;
-        let boolean = false;
+        const { containerList } = this.state;
         try {
-            return containerList.map((container, index) => {
-                if (this.props.pipeline != null) {
-                    boolean = (this.state.container != '') ? (this.state.container.id = container.id ? true : false) : false;
-                }
-                return (
-                    <MenuItem key={index} value={container} selected={boolean}> {container.name} </MenuItem>
-                )
-            })
+            return containerList.map((container, index) => (
+                <MenuItem key={index} value={container}>
+                    {container.name}
+                </MenuItem>
+            ));
         } catch (e) {
             console.log(e);
+            return null;
         }
     }
 
@@ -438,7 +435,7 @@ export default class AutomatedTestPipelineEdit extends Component {
             <form onSubmit={this.onSubmit.bind(this)}
                   style={{width: fullWidth ? '100%' : '80%'}}
                   className="manualTestPlanEditForm">
-                <Grid container spacing={16}>
+                <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <TextField
                             id={`testPlan-name-${testPlan.id ? testPlan.id : 'new'}`}
@@ -462,6 +459,7 @@ export default class AutomatedTestPipelineEdit extends Component {
                             }}
                             spellCheck={false}
                             className="manualTestEditTestName"
+                            variant={'standard'}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -486,13 +484,14 @@ export default class AutomatedTestPipelineEdit extends Component {
                             }}
                             spellCheck={false}
                             className="manualTestEditTestName"
+                            variant={'standard'}
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
                             select
                             fullWidth
-                            value={this.state.container}
+                            value={this.state.container ? this.state.container : ''}
                             onChange={this.handleChange}
                             label="Container"
                             error={containerError}
@@ -504,11 +503,12 @@ export default class AutomatedTestPipelineEdit extends Component {
                                 name: 'container',
                                 id: 'outlined-containers-native-simple',
                             }}
+                            variant={'standard'}
                         >
                             {this.renderContainerList()}
                         </TextField>
                     </Grid>
-                    <Grid container spacing={16}>
+                    <Grid container spacing={2}>
                         <Grid item xs={6}>
                             <div style={{marginTop: 20, marginBottom: 15}}>Triage Spec</div>
                             <div className={'TestPlan-AssigneeContainer'}>
@@ -553,6 +553,7 @@ export default class AutomatedTestPipelineEdit extends Component {
                                         fontSize: '.875rem'
                                     }
                                 }}
+                                variant={'standard'}
                             >
                                 {PriorityList.map(p => (
                                     <MenuItem className="globalMenuItem" key={p.value}
@@ -647,7 +648,7 @@ export default class AutomatedTestPipelineEdit extends Component {
                                     </Tooltip>
                                 </div>
                             </div>
-                            <Grid container spacing={16}>
+                            <Grid container spacing={2}>
                                 <Grid item xs={6}>
                                     <TextField
                                         id="triageFrecuencyWeek"
@@ -665,6 +666,7 @@ export default class AutomatedTestPipelineEdit extends Component {
                                                 fontSize: '.875rem'
                                             }
                                         }}
+                                        variant={'standard'}
                                     >
                                         {WeekList.map(p => (
                                             <MenuItem className="globalMenuItem" key={p.value}
@@ -689,6 +691,7 @@ export default class AutomatedTestPipelineEdit extends Component {
                                                 fontSize: '.875rem'
                                             }
                                         }}
+                                        variant={'standard'}
                                     >
                                         {HourList.map(p => (
                                             <MenuItem className="globalMenuItem" key={p.value}

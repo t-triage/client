@@ -97,6 +97,9 @@ export default class TrendGoalDayPicker extends Component {
                         </span>
                         <Helmet>
                             <style>{`
+                                    .InputFromTo {
+                                     padding-bottom: 26px;
+                                    }
                                     .InputFromTo .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
                                     background-color: #f0f8ff !important;
                                     color: #4a90e2;

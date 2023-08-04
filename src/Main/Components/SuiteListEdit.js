@@ -285,7 +285,7 @@ class SuiteListEdit extends Component {
                         <Grid container >
                             <Grid className={"action-dialog-description"} item xs={12}>
 
-                                <Grid container spacing={16} style={{ marginTop: 0 }}>
+                                <Grid container spacing={2} style={{ marginTop: 0 }}>
                                     <Grid item xs={6}>
                                         <TextFieldInput
                                             id="shortName"
@@ -309,7 +309,7 @@ class SuiteListEdit extends Component {
                                         />
                                     </Grid>
                                 </Grid>
-                                <Grid container spacing={16} style={{ marginTop: 0 }}>
+                                <Grid container spacing={2} style={{ marginTop: 0 }}>
                                     <Grid item xs={6} sm={6}>
                                         <div className={'Containers-AssigneeContainer'}>
                                             <fieldset className={
@@ -442,7 +442,7 @@ class SuiteListEdit extends Component {
                                         </Tooltip>
                                     </div>
                                 </div>
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={6}>
                                         <TextFieldInput
                                             id="triageFrecuencyWeek"
@@ -506,7 +506,7 @@ class SuiteListEdit extends Component {
                                     }}
                                 />
 
-                                <Grid container spacing={16}>
+                                <Grid container spacing={2}>
                                     <Grid item xs={6}>
 
                                         <TextFieldInput

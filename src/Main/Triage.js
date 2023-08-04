@@ -595,7 +595,7 @@ class Triage extends Component {
                 </Tooltip>
                 </div>
             </div>
-            <Grid spacing={24} container style={{padding: '0 30 30 30'}}>
+            <Grid spacing={3} container style={{padding: '0 30 30 30'}}>
                 <Grid item md={4} sm={6} xs={12}>
                     <TriageInfoBox
                         marginTop={0}

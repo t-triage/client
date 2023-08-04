@@ -168,7 +168,7 @@ class PipelineList extends Component {
         autoHideDuration={2000}
         onClose={this.hideSnackbar.bind(this)}
       >
-        <Alert variant={"filled"} severity={this.state.snackbarVariant} onClose={this.hideSnackbar.bind(this)}>
+        <Alert variant={"filled"} severity={this.state.snackbarVariant ? this.state.snackbarVariant : "info"} onClose={this.hideSnackbar.bind(this)}>
           {this.state.snackbarMsg}
         </Alert>
 
