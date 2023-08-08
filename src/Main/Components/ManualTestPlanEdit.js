@@ -150,7 +150,7 @@ export default class ManualTestPlanEdit extends Component {
       <form onSubmit={this.onSubmit.bind(this)}
           style={{ width: fullWidth ? '100%' : '80%' }}
           className="manualTestPlanEditForm">
-        <Grid container spacing={16}>
+        <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
                   id={`testPlan-name-${testPlan.id ? testPlan.id : 'new'}`}
@@ -174,6 +174,7 @@ export default class ManualTestPlanEdit extends Component {
                   }}
                   spellCheck={false}
                   className="manualTestEditTestName"
+                  variant="standard"
               />
           </Grid>
           <Grid item xs={4}>
@@ -223,6 +224,7 @@ export default class ManualTestPlanEdit extends Component {
                         fontSize: '.875rem',
                       }
                   }}
+                  variant="standard"
               />
           </Grid>
           <Grid item xs={4}>
@@ -240,7 +242,8 @@ export default class ManualTestPlanEdit extends Component {
                       style: {
                         fontSize: '.875rem',
                       }
-                  }}>
+                  }}
+                  variant="standard">
                   {TEST_PLAN_STATUS.map(p => (
                       <MenuItem className="globalMenuItem" key={p.id} value={p.value}>{p.label}</MenuItem>
                   ))}
@@ -262,6 +265,7 @@ export default class ManualTestPlanEdit extends Component {
                         fontSize: '.875rem',
                       }
                   }}
+                  variant="standard"
               />
           </Grid>
           <Grid item xs={4}>

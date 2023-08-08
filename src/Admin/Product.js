@@ -1179,11 +1179,9 @@ export default class Product extends Component {
         })
     }
 
-    handlechangeJiraProjects(event) {
+    async handlechangeJiraProjects(event) {
         let { value } = event.target
-        this.setState({
-            projectKey: value,
-        })
+        await new Promise(resolve => this.setState({ projectKey: value }, resolve))
         this.fetchisuetype()
         this.fetchProjectStatus()
     }

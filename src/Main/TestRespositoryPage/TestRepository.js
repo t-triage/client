@@ -228,7 +228,6 @@ class TestRepository extends Component {
                     newState.expandTest = false;
                 }
 
-                console.log(res)
                 this.setState(newState)
       })
       .catch(err => {

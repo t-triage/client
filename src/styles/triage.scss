@@ -215,16 +215,16 @@
 .TriageFooterLegend-test-working::after {
   border-color: #3CC88E;
   border-color: var(--green-light);
-  left: 96px;
-  top: 41px;
+  left: 110px;
+  top: 11px;
 }
 
 .TriageFooterLegend-app-notWorking::after,
 .TriageFooterLegend-test-notWorking::after,
 .TriageFooterLegend-app-notWorking-newPass::after,
 .TriageFooterLegend-test-notWorking-newPass::after {
-  left: 115px;
-  top: 100px;
+  left: 126px;
+  top: 11px;
   border-color: #E27182;
   border-color: var(--red-light);
 }
