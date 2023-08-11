@@ -1532,7 +1532,7 @@ class Kanban extends Component {
             onClose={() => this.setState({drawerOpened: false})}
             open={this.state.drawerOpened}>
             <div style={{overflow: 'hidden'}} onBlur={() => this.setState({drawerOpened: false})}>
-                <this.summaryDrawer/>
+                {this.summaryDrawer()};
             </div>
         </Drawer>
     )

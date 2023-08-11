@@ -367,20 +367,30 @@ export const renderPopover = (selector, isOpen=false, title=null, text=null, vid
 		anchorEl={el}
 		open={Boolean(isOpen)}
 		placement={placement}
-		modifiers={{
-			flip: {
-				enabled: true,
-			},
-			preventOverflow: {
-				enabled: true,
-				boundariesElement: 'scrollParent',
-			},
-			arrow: {
-				enabled: true,
-				element: arrowRef ? arrowRef.current : null
-
-			}
-		}}
+        modifiers={[
+            {
+                name: 'flip',
+                enabled: true,
+            },
+            {
+                name: 'preventOverflow',
+                enabled: true,
+                options: {
+                    altAxis: true,
+                    altBoundary: true,
+                    tether: true,
+                    rootBoundary: 'document',
+                    padding: 8,
+                },
+            },
+            {
+                name: 'arrow',
+                enabled: true,
+                options: {
+                    element: arrowRef ? arrowRef.current : null,
+                },
+            },
+        ]}
 	>
 		{<span className={`arrow ${placement}`} ref={arrowRef} />}
 		<div className={`boardActivities helpPopper ${videoURL ? 'hasVideo' : ''}`} style={{backgroundColor:'white', fontSize: '16px'}}>
