@@ -708,13 +708,6 @@ export default class Connector extends Component {
     }
 
     select = name => event => {
-    	
-        if (name == "connector") {
-          this.setState({
-              connectorName: event.currentTarget.attributes[3].value,
-          })
-        }
-
         this.setState({
             [name]: event.target.value
         })
@@ -1126,7 +1119,7 @@ export default class Connector extends Component {
 
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                        <Grid container spacing={2}>
+                                        <Grid container spacing={0}>
                                             <Grid item xs={12}
                                                   style={{ paddingBottom: 0, paddingTop: 5, marginBottom: '-10' }}>
                                                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
