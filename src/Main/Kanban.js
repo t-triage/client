@@ -17,6 +17,7 @@ import Dialog from "@mui/material/Dialog"
 import DialogContent from "@mui/material/DialogContent"
 import DialogActions from "@mui/material/DialogActions"
 import {scrollToTop} from '../Admin/AdminUtils'
+import ErrorBoundary from '../utilities/ErrorBoundaries'
 
 // Icons
 import CommentIcon from "@mui/icons-material/Notes"
@@ -261,7 +262,8 @@ class Kanban extends Component {
             type: actionDialogType,
             responseData: dialogResponseData,
             buildId: this.fetchedExecutor.buildTriageId,
-            showSnackbar: this.showSnackbar.bind(this)
+            showSnackbar: this.showSnackbar.bind(this),
+            executorId: this.fetchedExecutor.executorId
         }
 
         return showActionDialog && (
