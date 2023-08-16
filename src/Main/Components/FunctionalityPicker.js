@@ -14,6 +14,7 @@ const renderInput = (inputProps) => {
 
   return (
     <TextField
+        variant="standard"
         InputProps={{
           ...InputProps,
         }}
@@ -215,6 +216,7 @@ class FunctionalityPicker extends Component {
                 onChange: this.onInputChange.bind(this),
                 onClick: this.openSuggestions.bind(this),
                 className,
+                disableUnderline: true,
                 style: {
                   fontSize: '.875rem',
                   color: isFilter ? COLORS.primary : 'inherit',

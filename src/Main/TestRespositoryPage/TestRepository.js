@@ -711,16 +711,16 @@ class TestRepository extends Component {
                                 select
                                 value={assignPlanId ? assignPlanId : -2}
                                 disabled={selectedTests.length == 0}
-                                inputProps={{
-                                  style: {
-                                    fontSize: '.875rem',
-                                    color: COLORS.primary,
-                                    paddingLeft: 20,
-                                    paddingTop: 2,
-                                    borderRadius: 3,
-                                    border: 'none',
-                                    fontWeight: "bold"
-                                  }
+                                InputProps={{
+                                    disableUnderline: true,
+                                    style: {
+                                        fontSize: '.875rem',
+                                        color: COLORS.primary,
+                                        paddingLeft: 20,
+                                        paddingTop: 2,
+                                        borderRadius: 3,
+                                        fontWeight: "bold"
+                                    }
                                 }}
                                 SelectProps={{
                                   classes: {
@@ -729,7 +729,7 @@ class TestRepository extends Component {
                                   IconComponent: () => <KeyboardArrowDown />
                                 }}
                                 onChange={this.handleOnChange.bind(this)}
-                                variant="standard">
+                                variant="standard" >
                                 {testPlanList.map(p => (
                                   <MenuItem className={`globalMenuItem ${p.hide ? 'menuItemHidden' : ''} ${p.hasIcon ? 'menuItemHasIcon' : ''}`} key={p.id} value={p.id}>
                                     {p.hasIcon && <AddCircleIcon className={"itemIcon"} style={{ fill: COLORS.primary }} />}

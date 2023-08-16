@@ -172,7 +172,7 @@ class ChangePasswordDialog extends Component {
 		let {newPassword , newPasswordError, showNewPassword, newPasswordRepeat, newPasswordRepeatEmptyError, newPasswordRepeatMatchError, showNewPasswordRepeat} = this.state;
 
 		return [
-			<Grid key={this.state.currentUser.id} container spacing={16} style={{ marginTop: 0 }}>
+			<Grid key={this.state.currentUser.id} container spacing={2} style={{ marginTop: 0 }}>
 				<Grid item xs={12} sm={12}>
 					<TextFieldInput
 						id="newPassword"

@@ -156,7 +156,7 @@ class ImportLogs extends Component {
                     <DialogContentText>
                         Use this space to upload Error Logs files in any text format.
                     </DialogContentText>
-                    <Grid container spacing={16} style={{ marginTop: 0 }}>
+                    <Grid container spacing={3} style={{ marginTop: 0 }}>
                         <Grid item xs={12} sm={12}>
                             <TextFieldInput
                                 id="product"
